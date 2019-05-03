@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import Nest from '../pages/Nest'
 
 const Routes = () => (
   <div>
-    <Route exact path="/" component={null} />
-    <Route path="/editor"/>
+    <Route exact path="/" component={Nest} />
 
   </div>
 )
