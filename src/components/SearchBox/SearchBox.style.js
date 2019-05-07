@@ -1,0 +1,39 @@
+import styled from 'styled-components'
+
+export const Wrapper = styled.div`
+  width: 500px;
+  height: 35px;
+
+  font-size: 16px;
+
+  padding: 5px 5px;
+
+  display: flex;
+  justify-content: space-between;
+  
+  background-color: rgba(255,255,255,0.5);
+  
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+`
+
+export const Input = styled.input`
+  padding: 0 5px;
+
+  flex-grow: 1;
+
+  background-color: transparent;
+
+  outline: none;
+  border: none;
+`
+
+export const Button = styled.button`
+width: 30px;
+
+padding: 5px 5px;
+
+background: transparent;
+outline: none;
+border: none;
+`
