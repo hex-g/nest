@@ -1,4 +1,6 @@
 import React from 'react'
+import Navbar from '../../components/Navbar'
+import HorizontalNavbar from '../../components/HorizontalNavbar'
 
 const style = {
   page: {
@@ -134,46 +136,10 @@ const style = {
 const Nest = () => {
   return (
     <div style={style.page}>
-      <div style={style.navbar}>
-        <div>
-          <div style={style.profile}>
-            <div style={style.userpic} />
-            <p style={style.username}>Nomezito</p>
-          </div>
-          <div style={style.navigation}>
-            <ul style={style.navigationItems}>
-              <li style={style.navItem}>
-                <div style={style.navItemImage} />
-                <a>Pagina</a>
-              </li>
-              <li style={style.navItem}>
-                <div style={style.navItemImage} />
-                <a>Pagina</a>
-              </li>
-              <li style={style.navItem}>
-                <div style={style.navItemImage} />
-                <a>Pagina</a>
-              </li>
-              <li style={style.navItem}>
-                <div style={style.navItemImage} />
-                <a>Pagina</a>
-              </li>
-              <li style={style.navItem}>
-                <div style={style.navItemImage} />
-                <a>Pagina</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div style={style.logo}>Hive</div>
-      </div>
+      <Navbar /*username='' pages=[{text, image}]*/ />
       <div style={style.container}>
         <input style={style.searchbox} placeholder="O que você quer procurar na Hive?" />
-        <ul style={style.horizontalNavbar}>
-          <li style={style.horizontalNavItem}>AVISOS</li>
-          <li style={style.listItemActivated}>STATUS</li>
-          <li style={style.horizontalNavItem}>AGENDA</li>
-        </ul>
+        <HorizontalNavbar /*items=['']*/ />
         <div style={style.content}>
           <div style={style.card}>
             <div style={style.cardImage} />

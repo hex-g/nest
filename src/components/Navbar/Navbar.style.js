@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  border: 1px solid red;
+  border-right: 1px solid gray;
 `
 
 export const ProfileContent = styled.div`
@@ -19,7 +19,7 @@ export const ProfileContent = styled.div`
 `
 
 export const UserPicture = styled.div`
-  width: 70px;
+  width: 80px;
   height: 80px;
 
   margin-top: 30px;
@@ -52,17 +52,20 @@ export const NavItem = styled.li`
   align-items: center;
 `
 
-export const NavItemImage = styled.img`
+export const NavItemImage = styled.div`
   width: 30px;
   height: 30px;
 
   margin-right: 16px;
 
-  background-image: url("https://img.fireden.net/v/image/1462/63/1462638729784.png");
+  background-image: ${props => props.image};
   background-size: cover;
 `
 
-export const Logo = styled.img`
+export const Logo = styled.div`
+  width: 100px;
+  height: 100px;
+
   margin-bottom: 21px;
 
   background-image: url("https://img.fireden.net/v/image/1462/63/1462638729784.png");

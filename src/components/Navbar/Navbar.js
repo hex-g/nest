@@ -10,19 +10,21 @@ import {
   Logo,
 } from './Navbar.style'
 
-const Navbar = () => (
+const Navbar = ({ username = '[USERNAME]', pages = [{text: '[PAGINA]', image: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")'}]}) => (
   <Wrapper>
     <div>
       <ProfileContent>
         <UserPicture />
-        <UserName>[USERNAME]</UserName>
+        <UserName>{username}</UserName>
       </ProfileContent>
       <Navigation>
         <ul>
-          <NavItem>
-            <NavItemImage />
-            <a href='/'>[PAGINA]</a>
-          </NavItem>
+          {pages.map(page => (
+            <NavItem>
+              <NavItemImage image={page.image}/>
+              <a href='/'>{page.text}</a>
+            </NavItem>
+          ))}
         </ul>
       </Navigation>
     </div>
