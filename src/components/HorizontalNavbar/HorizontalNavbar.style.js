@@ -3,15 +3,16 @@ import styled from 'styled-components'
 export const Wrapper = styled.ul`
   width: 100%;
 
-  margin-top: 10px;
+  margin: 10px 0;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 
   list-style-type: none;
 `
 
 export const Item = styled.li`
+  margin: 0 20px;
   height: 20px;
 
   padding-bottom: 1px;
