@@ -39,10 +39,12 @@ const Navbar = ({ username = '[USERNAME]', pages = [{ text: '[PAGINA]', image: '
         </div>
         <Logo toggle={toggle} />
       </Menu>
-      <ToggleButton toggle={toggle} onClick={() => {
-        setToggle(!toggle)
-      }}
-      />
+      <ToggleContainer>
+        <ToggleButton toggle={toggle} onClick={() => {
+          setToggle(!toggle)
+        }}
+        />
+      </ToggleContainer>
     </Wrapper >
   )
 }

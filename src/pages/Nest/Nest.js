@@ -3,9 +3,11 @@ import Navbar from '../../components/Navbar'
 import HorizontalNavbar from '../../components/HorizontalNavbar'
 import HomeCard from '../../components/HomeCard'
 import SearchBox from '../../components/SearchBox'
+import ConfigBar from '../../components/ConfigBar'
 import {
   Page,
   Container,
+  Form,
   Content,
 } from './Nest.style'
 
@@ -104,15 +106,17 @@ const Nest = ({ posts = POSTS }) => {
     <Page>
       <Navbar /*username='' pages=[{text, image}]*/ />
       <Container>
-        <SearchBox />
-        <HorizontalNavbar /*items=['']*/ />
+        <Form>
+          <SearchBox />
+          <HorizontalNavbar /*items=['']*/ />
+        </Form>
         <Content>
           {posts.map(post => (
             <HomeCard userPicture={post.profilePic} username={post.user} description={post.description} postDate={post.date} />
           ))}
         </Content>
       </Container>
-      <div style={style.config}>Config</div>
+      <ConfigBar />
     </Page>
   )
 }

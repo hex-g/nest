@@ -8,19 +8,30 @@ export const Page = styled.div`
 `
 
 export const Container = styled.div`
+  flex-grow: 1;
+
+  padding: 10px 0;
+
   display: flex;
   flex-direction: column;
-  height: calc(100% - 40px);
-  width: 100%;
+`
 
-  padding: 20px 45px;
+export const Form = styled.div`
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 5px;
 `
 
 export const Content = styled.div`
-  height: 100%;
+  flex-grow: 1;
 
   display: flex;
   flex-direction: column;
+
+  padding: 0 5px;
 
   overflow-x: hidden;
   &::-webkit-scrollbar-track {

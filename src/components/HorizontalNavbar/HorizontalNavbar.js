@@ -2,7 +2,6 @@ import React from 'react'
 import {
   Wrapper,
   Item,
-  ToggleButton,
 } from './HorizontalNavbar.style'
 
 const HorizontalNavbar = ({ items = ['[ITEM]'] }) => (

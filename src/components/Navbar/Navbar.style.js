@@ -1,25 +1,22 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  height: 100%;
-  width: ${({ toggle }) => toggle ? '20%' : '5%'};
+  width: ${({ toggle }) => toggle ? '250px' : '100px'};
 
   display: flex;
-  align-items: center;
 
-  transition: 0.5s;
+  transition: 150ms;
 `
 
 export const Menu = styled.div`
-  height: 100%;
-  width: 100%;
+  flex-grow: 1;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  border-right: 1px solid gray;
+  background-color: rgb(255,150,50);
 `
 
 export const ProfileContent = styled.div`
@@ -42,8 +39,6 @@ export const UserPicture = styled.div`
   background-size: cover;
 `
 export const UserName = styled.p`
-  margin-top: 15px;
-
   font-size: 20px;
   font-weight: bold;
 `
@@ -78,13 +73,14 @@ export const NavItemImage = styled.div`
 
 export const NavItemText = styled.p`
   font-size: 16px;
+  
 `
 
 export const Logo = styled.div`
   width: 100px;
   height: 100px;
 
-  margin-bottom: 21px;
+  margin-bottom: 20px;
 
   background-image: url("https://img.fireden.net/v/image/1462/63/1462638729784.png");
   background-size: cover;  
@@ -93,56 +89,67 @@ export const Logo = styled.div`
 `
 
 export const ToggleContainer = styled.div`
+  display: flex;
+
+  width: 15px;
+
+  &::before{
+    content: "";
+    height: 100%;
+    border-left: 2px solid rgba(220,170,50,0.5);
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+  }
   
+  &:hover::before{
+    opacity: 1;
+  }
+
 `
 
 export const ToggleButton = styled.button`
-  height: 100%;
+  flex-grow: 1;
 
-  z-index: 1;
+  margin-left: 3px;
 
   background: transparent;
   outline: none;
   border: none;
-
-  &:hover{
-    border-left: 2px solid #212121;
-    transition: 0.2s;
-  }
+  cursor: pointer;
 
   &::before{
     content:"";
-    background-color: #212121;
+    background-color: rgb(255,160,50);
     width: 2px;
     height: 10px;
-    position:absolute;
-    opacity: 0;
+    position: absolute;
+    opacity: 1;
     transform: rotate(0deg);
     transform-origin: 1px 7px;
-    margin-top: -7px;
-    transition: transform 200ms ease-in-out 0s, opacity 300ms ease-in-out 200ms;
+    margin-top: -7.4px;
+    transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
   }
 
   &:hover::before{
-    transform: ${({toggle}) => toggle ? 'rotate(40deg)' : 'rotate(-40deg)'};
+    transform: ${({ toggle }) => toggle ? 'rotate(40deg)' : 'rotate(-40deg)'};
     opacity: 1;
   }
 
   &::after{
     content:"";
-    background-color: #aaaaaa;
+    background-color: rgb(255,160,50);
     width: 2px;
     height: 10px;
-    position:absolute;
-    opacity: 0;
-    margin-top: 0px;
+    position: absolute;
+    opacity: 1;
     transform: rotate(0deg);
     transform-origin: 1px 3px;
-    transition: transform 200ms ease-in-out 0s, opacity 300ms ease-in-out 200ms;
+    transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
   }
 
   &:hover::after{
-    transform: ${({toggle}) => toggle ? 'rotate(-40deg)' : 'rotate(40deg)'};
+    transform: ${({ toggle }) => toggle ? 'rotate(-40deg)' : 'rotate(40deg)'};
     opacity: 1;
   }
 `
