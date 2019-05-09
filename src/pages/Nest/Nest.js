@@ -7,6 +7,7 @@ import ConfigBar from '../../components/ConfigBar'
 import {
   Page,
   Navigation,
+  NavigationAndContent,
   Container,
   Form,
   Search,
@@ -96,29 +97,44 @@ const POSTS = [
   },
 ]
 
+
 const Nest = ({ posts = POSTS }) => {
+
+  const [navigationBar, setNavigationBar] = React.useState(false)
+  const [configurationBar, setConfigurationBar] = React.useState(false)
+
+  const handleNavigationBar = () => {
+    setNavigationBar(!navigationBar)
+  }
+
+  const handleConfigurationBar = () => {
+    setConfigurationBar(!configurationBar)
+  }
+
   return (
     <Page>
-      <Navigation>
-        <Navbar /*username='' pages=[{text, image}]*/ />
-      </Navigation>
-      <Container>
-        <Form>
-          <Search>
-            <SearchBox />
-          </Search>
-          <HorizontalNavigation>
-            <HorizontalNavbar /*items=['']*/ />
-          </HorizontalNavigation>
-        </Form>
-        <Content>
-          {posts.map(post => (
-            <HomeCard userPicture={post.profilePic} username={post.user} description={post.description} postDate={post.date} />
-          ))}
-        </Content>
-      </Container>
-      <Configuration>
-        <ConfigBar />
+      <NavigationAndContent>
+        <Navigation isOpen={navigationBar}>
+          <Navbar isOpen={navigationBar} handleNavigationBar={handleNavigationBar} /*username='' pages=[{text, image}]*/ />
+        </Navigation>
+        <Container>
+          <Form>
+            <Search>
+              <SearchBox />
+            </Search>
+            <HorizontalNavigation>
+              <HorizontalNavbar /*items=['']*/ />
+            </HorizontalNavigation>
+          </Form>
+          <Content>
+            {posts.map(post => (
+              <HomeCard userPicture={post.profilePic} username={post.user} description={post.description} postDate={post.date} />
+            ))}
+          </Content>
+        </Container>
+      </NavigationAndContent>
+      <Configuration isOpen={configurationBar} >
+        <ConfigBar isOpen={configurationBar} handleConfigurationBar={handleConfigurationBar} />
       </Configuration>
     </Page>
   )

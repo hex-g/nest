@@ -2,17 +2,42 @@ import styled from 'styled-components'
 
 export const Page = styled.div`
   display: flex;
-
-  width: 100vw;
-  height: 100vh;
-
-  overflow-x: hidden;
+  min-height: 100%;
+  width: 100%;
 `
 
 export const Navigation = styled.div`
-  width: ${({ toggle }) => toggle ? '250px' : '100px'};
+  width: ${({isOpen}) => isOpen ? '304px' : '64px'};
+  display: flex;
+
+  position: relative;
+  z-index: 2;
+
+  transition: 150ms;
+`
+
+export const NavigationAndContent = styled.div`
+  display: flex;
+  flex: 1 1 auto;
+`
+
+export const Container = styled.div`
+  min-width: 0px;
+  padding: 10px 0;
+
+  position: relative;
 
   display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+`
+
+export const Configuration = styled.div`
+  width: ${({isOpen}) => isOpen ? '200px' : '50px'};
+
+  display: flex;
+  flex-direction: column;
+  align-items: ${({isOpen}) => isOpen ? 'flex-start' : 'center'};;
 
   transition: 150ms;
 `
@@ -54,12 +79,6 @@ export const HorizontalNavigation = styled.div`
   }
 `
 
-export const Container = styled.div`
-  padding: 10px 0;
-
-  display: flex;
-  flex-direction: column;
-`
 
 export const Form = styled.div`
   flex-grow: 1;
@@ -71,7 +90,7 @@ export const Form = styled.div`
 `
 
 export const Content = styled.div`
-  flex-grow: 1;
+  height: 657px;
 
   display: flex;
   flex-direction: column;
@@ -89,8 +108,4 @@ export const Content = styled.div`
   &::-webkit-scrollbar-thumb {
     background-color: #555555;
   }
-`
-
-export const Configuration = styled.div`
-
 `

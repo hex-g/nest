@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Sidebar,
   Menu,
   ProfileContent,
   UserPicture,
@@ -10,25 +11,31 @@ import {
   NavItemText,
   Logo,
   ToggleContainer,
-  ToggleButton,
+  OpenButton,
 } from './Navbar.style'
 
-const Navbar = ({ username = '[USERNAME]', pages = [{ text: '[PAGINA]', image: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")' }] }) => {
+const USERNAME = '[USERNAME]'
+const PAGES = [{ text: '[PAGINA]', image: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")' }]
 
-  const [toggle, setToggle] = React.useState(false)
+const Navbar = ({
+  username = USERNAME,
+  pages = PAGES,
+  isOpen,
+  handleNavigationBar,
+}) => {
 
   return (
-    <>
+    <Sidebar>
       <Menu>
         <div>
-          <ProfileContent toggle={toggle}>
+          <ProfileContent isOpen={isOpen}>
             <UserPicture />
             <UserName>{username}</UserName>
           </ProfileContent>
           <Navigation>
             <ul>
               {pages.map(page => (
-                <NavItem toggle={toggle}>
+                <NavItem isOpen={isOpen}>
                   <NavItemImage image={page.image} />
                   <NavItemText href='/'>{page.text}</NavItemText>
                 </NavItem>
@@ -36,15 +43,12 @@ const Navbar = ({ username = '[USERNAME]', pages = [{ text: '[PAGINA]', image: '
             </ul>
           </Navigation>
         </div>
-        <Logo toggle={toggle} />
+        <Logo isOpen={isOpen} />
       </Menu>
       <ToggleContainer>
-        <ToggleButton toggle={toggle} onClick={() => {
-          setToggle(!toggle)
-        }}
-        />
+        <OpenButton isOpen={isOpen} onClick={() => handleNavigationBar()} />
       </ToggleContainer>
-    </>
+    </Sidebar>
   )
 }
 

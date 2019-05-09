@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const ItensList = styled.ul`
   display: flex;
+
+  width: 0vw;
 `
 
 export const Item = styled.li`

@@ -1,5 +1,16 @@
 import styled from 'styled-components'
 
+export const Sidebar = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  left: 0px;
+  width: inherit;
+  z-index: 300;
+  transition: height 0.25s ease-in-out 0s;
+`
+
 export const Menu = styled.div`
   flex-grow: 1;
 
@@ -17,7 +28,7 @@ export const ProfileContent = styled.div`
   align-items: center;
 
   & > p{
-    ${({ toggle }) => toggle ? 'display: block' : 'display: none'}
+    ${({ isOpen }) => isOpen ? 'display: block' : 'display: none'}
   }
 `
 
@@ -51,7 +62,7 @@ export const NavItem = styled.li`
   align-items: center;
 
   & > p{
-    ${({ toggle }) => toggle ? 'display: block' : 'display: none'}
+    ${({ isOpen }) => isOpen ? 'display: block' : 'display: none'}
   }
 `
 
@@ -77,7 +88,7 @@ export const Logo = styled.div`
   background-image: url("https://img.fireden.net/v/image/1462/63/1462638729784.png");
   background-size: cover;  
 
-  ${({ toggle }) => toggle ? 'display: block' : 'display: none'}
+  ${({ isOpen }) => isOpen ? 'display: block' : 'display: none'}
 `
 
 export const ToggleContainer = styled.div`
@@ -100,7 +111,7 @@ export const ToggleContainer = styled.div`
 
 `
 
-export const ToggleButton = styled.button`
+export const OpenButton = styled.button`
   flex-grow: 1;
 
   margin-left: 3px;
@@ -124,7 +135,7 @@ export const ToggleButton = styled.button`
   }
 
   &:hover::before{
-    transform: ${({ toggle }) => toggle ? 'rotate(40deg)' : 'rotate(-40deg)'};
+    transform: ${({ isOpen }) => isOpen ? 'rotate(40deg)' : 'rotate(-40deg)'};
     opacity: 1;
   }
 
@@ -141,7 +152,7 @@ export const ToggleButton = styled.button`
   }
 
   &:hover::after{
-    transform: ${({ toggle }) => toggle ? 'rotate(-40deg)' : 'rotate(40deg)'};
+    transform: ${({ isOpen }) => isOpen ? 'rotate(-40deg)' : 'rotate(40deg)'};
     opacity: 1;
   }
 `
