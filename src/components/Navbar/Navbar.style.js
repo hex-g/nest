@@ -1,13 +1,5 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
-  width: ${({ toggle }) => toggle ? '250px' : '100px'};
-
-  display: flex;
-
-  transition: 150ms;
-`
-
 export const Menu = styled.div`
   flex-grow: 1;
 

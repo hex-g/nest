@@ -6,19 +6,14 @@ import SearchBox from '../../components/SearchBox'
 import ConfigBar from '../../components/ConfigBar'
 import {
   Page,
+  Navigation,
   Container,
   Form,
+  Search,
+  HorizontalNavigation,
   Content,
+  Configuration,
 } from './Nest.style'
-
-const style = {
-  config: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    width: '20%',
-  },
-}
 
 const POSTS = [
   {
@@ -104,11 +99,17 @@ const POSTS = [
 const Nest = ({ posts = POSTS }) => {
   return (
     <Page>
-      <Navbar /*username='' pages=[{text, image}]*/ />
+      <Navigation>
+        <Navbar /*username='' pages=[{text, image}]*/ />
+      </Navigation>
       <Container>
         <Form>
-          <SearchBox />
-          <HorizontalNavbar /*items=['']*/ />
+          <Search>
+            <SearchBox />
+          </Search>
+          <HorizontalNavigation>
+            <HorizontalNavbar /*items=['']*/ />
+          </HorizontalNavigation>
         </Form>
         <Content>
           {posts.map(post => (
@@ -116,7 +117,9 @@ const Nest = ({ posts = POSTS }) => {
           ))}
         </Content>
       </Container>
-      <ConfigBar />
+      <Configuration>
+        <ConfigBar />
+      </Configuration>
     </Page>
   )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Wrapper,
   Menu,
   ProfileContent,
   UserPicture,
@@ -19,7 +18,7 @@ const Navbar = ({ username = '[USERNAME]', pages = [{ text: '[PAGINA]', image: '
   const [toggle, setToggle] = React.useState(false)
 
   return (
-    <Wrapper toggle={toggle}>
+    <>
       <Menu>
         <div>
           <ProfileContent toggle={toggle}>
@@ -45,7 +44,7 @@ const Navbar = ({ username = '[USERNAME]', pages = [{ text: '[PAGINA]', image: '
         }}
         />
       </ToggleContainer>
-    </Wrapper >
+    </>
   )
 }
 

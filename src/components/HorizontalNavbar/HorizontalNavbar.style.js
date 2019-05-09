@@ -1,21 +1,11 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.ul`
-  width: 100%;
-
-  margin: 10px 0;
-
+export const ItensList = styled.ul`
   display: flex;
-  justify-content: flex-start;
-
-  list-style-type: none;
 `
 
 export const Item = styled.li`
   margin: 0 20px;
-  height: 20px;
-
-  padding-bottom: 1px;
 
   font-weight: bold;
 

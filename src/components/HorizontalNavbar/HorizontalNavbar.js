@@ -1,16 +1,28 @@
 import React from 'react'
 import {
-  Wrapper,
+  ItensList,
   Item,
 } from './HorizontalNavbar.style'
 
-const HorizontalNavbar = ({ items = ['[ITEM]'] }) => (
-  <Wrapper>
-    {items.map(item => (
-      <Item>{item}</Item>
-    ))}
-    <Item activated>[ACTIVATED]</Item>
-  </Wrapper>
-)
+const HorizontalNavbar = ({ items = ['[ITEM]', '[MATHEUS]', '[AVISOS]', '[ITEM]', '[MATHEUS]', '[ITEM]', '[MATHEUS]', '[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]'] }) => {
+
+  const [selectedItem, setSelectedItem] = React.useState(0)
+
+  return (
+      <ItensList>
+      {items.map((item, index) => (
+        <Item
+          key={`nav-item-${index}`}
+          activated={index === selectedItem}
+          id={index}
+          onClick={e => setSelectedItem(Number(e.target.id))}
+        >
+          {item}
+        </Item>
+      ))
+      }
+      </ItensList>
+  )
+}
 
 export default HorizontalNavbar
