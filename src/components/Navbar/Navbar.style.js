@@ -61,7 +61,7 @@ export const NavItem = styled.li`
   display: flex;
   align-items: center;
 
-  & > p{
+  & > a{
     ${({ isOpen }) => isOpen ? 'display: block' : 'display: none'}
   }
 `
@@ -72,11 +72,6 @@ export const NavItemImage = styled.div`
 
   background-image: ${props => props.image};
   background-size: cover;
-`
-
-export const NavItemText = styled.p`
-  font-size: 16px;
-  
 `
 
 export const Logo = styled.div`

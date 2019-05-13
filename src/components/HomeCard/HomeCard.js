@@ -8,9 +8,7 @@ import {
   Date,
 } from './HomeCard.style'
 
-const img = 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")'
-
-const HomeCard = ({ userPicture = img, username = '[USERNAME]', description = '[DESCRIPTION]', postDate = '00, Dom, 0000' }) => (
+const HomeCard = ({ userPicture, username, description, postDate }) => (
   <Wrapper>
     <UserPicture userPicture={userPicture} />
     <Content>

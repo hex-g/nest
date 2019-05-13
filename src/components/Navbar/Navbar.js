@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Sidebar,
   Menu,
@@ -8,18 +9,14 @@ import {
   Navigation,
   NavItem,
   NavItemImage,
-  NavItemText,
   Logo,
   ToggleContainer,
   OpenButton,
 } from './Navbar.style'
 
-const USERNAME = '[USERNAME]'
-const PAGES = [{ text: '[PAGINA]', image: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")' }]
-
 const Navbar = ({
-  username = USERNAME,
-  pages = PAGES,
+  username,
+  pages,
   isOpen,
   handleNavigationBar,
 }) => {
@@ -37,7 +34,7 @@ const Navbar = ({
               {pages.map(page => (
                 <NavItem isOpen={isOpen}>
                   <NavItemImage image={page.image} />
-                  <NavItemText href='/'>{page.text}</NavItemText>
+                  <Link to={`/${page.link}`}>{page.title}</Link>
                 </NavItem>
               ))}
             </ul>

@@ -16,7 +16,18 @@ import {
   Configuration,
 } from './Nest.style'
 
-const POSTS = [
+const EXAMPLE_USERNAME = '[USERNAME]'
+const EXAMPLE_PAGES = [
+  {
+    title: '[PAGINA]',
+    image: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
+    link: ''
+  }
+]
+
+const EXAMPLE_HORIZONTAL_NAVBAR = ['A', 'B', 'C']
+
+const EXAMPLE_CARD_POSTS = [
   {
     user: 'Caio',
     profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
@@ -35,70 +46,15 @@ const POSTS = [
     description: 'Lorem ipsum dolor sit amet',
     date: '20 Jan 1999',
   },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem dolor sit amet',
-    date: '20 Jan 1999',
-  },
 ]
 
 
-const Nest = ({ posts = POSTS }) => {
+const Nest = ({
+  username = EXAMPLE_USERNAME,
+  pages = EXAMPLE_PAGES,
+  posts = EXAMPLE_CARD_POSTS,
+  options = EXAMPLE_HORIZONTAL_NAVBAR
+}) => {
 
   const [navigationBar, setNavigationBar] = React.useState(false)
   const [configurationBar, setConfigurationBar] = React.useState(false)
@@ -115,7 +71,7 @@ const Nest = ({ posts = POSTS }) => {
     <Page>
       <NavigationAndContent>
         <Navigation isOpen={navigationBar}>
-          <Navbar isOpen={navigationBar} handleNavigationBar={handleNavigationBar} /*username='' pages=[{text, image}]*/ />
+          <Navbar isOpen={navigationBar} handleNavigationBar={handleNavigationBar} username={username} pages={pages} />
         </Navigation>
         <Container>
           <Form>
@@ -123,7 +79,7 @@ const Nest = ({ posts = POSTS }) => {
               <SearchBox />
             </Search>
             <HorizontalNavigation>
-              <HorizontalNavbar /*items=['']*/ />
+              <HorizontalNavbar options={options} />
             </HorizontalNavigation>
           </Form>
           <Content>

@@ -4,20 +4,20 @@ import {
   Item,
 } from './HorizontalNavbar.style'
 
-const HorizontalNavbar = ({ items = ['[ITEM]', '[MATHEUS]', '[AVISOS]', '[ITEM]', '[MATHEUS]', '[ITEM]', '[MATHEUS]', '[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]','[ITEM]', '[MATHEUS]'] }) => {
+const HorizontalNavbar = ({ options }) => {
 
   const [selectedItem, setSelectedItem] = React.useState(0)
 
   return (
       <ItensList>
-      {items.map((item, index) => (
+      {options.map((option, index) => (
         <Item
           key={`nav-item-${index}`}
           activated={index === selectedItem}
           id={index}
           onClick={e => setSelectedItem(Number(e.target.id))}
         >
-          {item}
+          {option}
         </Item>
       ))
       }
