@@ -1,52 +1,98 @@
 import React from 'react'
-import { NONAME } from 'dns';
+import Navbar from '../../components/Navbar'
+import HorizontalNavbar from '../../components/HorizontalNavbar'
+import HomeCard from '../../components/HomeCard'
+import SearchBox from '../../components/SearchBox'
+import ConfigBar from '../../components/ConfigBar'
+import {
+  Page,
+  Navigation,
+  NavigationAndContent,
+  Container,
+  Form,
+  Search,
+  HorizontalNavigation,
+  Content,
+  Configuration,
+} from './Nest.style'
 
-const style = {
-  pageWrapper: {
-    display: 'flex',
-    width: '100%',
-    height: '100vh',
-    border: '1px solid blue'
-  },
-  navBar: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    width: '20%',
-    border: '1px solid green'
-  },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    width: '60%',
-    padding: '30px 50px',
-    border: '1px solid red'
-  },
-  config: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    width: '20%',
-    border: '1px solid orange'
-  },
-  inputSearch: {
-    width: '70%',
-    height: '25px',
-    borderRadius: '10px',
-    border: 'none',
+const EXAMPLE_USERNAME = '[USERNAME]'
+const EXAMPLE_PAGES = [
+  {
+    title: '[PAGINA]',
+    image: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
+    link: ''
   }
-}
+]
 
-const Nest = () => {
+const EXAMPLE_HORIZONTAL_NAVBAR = ['A', 'B', 'C']
+
+const EXAMPLE_CARD_POSTS = [
+  {
+    user: 'Caio',
+    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
+    description: 'Lorem ipsum dolor sit amet',
+    date: '20 Jan 2019',
+  },
+  {
+    user: 'Hirumitsu',
+    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
+    description: 'Lorem ipsum dolor sit amet',
+    date: '20 Jan 1999',
+  },
+  {
+    user: 'Hirumitsu',
+    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
+    description: 'Lorem ipsum dolor sit amet',
+    date: '20 Jan 1999',
+  },
+]
+
+
+const Nest = ({
+  username = EXAMPLE_USERNAME,
+  pages = EXAMPLE_PAGES,
+  posts = EXAMPLE_CARD_POSTS,
+  options = EXAMPLE_HORIZONTAL_NAVBAR
+}) => {
+
+  const [navigationBar, setNavigationBar] = React.useState(false)
+  const [configurationBar, setConfigurationBar] = React.useState(false)
+
+  const handleNavigationBar = () => {
+    setNavigationBar(!navigationBar)
+  }
+
+  const handleConfigurationBar = () => {
+    setConfigurationBar(!configurationBar)
+  }
+
   return (
-    <div style={style.pageWrapper}>
-      <div style={style.navBar}>NavBar</div>
-      <div style={style.content}>
-        <input style={style.inputSearch} placeholder="O que você quer procurar na Hive?"/>
-      </div>
-      <div style={style.config}>Config</div>
-    </div>
+    <Page>
+      <NavigationAndContent>
+        <Navigation isOpen={navigationBar}>
+          <Navbar isOpen={navigationBar} handleNavigationBar={handleNavigationBar} username={username} pages={pages} />
+        </Navigation>
+        <Container>
+          <Form>
+            <Search>
+              <SearchBox />
+            </Search>
+            <HorizontalNavigation>
+              <HorizontalNavbar options={options} />
+            </HorizontalNavigation>
+          </Form>
+          <Content>
+            {posts.map(post => (
+              <HomeCard userPicture={post.profilePic} username={post.user} description={post.description} postDate={post.date} />
+            ))}
+          </Content>
+        </Container>
+      </NavigationAndContent>
+      <Configuration isOpen={configurationBar} >
+        <ConfigBar isOpen={configurationBar} handleConfigurationBar={handleConfigurationBar} />
+      </Configuration>
+    </Page>
   )
 }
 
