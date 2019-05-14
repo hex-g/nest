@@ -12,6 +12,7 @@ import {
   Logo,
   ToggleContainer,
   OpenButton,
+  NavTitle
 } from './Navbar.style'
 
 const Navbar = ({
@@ -33,8 +34,10 @@ const Navbar = ({
             <ul>
               {pages.map(page => (
                 <NavItem isOpen={isOpen}>
-                  <NavItemImage image={page.image} />
-                  <Link to={`/${page.link}`}>{page.title}</Link>
+                  <Link to={`/${page.link}`}>
+                    <NavItemImage image={page.image} />
+                    <NavTitle isOpen={isOpen}> {page.title} </NavTitle>
+                  </Link>
                 </NavItem>
               ))}
             </ul>

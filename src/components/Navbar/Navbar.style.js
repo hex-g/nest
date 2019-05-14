@@ -59,11 +59,16 @@ export const NavItem = styled.li`
   margin: 24px 0;
 
   display: flex;
-  align-items: center;
 
   & > a{
-    ${({ isOpen }) => isOpen ? 'display: block' : 'display: none'}
+    display: flex
+    align-items: center;
+    justify-content: center;
   }
+`
+
+export const NavTitle = styled.span`
+  ${({ isOpen }) => isOpen ? 'display: inline-block' : 'display: none'}
 `
 
 export const NavItemImage = styled.div`
@@ -72,6 +77,7 @@ export const NavItemImage = styled.div`
 
   background-image: ${props => props.image};
   background-size: cover;
+  display: inline-block
 `
 
 export const Logo = styled.div`
