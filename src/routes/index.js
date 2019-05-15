@@ -5,7 +5,6 @@ import Nest from '../pages/Nest'
 const Routes = () => (
   <div>
     <Route exact path="/" component={Nest} />
-
   </div>
 )
 
