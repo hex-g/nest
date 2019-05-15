@@ -6,8 +6,6 @@ import SearchBox from '../../components/SearchBox'
 import ConfigBar from '../../components/ConfigBar'
 import {
   Page,
-  Navigation,
-  NavigationAndContent,
   Container,
   Form,
   Search,
@@ -60,18 +58,11 @@ const EXAMPLE_CARD_POSTS = [
 
 
 const Nest = ({
-  username = EXAMPLE_USERNAME,
-  pages = EXAMPLE_PAGES,
   posts = EXAMPLE_CARD_POSTS,
   options = EXAMPLE_HORIZONTAL_NAVBAR
 }) => {
 
-  const [navigationBar, setNavigationBar] = React.useState(false)
   const [configurationBar, setConfigurationBar] = React.useState(false)
-
-  const handleNavigationBar = () => {
-    setNavigationBar(!navigationBar)
-  }
 
   const handleConfigurationBar = () => {
     setConfigurationBar(!configurationBar)
@@ -79,26 +70,21 @@ const Nest = ({
 
   return (
     <Page>
-      <NavigationAndContent>
-        <Navigation isOpen={navigationBar}>
-          <Navbar isOpen={navigationBar} handleNavigationBar={handleNavigationBar} username={username} pages={pages} />
-        </Navigation>
-        <Container>
-          <Form>
-            <Search>
-              <SearchBox />
-            </Search>
-            <HorizontalNavigation>
-              <HorizontalNavbar options={options} />
-            </HorizontalNavigation>
-          </Form>
-          <Content>
-            {posts.map(post => (
-              <HomeCard userPicture={post.profilePic} username={post.user} description={post.description} postDate={post.date} />
-            ))}
-          </Content>
-        </Container>
-      </NavigationAndContent>
+      <Container>
+        <Form>
+          <Search>
+            <SearchBox />
+          </Search>
+          <HorizontalNavigation>
+            <HorizontalNavbar options={options} />
+          </HorizontalNavigation>
+        </Form>
+        <Content>
+          {posts.map(post => (
+            <HomeCard userPicture={post.profilePic} username={post.user} description={post.description} postDate={post.date} />
+          ))}
+        </Content>
+      </Container>
       <Configuration isOpen={configurationBar} >
         <ConfigBar isOpen={configurationBar} handleConfigurationBar={handleConfigurationBar} />
       </Configuration>

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import reset from 'styled-reset'
 import { lighten } from 'polished'
+import Template from './components/Template'
 import Routes from './routes'
 
 export const theme = {
@@ -45,7 +46,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Fragment>
         <GlobalStyle />
+        <Template>
           <Routes />
+        </Template>
       </Fragment>
     </ThemeProvider>
   )
