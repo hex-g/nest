@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Page = styled.div`
   display: flex;
   min-height: 100%;
-  width: 100%;
+  width: inherit;
 `
 
 export const Navigation = styled.div`
@@ -90,8 +90,6 @@ export const Form = styled.div`
 `
 
 export const Content = styled.div`
-  height: 657px;
-
   display: flex;
   flex-direction: column;
 
