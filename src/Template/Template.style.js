@@ -18,7 +18,7 @@ export const Content = styled.div`
 `
 
 export const Informations = styled.div`
-  width: ${({isOpen}) => isOpen ? '255px' : '105px'};
+  width: ${({isOpen}) => isOpen ? '300px' : '105px'};
   z-index: 2;
   transition: 150ms;
 `

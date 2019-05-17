@@ -19,13 +19,11 @@ export const ItemsMenu = styled.div`
   ${({ isOpen }) => isOpen ? 'flex-direction: row' : 'flex-direction: column'};
   ${({ isOpen }) => isOpen ? 'justify-content: flex-' : 'align-items: center'};
   transition-delay: 200ms;
-  border: 1px solid green;
 `
 
 export const Information = styled.div`
   height: 100%;
-  padding: 8px 0;
-  border: 1px solid red;
+  margin: 30px 0;
 `
 
 export const Item = styled.button`

@@ -25,12 +25,6 @@ const InfoBar = ({
           <Item onClick={() => handleInformationChange({type: 'configuration'})}>
             <ConfigIcon />
           </Item>
-          <Item onClick={() => handleInformationChange({type: 'notification'})}>
-            <ConfigIcon />
-          </Item>
-          <Item onClick={() => handleInformationChange({type: 'configuration'})}>
-            <ConfigIcon />
-          </Item>
         </ItemsMenu>
         {isOpen && (
           <Information>

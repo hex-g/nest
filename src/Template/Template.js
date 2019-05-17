@@ -15,12 +15,18 @@ const user = {
   image: 'red',
 }
 
+const Configuration = () => (
+  <div style={{ width: '200px', height: '100%', border: '1px solid gray', borderRadius: '8px' }}>
+    <div style={{display: 'flex', justifyContent: 'center'}}>
+      <p>Modo Noturno: </p><input type="checkbox" />
+    </div>
+  </div>
+)
+
 const informationReducer = (state, action) => {
   switch (action.type) {
     case 'configuration':
-      return (<div style={{ width: '50px', height: '50px', background: 'blue' }}></div>);
-    case 'notification':
-      return (<div style={{ width: '50px', height: '50px', background: 'yellow' }}></div>);
+      return (<Configuration />);
     default:
       throw new Error()
   }
@@ -29,8 +35,8 @@ const informationReducer = (state, action) => {
 const Template = ({ children }) => {
 
   const [toggleNavigation, handleToggleNavigation] = useState(false)
-  const [toggleInformation, handleToggleInformation] = useState(true)
-  const [state, dispatch] = useReducer(informationReducer, null)
+  const [toggleInformation, handleToggleInformation] = useState(false)
+  const [information, dispatch] = useReducer(informationReducer, null)
 
   return (
     <Layout>
@@ -49,7 +55,7 @@ const Template = ({ children }) => {
           isOpen={toggleInformation}
           handleToggleInformation={() => handleToggleInformation(!toggleInformation)}
           handleInformationChange={dispatch}
-          information={state}
+          information={information}
         />
       </Informations>
     </Layout>
