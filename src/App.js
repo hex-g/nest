@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import reset from 'styled-reset'
 import { lighten } from 'polished'
-import Template from './components/Template'
+import Template from './Template'
 import Routes from './routes'
 
 export const theme = {

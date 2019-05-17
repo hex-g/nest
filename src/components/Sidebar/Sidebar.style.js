@@ -1,9 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Aside = styled.aside`
   height: 100%;
   display: flex;
-  transition: 300ms;
 `
 
 export const Menu = styled.div`
@@ -21,7 +20,7 @@ export const ToggleArea = styled.div`
 `
 
 export const ProfileContent = styled.div`
-  height: 80px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,9 +32,9 @@ export const ProfileContent = styled.div`
 `
 
 export const UserImage = styled.div`
-  width: 50px;
-  height: 50px;
-  background: blue;
+  width: 80px;
+  height: 80px;
+  background: ${({ image }) => image ? image : 'green'};
 `
 
 export const Username = styled.p`
@@ -51,7 +50,7 @@ export const NavigationItems = styled.ul`
 `
 
 export const Item = styled.div`
-  margin-top: 15px;
+  margin-top: 16px;
   display: flex;
   justify-content: center;
 
@@ -63,9 +62,9 @@ export const Item = styled.div`
 `
 
 export const ItemIcon = styled.div`
-  width: 30px;
-  height: 30px;
-  background: blue;
+  width: 50px;
+  height: 50px;
+  background: ${({ icon }) => icon ? icon : 'lightgreen'};
 `
 
 export const ItemTitle = styled.p`
@@ -77,12 +76,19 @@ export const ItemTitle = styled.p`
 export const LogoWrapper = styled.div`
   width: 80px;
   height: 80px;
-  ${({ isOpen }) => isOpen ? 'display: block' : 'display: none'};  
+  ${({ isOpen }) => isOpen ?
+    css`
+    opacity: 1;`
+    :
+    css`
+    transition-delay: 100ms;
+    opacity: 0;`
+  };  
 `
 
 export const Logo = styled.div`
   width: 100%;
-  height: 100%
+  height: 100%;
   background: blue;
 `
 
@@ -96,7 +102,7 @@ cursor: pointer;
 
 &::before{
   content:"";
-  background-color: rgb(255,160,50);
+background-color: ${props => props.theme.rajah};
   width: 2px;
   height: 10px;
   position: absolute;
@@ -114,7 +120,7 @@ cursor: pointer;
 
 &::after{
   content:"";
-  background-color: rgb(255,160,50);
+  background-color: ${props => props.theme.rajah};
   width: 2px;
   height: 10px;
   position: absolute;

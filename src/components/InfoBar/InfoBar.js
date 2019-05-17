@@ -1,7 +1,10 @@
 import React from 'react'
-import { 
+import { ReactComponent as ConfigIcon } from './settings.svg'
+import {
   Aside,
   Menu,
+  ItemsMenu,
+  Information,
   Item,
   ToggleArea,
   ToggleButton,
@@ -10,17 +13,32 @@ import {
 const InfoBar = ({
   isOpen,
   handleToggleInformation,
+  handleInformationChange,
+  information,
 }) => (
-  <Aside>
-    <ToggleArea>
-      <ToggleButton isOpen={isOpen} onClick={() => handleToggleInformation()} />
-    </ToggleArea>
-    <Menu isOpen={isOpen}>
-      <Item />
-      <Item />
-      <Item />
-    </Menu>
-  </Aside>
-)
+    <Aside>
+      <ToggleArea>
+        <ToggleButton isOpen={isOpen} onClick={() => handleToggleInformation()} />
+      </ToggleArea>
+      <Menu>
+        <ItemsMenu isOpen={isOpen}>
+          <Item onClick={() => handleInformationChange({type: 'configuration'})}>
+            <ConfigIcon />
+          </Item>
+          <Item onClick={() => handleInformationChange({type: 'notification'})}>
+            <ConfigIcon />
+          </Item>
+          <Item onClick={() => handleInformationChange({type: 'configuration'})}>
+            <ConfigIcon />
+          </Item>
+        </ItemsMenu>
+        {isOpen && (
+          <Information>
+            {information}
+          </Information>
+        )}
+      </Menu>
+    </Aside>
+  )
 
 export default InfoBar

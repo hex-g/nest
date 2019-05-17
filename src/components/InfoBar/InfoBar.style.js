@@ -3,23 +3,39 @@ import styled from 'styled-components'
 export const Aside = styled.aside`
   height: 100%;
   display: flex;
-  transition: 300ms;
 `
 
 export const Menu = styled.div`
-  flex-grow: 1;
-  display: flex;
-  ${({isOpen}) => isOpen ? 'flex-direction: row' : 'flex-direction: column'};
-  ${({isOpen}) => isOpen ? 'justify-content: center' : 'align-items: center'};
+  width: 100%;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
   border-left: 1px solid #d8d8d8;
   background: ${props => props.theme.wildSand};
 `
 
-export const Item = styled.div`
+export const ItemsMenu = styled.div`
+  display: flex;
+  ${({ isOpen }) => isOpen ? 'flex-direction: row' : 'flex-direction: column'};
+  ${({ isOpen }) => isOpen ? 'justify-content: flex-' : 'align-items: center'};
+  transition-delay: 200ms;
+  border: 1px solid green;
+`
+
+export const Information = styled.div`
+  height: 100%;
+  padding: 8px 0;
+  border: 1px solid red;
+`
+
+export const Item = styled.button`
   width: 40px;
   height: 40px;
   margin: 8px;
-  background: blue;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
 `
 
 export const ToggleArea = styled.div`
