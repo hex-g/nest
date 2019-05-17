@@ -28,7 +28,7 @@ const Sidebar = ({
       </ProfileContent>
       <NavigationItems>
         <Item>
-          <Link to={`/ITEM`}>
+          <Link to={`/Profile`}>
             <ItemIcon />
             <ItemTitle isOpen={isOpen}>ITEM</ItemTitle>
           </Link>
