@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Aside = styled.aside`
-  height: 100vh;
+  height: 100%;
   display: flex;
   transition: 300ms;
 `
@@ -12,23 +12,12 @@ export const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: orange;
+  border-right: 1px solid #d8d8d8;
+  background: ${props => props.theme.wildSand};
 `
 
 export const ToggleArea = styled.div`
   display: flex;
-
-  &::before{
-    content: "";
-    border-left: 2px solid rgba(220,170,50,0.5);
-    position: absolute;
-    opacity: 0;
-    transition: 0.5s;
-  }
-  
-  &:hover::before{
-    opacity: 1;
-  }
 `
 
 export const ProfileContent = styled.div`

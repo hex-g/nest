@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import {
   Aside,
@@ -20,8 +20,8 @@ const Sidebar = ({
   isOpen,
   handleToggleNavigation,
 }) => (
-  <Aside isOpen={isOpen}>
-    <Menu isOpen={isOpen}>
+  <Aside>
+    <Menu>
       <ProfileContent isOpen={isOpen}>
         <UserImage />
         <Username>USERNAME</Username>

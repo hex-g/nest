@@ -2,26 +2,24 @@ import styled from 'styled-components'
 
 export const Layout = styled.div`
   display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  width: 100%;
-`
-
-export const NavigationAndContent = styled.div`
-  display: flex;
-  flex: 1 1 auto;
+  height: 100vh;
+  width: 100vw;
 `
 
 export const Navigation = styled.div`
-  width: ${({isOpen}) => isOpen ? '205px' : '50px'};
-  position: relative;
+  width: ${({isOpen}) => isOpen ? '255px' : '105px'};
   z-index: 2;
   transition: 150ms;
 `
 
 export const Content = styled.div`
   width: 100%;
-  padding-left: ${({isOpen}) => isOpen ? '-20px' : '20px'};
-  position: relative;
   z-index: 1;
+`
+
+export const Informations = styled.div`
+  width: ${({isOpen}) => isOpen ? '255px' : '105px'};
+  z-index: 2;
+  transition: 150ms;
+
 `

@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
 import HorizontalNavbar from '../../components/HorizontalNavbar'
 import HomeCard from '../../components/HomeCard'
 import SearchBox from '../../components/SearchBox'
@@ -85,9 +84,6 @@ const Nest = ({
           ))}
         </Content>
       </Container>
-      <Configuration isOpen={configurationBar} >
-        <ConfigBar isOpen={configurationBar} handleConfigurationBar={handleConfigurationBar} />
-      </Configuration>
     </Page>
   )
 }
