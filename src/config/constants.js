@@ -1,0 +1,1 @@
+export const SIDEBAR_PAGES = [{title: 'Inicio', link: 'profile', icon: ''}]

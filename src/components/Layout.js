@@ -56,9 +56,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, color }) => {
   return (
-    <ThemeProvider theme={{ mode: 'dark' }}>
+    <ThemeProvider theme={{ mode: color }}>
       <Fragment>
         <GlobalStyle />
         {children}

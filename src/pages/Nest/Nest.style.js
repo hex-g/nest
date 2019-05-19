@@ -4,41 +4,16 @@ import { cardBackground } from '../../components/Layout'
 export const Page = styled.div`
   display: flex;
   min-height: 100%;
-  width: 100%;
-`
-
-export const Navigation = styled.div`
-  width: ${({isOpen}) => isOpen ? '304px' : '64px'};
-  display: flex;
-
-  position: relative;
-  z-index: 2;
-
-  transition: 150ms;
-`
-
-export const NavigationAndContent = styled.div`
-  display: flex;
-  flex: 1 1 auto;
+  width: inherit;
 `
 
 export const Container = styled.div`
-  min-width: 0px;
-  padding: 32px;
+  padding: 10px 0;
+
   position: relative;
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-`
-
-export const Configuration = styled.div`
-  width: ${({isOpen}) => isOpen ? '200px' : '50px'};
-
-  display: flex;
-  flex-direction: column;
-  align-items: ${({isOpen}) => isOpen ? 'flex-start' : 'center'};;
-
-  transition: 150ms;
 `
 
 export const Search = styled.div`
@@ -71,8 +46,6 @@ export const Form = styled.div`
 `
 
 export const Content = styled.div`
-  height: 657px;
-
   display: flex;
   flex-direction: column;
 
