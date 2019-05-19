@@ -1,14 +1,12 @@
 import styled from 'styled-components'
+import { cardBackground } from '../Layout'
 
 export const Wrapper = styled.div`
   padding: 16px 16px;
   margin: 8px 0;
-
   display: flex;
   justify-content: space-around;
-
-  background-color: rgba(255,255,255,0.5);
-
+  background-color: ${cardBackground};
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(21,21,21,0.2);
 `
@@ -16,16 +14,13 @@ export const Wrapper = styled.div`
 export const UserPicture = styled.div`
   width: 80px;
   height: 80px;
-
   background-image: ${props => props.userPicture};
   background-size: cover;
 `
 
 export const Content = styled.div`
   margin-left: 30px;
-
-  font-size: 18px;
-  
+  font-size: 18px;  
   flex-grow: 1;
 `
 
