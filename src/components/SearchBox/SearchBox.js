@@ -7,7 +7,7 @@ import {
 
 const SearchBox = () => (
   <>
-    <Input />
+    <Input placeholder={'O que você quer procurar na Hive?'} />
     <Button>
       <SearchIcon />
     </Button>

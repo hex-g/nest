@@ -30,7 +30,7 @@ const Sidebar = ({
         </ProfileContent>
         <NavigationItems>
           {pages && pages.map(page => (
-            <Item>
+            <Item key={page.link}>
               <Link to={`/${page.link}`}>
                 <ItemIcon icon={page.icon}/>
                 <ItemTitle isOpen={isOpen}>{page.title}</ItemTitle>

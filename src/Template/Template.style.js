@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Layout = styled.div`
+export const TemplateSection = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;

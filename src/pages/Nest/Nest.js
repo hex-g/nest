@@ -8,11 +8,10 @@ import {
   Form,
   Search,
   HorizontalNavigation,
-  Content,
-  Configuration,
+  Content
 } from './Nest.style'
 
-const EXAMPLE_HORIZONTAL_NAVBAR = ['A', 'B', 'C']
+const EXAMPLE_HORIZONTAL_NAVBAR = ['AVISOS', 'STATUS']
 
 const EXAMPLE_CARD_POSTS = [
   {
@@ -53,8 +52,14 @@ const Nest = ({
           </HorizontalNavigation>
         </Form>
         <Content>
-          {posts.map(post => (
-            <HomeCard userPicture={post.profilePic} username={post.user} description={post.description} postDate={post.date} />
+          {posts.map((post, index) => (
+            <HomeCard
+            key={`${post.user}-${index}`}
+            userPicture={post.profilePic}
+            username={post.user}
+            description={post.description}
+            postDate={post.date}
+            />
           ))}
         </Content>
       </Container>

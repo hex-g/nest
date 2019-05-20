@@ -13,12 +13,10 @@ export const Sidebar = styled.div`
 
 export const Menu = styled.div`
   flex-grow: 1;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
   background-color: rgb(255,150,50);
 `
 
@@ -35,11 +33,10 @@ export const ProfileContent = styled.div`
 export const UserPicture = styled.div`
   width: 50px;
   height: 50px;
-
   margin-top: 30px;
-
-  background-image: url("https://img.fireden.net/v/image/1462/63/1462638729784.png");
+  background-image: url("https://pbs.twimg.com/profile_images/1071867943988932608/6QYXqFOU_400x400.jpg");
   background-size: cover;
+  border-radius: 50%;
 `
 export const UserName = styled.p`
   font-size: 20px;
