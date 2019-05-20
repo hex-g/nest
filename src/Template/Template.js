@@ -21,12 +21,19 @@ const Template = ({ children }) => {
 
   const changeTheme = () => {
     const themeButton = document.getElementById('checkTheme')
+
     if (themeButton.checked === true) {
-      setColor('dark')
+      localStorage.setItem('favoriteTheme', 'dark')
+      setColor(localStorage.getItem('favoriteTheme'))
+      localStorage.setItem('checkTheme', themeButton.checked)
       return
     }
-    setColor('light')
+    localStorage.setItem('favoriteTheme', 'light')
+    setColor(localStorage.getItem('favoriteTheme'))
+    localStorage.setItem('checkTheme', themeButton.checked = false)
   }
+
+  console.log(localStorage.getItem('checkTheme'))
 
    const Configuration = () => {
 
@@ -103,7 +110,7 @@ const Template = ({ children }) => {
   }
 
   const [toggleNavigation, handleToggleNavigation] = useState(false)
-  const [color, setColor] = useState('light')
+  const [color, setColor] = useState(localStorage.getItem('favoriteTheme'))
   const [toggleInformation, handleToggleInformation] = useState(false)
   const [information, dispatch] = useReducer(informationReducer, null)
 
