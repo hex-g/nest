@@ -17,6 +17,7 @@ export const design = {
   cardBoxShadow: '6px 8px 20px 0 rgba(0, 0, 0, 0.08)',
   buttonBoxShadow: '0 2px 10px 2px rgba(0, 0, 0, 0.2)',
   inputBoxShadow: '0 2px 10px 2px rgba(0, 0, 0, 0.07)',
+  postBoxShadow: '0 2px 5px 1px rgba(0, 0, 0, 0.5)',
   primaryFont: 'Poppins',
   secondaryFont: 'Lato',
   hugeTitle: '64px',

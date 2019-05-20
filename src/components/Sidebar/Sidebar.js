@@ -22,31 +22,6 @@ const Sidebar = ({
   userInfo,
   pages,
 }) => (
-<<<<<<< HEAD
-  <Aside isOpen={isOpen}>
-    <Menu isOpen={isOpen}>
-      <ProfileContent isOpen={isOpen}>
-        <UserImage />
-        <Username>USERNAME</Username>
-      </ProfileContent>
-      <NavigationItems>
-        <Item>
-          <Link to={`/Profile`}>
-            <ItemIcon />
-            <ItemTitle isOpen={isOpen}>ITEM</ItemTitle>
-          </Link>
-        </Item>
-      </NavigationItems>
-      <LogoWrapper isOpen={isOpen}>
-        <Logo />
-      </LogoWrapper>
-    </Menu>
-    <ToggleArea>
-      <ToggleButton onClick={() => handleToggleNavigation()} isOpen={isOpen} />
-    </ToggleArea>
-  </Aside>
-)
-=======
     <Aside>
       <Menu>
         <ProfileContent isOpen={isOpen}>
@@ -72,6 +47,5 @@ const Sidebar = ({
       </ToggleArea>
     </Aside>
   )
->>>>>>> feature/adjust-style
 
 export default Sidebar
