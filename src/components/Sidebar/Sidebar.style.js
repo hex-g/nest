@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { design, backgroundColor } from '../Layout'
 
 export const Aside = styled.aside`
   height: 100%;
@@ -12,7 +13,7 @@ export const Menu = styled.div`
   flex-direction: column;
   align-items: center;
   border-right: 1px solid #d8d8d8;
-  background: ${props => props.theme.wildSand};
+  background: ${backgroundColor};
 `
 
 export const ToggleArea = styled.div`
@@ -58,6 +59,8 @@ export const Item = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    color: ${design.rajah};
   }
 `
 
@@ -102,7 +105,7 @@ cursor: pointer;
 
 &::before{
   content:"";
-background-color: ${props => props.theme.rajah};
+background-color: ${design.rajah};
   width: 2px;
   height: 10px;
   position: absolute;
@@ -120,7 +123,7 @@ background-color: ${props => props.theme.rajah};
 
 &::after{
   content:"";
-  background-color: ${props => props.theme.rajah};
+  background-color: ${design.rajah};
   width: 2px;
   height: 10px;
   position: absolute;
