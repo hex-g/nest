@@ -16,8 +16,9 @@ export const PageWrapper = styled.section`
 
 export const ProfileHeader = styled.header`
     min-width: 100%;
-    background: blue;
+    background: url('${ ({headerImage}) => headerImage }');
     min-height: 215px;
+    background-size: cover;
 `
 
 export const ProfileInfoWrapper = styled.main`
@@ -42,7 +43,7 @@ export const PlayerPictureWrapper = styled.picture`
 export const PlayerPicture = styled.img`
     height: 100%;
     width: 100%;
-    background: purple;
+    clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
     margin-bottom: -10px;
 `
 
@@ -74,10 +75,9 @@ export const PlayerBadgesWrapper = styled.div`
     align-items: center;
 `
 
-export const PlayerBadge = styled.picture`
+export const PlayerBadge = styled.img`
     width: 78px;
     height: 85px;
-    background: pink;
     margin: 16px;
 
     &:nth-child(even){
