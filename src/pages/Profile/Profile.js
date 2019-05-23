@@ -48,7 +48,62 @@ const PLAYER_EXAMPLE = {
             title: 'SpringBoot Primeiros Passos',
             content: 'Aprenda a trabalhar com uma das ferramentas mais utilizadas no mercado de Java.'
         }
+    ],
+    socialMedia: [
+        {
+            socialMedia: 'twitter',
+            userName: '@dani_Santos_S2_<3_XOXO',
+            url: 'https://twitter.com'
+        },
+        {
+            socialMedia: 'github',
+            userName: '@dani_Santos_S2_<3_XOXO',
+            url: 'https://twitter.com'
+        },
+        {
+            socialMedia: 'outro',
+            userName: '@dani_Santos_S2_<3_XOXO',
+            url: 'https://twitter.com'
+        }
     ]
+}
+
+const handleBadgesRendering = badges => {
+    return badges.map(badge => {
+        return (
+            <PlayerBadge src = {badge.image}
+            title = {badge.name}
+            alt = {badge.name} 
+            key = {badge.name}/>
+        ); 
+    });
+}
+
+const handlePostsRendering = posts => { 
+    return posts.map(post => {
+        return(
+            <PostHighlight>
+                <PostTitle>
+                    {post.title}
+                </PostTitle>
+                <PostContentPreview>
+                    {post.content}
+                </PostContentPreview>
+            </PostHighlight>    
+        )
+    })
+}
+
+
+const handleSocialMediaRendering = socialMediaList => {
+    return socialMediaList.map(socialMedia => {
+        return (
+            <SocialMediaIcon href = {socialMedia.url}
+            title = {socialMedia.userName}
+            alt = {socialMedia.socialMedia} 
+            key = {socialMedia.socialMedia}/>
+        ); 
+    });
 }
 
 const Profile = ({player = PLAYER_EXAMPLE}) => {
@@ -71,33 +126,14 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
                     {player.playerBio}    
                 </PlayerBio>
                 <PlayerBadgesWrapper>
-                    <PlayerBadge src={player.playerMedals[0].image} title={player.playerMedals[0].name} alt={player.playerMedals[0].name}></PlayerBadge>
-                    <PlayerBadge src={player.playerMedals[1].image} title={player.playerMedals[1].name} alt={player.playerMedals[1].name}></PlayerBadge>
-                    <PlayerBadge src={player.playerMedals[2].image} title={player.playerMedals[2].name} alt={player.playerMedals[2].name}></PlayerBadge>
+                    {handleBadgesRendering(player.playerMedals)}
                 </PlayerBadgesWrapper>
             </ProfileInfoWrapper>
             <SocialMediaWrapper>
-                <SocialMediaIcon></SocialMediaIcon>
-                <SocialMediaIcon></SocialMediaIcon>
-                <SocialMediaIcon></SocialMediaIcon>
+                {handleSocialMediaRendering(player.socialMedia)}
             </SocialMediaWrapper>
             <PostsHighlightWrapper>
-                <PostHighlight>
-                    <PostTitle>
-                        {player.playerPosts[0].title}
-                    </PostTitle>
-                    <PostContentPreview>
-                        {player.playerPosts[0].content}
-                    </PostContentPreview>
-                </PostHighlight>
-                <PostHighlight>
-                    <PostTitle>
-                        {player.playerPosts[1].title}
-                    </PostTitle>
-                    <PostContentPreview>
-                        {player.playerPosts[1].content}
-                    </PostContentPreview>
-                </PostHighlight>
+                {handlePostsRendering(player.playerPosts)}
             </PostsHighlightWrapper>
         </PageWrapper>
     );
