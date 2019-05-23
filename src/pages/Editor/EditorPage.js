@@ -16,6 +16,8 @@ import Link from '@editorjs/link'
 import Personality from 'codex.editor.personality'
 import {
   Wrapper,
+  Editor,
+  SendButton,
 } from './EditorPage.style'
 
 const editor = new EditorJs({
@@ -81,18 +83,23 @@ const editor = new EditorJs({
   },
 })
 
-const style = {
-  border: '1px solid red',
-  height: 'calc(100vh - 50px)',
-  overflowY: 'auto',
-  width: '680px',
-}
-
 const EditorPage = () => {
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      let codex_redactor = document.querySelector('.codex-editor__redactor')
+      codex_redactor.style.paddingBottom = '0px'
+
+    }, 100)
+
+  }, [])
+
   return (
     <Wrapper>
-      <div
-        style={style}
+      <SendButton>
+        Send Button
+      </SendButton>
+      <Editor
         id="editorjs" />
     </Wrapper>
   )

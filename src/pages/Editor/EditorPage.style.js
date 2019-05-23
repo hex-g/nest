@@ -54,5 +54,19 @@ export const Wrapper = styled.div`
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
-}
+  }
+
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const Editor = styled.div`
+  width: 720px;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+  border: 1px solid red;
+`
+
+export const SendButton = styled.button`
+  
 `
