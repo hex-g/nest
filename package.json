@@ -17,6 +17,7 @@
     "@editorjs/table": "^1.2.0",
     "@editorjs/warning": "^1.1.0",
     "codex.editor.personality": "^1.0.2",
+    "axios": "^0.18.0",
     "polished": "^3.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

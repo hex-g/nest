@@ -92,6 +92,15 @@ const EditorPage = () => {
 
     }, 100)
 
+    setInterval(() => {
+      editor.save().then((outputData) => {
+        console.log('Article data: ', outputData)
+      }).catch((error) => {
+        console.log('Saving failed: ', error)
+      });
+      console.log('Note saved')
+    }, 10000)
+
   }, [])
 
   return (
