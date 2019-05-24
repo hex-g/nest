@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import EditorJs from '@editorjs/editorjs'
 import Header from '@editorjs/header'
 import List from '@editorjs/list'
@@ -20,7 +20,7 @@ import {
   SendButton,
 } from './EditorPage.style'
 
-const EDITOR_CONFIG = {
+const EDITOR_TOOLS = {
   header: {
     class: Header,
     shortcut: 'CMD+SHIFT+H',
@@ -80,51 +80,39 @@ const EDITOR_CONFIG = {
   }
 }
 
-let editor
-
-const handleSendNotes = () => {
-  editor.save().then((outputData) => {
-    saveEditorTest(JSON.stringify(outputData))
-  }).catch((error) => {
-    console.log('Saving failed: ', error)
-  });
-
-}
-
 const EditorPage = () => {
 
-  const [note, setNote] = React.useState(null)
+  const [editorConfig, setEditorConfig] = useState()
 
-  const getNotes = async () => {
-    const response = await getUserNotes()
-    response && response.data.content && localStorage.setItem('user-note', response.data.content)
+  const handleSendNotes = () => {
+    editorConfig.save().then((outputData) => {
+      localStorage.setItem('user-note', JSON.stringify(outputData))
+      saveEditorTest(JSON.stringify(outputData))
+    }).catch((error) => {
+      console.log('Saving failed: ', error)
+    });
   }
 
-  getNotes()
+  const handleGetUserNotes = response => {
+
+    if (!response || !response.data) return
+
+    localStorage.setItem('user-note', JSON.stringify(response.data))
+    setEditorConfig(new EditorJs({
+      holder: 'editorjs',
+      tools: EDITOR_TOOLS,
+      data: JSON.parse(localStorage.getItem('user-note')),
+    }))
+  }
 
   useEffect(() => {
-
-    let note = JSON.parse(localStorage.getItem('user-note'))
-    editor = new EditorJs({
-      autofocus: true,
-      tools: EDITOR_CONFIG,
-      data: note,
-    })
+    getUserNotes().then(response => handleGetUserNotes(response))
 
     setTimeout(() => {
       let codex_redactor = document.querySelector('.codex-editor__redactor')
       codex_redactor.style.paddingBottom = '0px';;
 
-    }, 100)
-
-    /*setInterval(() => {
-      editor.save().then((outputData) => {
-        localStorage.setItem('user-note', JSON.stringify(outputData))
-      }).catch((error) => {
-        console.log('Saving failed: ', error)
-      });
-    }, 15000)*/
-
+    }, 1500)
   }, [])
 
   return (
