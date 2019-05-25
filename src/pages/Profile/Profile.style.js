@@ -14,14 +14,14 @@ export const PageWrapper = styled.section`
     overflow-y: auto;
 `
 
-export const ProfileHeader = styled.header`
+export const PlayerHeader = styled.header`
     min-width: 100%;
     background: url('${ ({headerImage}) => headerImage }');
     min-height: 215px;
     background-size: cover;
 `
 
-export const ProfileInfoWrapper = styled.main`
+export const PlayerInfoWrapper = styled.main`
     max-width: 350px;
     display: flex;
     flex-direction: column;
@@ -97,8 +97,8 @@ export const SocialMediaWrapper = styled.div`
 export const SocialMediaIcon = styled.a`
     min-height: 50px;
     min-width: 50px;
-    background: black;
-    margin: 16px;
+    margin: 8px;
+    margin-top: 24px;
 `
 
 export const PostsHighlightWrapper = styled.section`
@@ -109,14 +109,15 @@ export const PostsHighlightWrapper = styled.section`
 `
 
 export const PostHighlight = styled.article`
-    max-width: 40%;
+    max-width: 45%;
     box-shadow: ${design.postBoxShadow};
-    margin: 16px;
+    margin: 24px;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 250px;
+    cursor: pointer;
 `
 
 export const PostTitle = styled.h2`

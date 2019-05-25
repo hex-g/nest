@@ -1,9 +1,9 @@
 import React from 'react'
-
+import Icons from '../../Images/Icons'
 import {
     PageWrapper,
-    ProfileHeader,
-    ProfileInfoWrapper,
+    PlayerHeader,
+    PlayerInfoWrapper,
     PlayerPictureWrapper,
     PlayerPicture,
     PlayerLevel,
@@ -51,22 +51,38 @@ const PLAYER_EXAMPLE = {
     ],
     socialMedia: [
         {
-            socialMedia: 'twitter',
+            socialMedia: 'Generic',
             userName: '@dani_Santos_S2_<3_XOXO',
             url: 'https://twitter.com'
         },
         {
-            socialMedia: 'github',
+            socialMedia: 'Github',
             userName: '@dani_Santos_S2_<3_XOXO',
             url: 'https://twitter.com'
         },
         {
-            socialMedia: 'outro',
+            socialMedia: 'Instagram',
+            userName: '@dani_Santos_S2_<3_XOXO',
+            url: 'https://twitter.com'
+        },
+        {
+            socialMedia: 'Facebook',
+            userName: '@dani_Santos_S2_<3_XOXO',
+            url: 'https://twitter.com'
+        },
+        {
+            socialMedia: 'Linkedin',
+            userName: '@dani_Santos_S2_<3_XOXO',
+            url: 'https://twitter.com'
+        },
+        {
+            socialMedia: 'Twitter',
             userName: '@dani_Santos_S2_<3_XOXO',
             url: 'https://twitter.com'
         }
     ]
 }
+
 
 const handleBadgesRendering = badges => {
     return badges.map(badge => {
@@ -97,11 +113,15 @@ const handlePostsRendering = posts => {
 
 const handleSocialMediaRendering = socialMediaList => {
     return socialMediaList.map(socialMedia => {
+
+        const SocialMediaSvg = Icons[socialMedia.socialMedia]
         return (
             <SocialMediaIcon href = {socialMedia.url}
             title = {socialMedia.userName}
             alt = {socialMedia.socialMedia} 
-            key = {socialMedia.socialMedia}/>
+            key = {socialMedia.socialMedia}>
+                <SocialMediaSvg />
+            </SocialMediaIcon>
         ); 
     });
 }
@@ -109,12 +129,10 @@ const handleSocialMediaRendering = socialMediaList => {
 const Profile = ({player = PLAYER_EXAMPLE}) => {
     return (
         <PageWrapper>
-            <ProfileHeader headerImage={player.playerBanner}>
-            </ProfileHeader>
-            <ProfileInfoWrapper>
+            <PlayerHeader headerImage={player.playerBanner} />
+            <PlayerInfoWrapper>
                 <PlayerPictureWrapper>
-                    <PlayerPicture src={player.playerMugshot}>
-                    </PlayerPicture>
+                    <PlayerPicture src={player.playerMugshot} />
                     <PlayerLevel>
                         {player.playerLevel}
                     </PlayerLevel>
@@ -128,7 +146,7 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
                 <PlayerBadgesWrapper>
                     {handleBadgesRendering(player.playerMedals)}
                 </PlayerBadgesWrapper>
-            </ProfileInfoWrapper>
+            </PlayerInfoWrapper>
             <SocialMediaWrapper>
                 {handleSocialMediaRendering(player.socialMedia)}
             </SocialMediaWrapper>
