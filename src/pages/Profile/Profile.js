@@ -83,7 +83,6 @@ const PLAYER_EXAMPLE = {
     ]
 }
 
-
 const handleBadgesRendering = badges => {
     return badges.map(badge => {
         return (
@@ -98,7 +97,7 @@ const handleBadgesRendering = badges => {
 const handlePostsRendering = posts => { 
     return posts.map(post => {
         return(
-            <PostHighlight>
+            <PostHighlight key = {post.title}>
                 <PostTitle>
                     {post.title}
                 </PostTitle>
@@ -113,7 +112,6 @@ const handlePostsRendering = posts => {
 
 const handleSocialMediaRendering = socialMediaList => {
     return socialMediaList.map(socialMedia => {
-
         const SocialMediaSvg = Icons[socialMedia.socialMedia]
         return (
             <SocialMediaIcon href = {socialMedia.url}
