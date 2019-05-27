@@ -89,7 +89,7 @@ const EditorPage = () => {
       localStorage.setItem('user-note', JSON.stringify(outputData))
       saveEditorTest(JSON.stringify(outputData))
     }).catch((error) => {
-      console.log('Saving failed: ', error)
+      alert('Saving failed: ', error)
     });
   }
 
@@ -97,7 +97,7 @@ const EditorPage = () => {
 
     if (!response || !response.data) return
 
-    localStorage.setItem('user-note', JSON.stringify(response.data))
+    localStorage.setItem('user-note', JSON.stringify(response.data.note).replace(/\\/gm, '').replace(/^"/gm, '').replace(/"$/gm, ''))
     setEditorConfig(new EditorJs({
       holder: 'editorjs',
       tools: EDITOR_TOOLS,
@@ -110,9 +110,9 @@ const EditorPage = () => {
 
     setTimeout(() => {
       let codex_redactor = document.querySelector('.codex-editor__redactor')
-      codex_redactor.style.paddingBottom = '0px';;
+      codex_redactor.style.paddingBottom = '0px'
 
-    }, 1500)
+    }, 3000)
   }, [])
 
   return (
