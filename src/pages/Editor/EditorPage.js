@@ -97,7 +97,7 @@ const EditorPage = () => {
 
     if (!response || !response.data) return
 
-    localStorage.setItem('user-note', JSON.stringify(response.data.note).replace(/\\/gm, '').replace(/^"/gm, '').replace(/"$/gm, ''))
+    localStorage.setItem('user-note', response.data.content)
     setEditorConfig(new EditorJs({
       holder: 'editorjs',
       tools: EDITOR_TOOLS,
@@ -109,10 +109,15 @@ const EditorPage = () => {
     getUserNotes().then(response => handleGetUserNotes(response))
 
     setTimeout(() => {
+      try{
       let codex_redactor = document.querySelector('.codex-editor__redactor')
       codex_redactor.style.paddingBottom = '0px'
+    }
+    catch(error){
+      console.error('Failed to get Codex-redactor')
+    }
 
-    }, 3000)
+    }, 5000)
   }, [])
 
   return (

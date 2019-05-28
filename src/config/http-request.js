@@ -5,7 +5,6 @@ export const request = ({
 }) => axios({
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': options.auth
   },
   ...options,
   url: `${url}`,
