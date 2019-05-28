@@ -1,5 +1,16 @@
 import styled from 'styled-components'
 
+
+export const Page = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+
+`
+export const Directories = styled.div`
+
+`
+
 export const Wrapper = styled.div`
   h1 { 
     display: block;
@@ -62,7 +73,7 @@ export const Wrapper = styled.div`
 
 export const Editor = styled.div`
   width: 720px;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 15px);
   overflow-y: auto;
   border: 1px solid red;
 `

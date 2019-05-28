@@ -15,6 +15,8 @@ import Warning from '@editorjs/warning'
 import Link from '@editorjs/link'
 import { saveEditorTest, getUserNotes } from './EditorPage.service'
 import {
+  Page,
+  Directories,
   Wrapper,
   Editor,
   SendButton,
@@ -80,6 +82,20 @@ const EDITOR_TOOLS = {
   }
 }
 
+const reStyleCodexRedactor = () => {
+  const codexget = setInterval(() => {
+    try {
+      let codex_redactor = document.querySelector('.codex-editor__redactor')
+      codex_redactor.style.paddingBottom = '0px'
+      clearInterval(codexget)
+    }
+    catch (error) {
+      console.error('Failed to get Codex-redactor, retrying...')
+    }
+
+  }, 1000)
+}
+
 const EditorPage = () => {
 
   const [editorConfig, setEditorConfig] = useState()
@@ -97,7 +113,7 @@ const EditorPage = () => {
 
     if (!response || !response.data) return
 
-    localStorage.setItem('user-note', JSON.stringify(response.data.note).replace(/\\/gm, '').replace(/^"/gm, '').replace(/"$/gm, ''))
+    localStorage.setItem('user-note', response.data.content)
     setEditorConfig(new EditorJs({
       holder: 'editorjs',
       tools: EDITOR_TOOLS,
@@ -106,23 +122,32 @@ const EditorPage = () => {
   }
 
   useEffect(() => {
-    getUserNotes().then(response => handleGetUserNotes(response))
+    getUserNotes().then(response => handleGetUserNotes(response),
+      () => setEditorConfig(new EditorJs({ tools: EDITOR_TOOLS }))
+    )
 
-    setTimeout(() => {
-      let codex_redactor = document.querySelector('.codex-editor__redactor')
-      codex_redactor.style.paddingBottom = '0px'
+    reStyleCodexRedactor()
 
-    }, 3000)
   }, [])
 
   return (
-    <Wrapper>
-      <SendButton onClick={handleSendNotes}>
-        Send Button
+    <Page>
+      <Directories>
+        <ul>
+          <li>A</li>
+          <li>A</li>
+          <li>A</li>
+          <li>A</li>
+        </ul>
+      </Directories>
+      <Wrapper>
+        <SendButton onClick={handleSendNotes}>
+          Send Button
       </SendButton>
-      <Editor
-        id="editorjs" />
-    </Wrapper>
+        <Editor
+          id="editorjs" />
+      </Wrapper>
+    </Page>
   )
 }
 
