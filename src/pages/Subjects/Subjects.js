@@ -1,6 +1,6 @@
 import React from 'react'
-import { 
-    Card, 
+import SquareCard from '../../components/SquareCard'
+import {
     SubjectTitle, 
     Label, 
     BoldLabel,
@@ -48,15 +48,15 @@ const cards = [
         DaysOfWeek:"Sábados e Domingos",
         LastExercise:"26/04/2666",
         NextExamDate:"01/10/1001",
-        ProgressPercentage:"69",
-        pedagogue:"String<userId>"
+        ProgressPercentage:"30",
+        pedagogue:"Elmo"
     }
 ]
 
 const HandleCardMapping = () => {
     return cards.map((card) => {
         return(
-            <Card>
+            <SquareCard>
                 <SubjectTitle>
                     {card.Subject}
                 </SubjectTitle>
@@ -98,10 +98,10 @@ const HandleCardMapping = () => {
                 <AuthorWrapper>
                     <AuthorImage src="https://pbs.twimg.com/profile_images/1019786468087271425/fKvODolm_400x400.jpg"/>
                     <AuthorName>
-                        Elmo
+                        {card.pedagogue}
                     </AuthorName>
                 </AuthorWrapper>
-            </Card>
+            </SquareCard>
         )
     })
 }

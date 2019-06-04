@@ -30,18 +30,6 @@ export const CardWrapper = styled.section`
   padding: 24px;
 `
 
-export const Card = styled.div`
-  box-shadow: ${design.postBoxShadow};
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 250px;
-  cursor: pointer;
-  padding: 16px;
-  position: relative;
-`
-
 export const SubjectTitle = styled.h1`
   font-size: ${design.hugeText};
   font-weight: bold;

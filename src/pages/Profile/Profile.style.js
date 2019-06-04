@@ -102,32 +102,21 @@ export const SocialMediaIcon = styled.a`
 `
 
 export const PostsHighlightWrapper = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px;
     max-width: 90%;
-`
-
-export const PostHighlight = styled.article`
-    max-width: 45%;
-    box-shadow: ${design.postBoxShadow};
-    margin: 24px;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 250px;
-    cursor: pointer;
+    margin-bottom: 48px;
 `
 
 export const PostTitle = styled.h2`
     font-size: ${design.smallTitle};
     font-weight: 400;
-    margin: 24px 36px;
+    margin: 24px;
     line-height: ${design.mediumTitle};
 `
 
 export const PostContentPreview = styled.p`
     font-family: ${design.secondaryFont};
-    margin: 0 36px;
+    margin: 0 24px;
 `

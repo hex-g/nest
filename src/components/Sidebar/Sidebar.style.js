@@ -48,6 +48,7 @@ export const NavigationItems = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
 `
 
 export const Item = styled.div`
