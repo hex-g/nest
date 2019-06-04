@@ -12,15 +12,23 @@ import Table from '@editorjs/table'
 import Delimiter from '@editorjs/delimiter'
 import Marker from '@editorjs/marker'
 import Warning from '@editorjs/warning'
-import Link from '@editorjs/link'
-import { saveEditorTest, getUserNotes } from './EditorPage.service'
+import { ReactComponent as FileIcon } from '../../assets/file.svg'
+import { ReactComponent as FolderIcon } from '../../assets/folder.svg'
+import {
+  saveEditorTest,
+  getUserNotes,
+  getDirectories,
+} from './EditorPage.service'
 import {
   Page,
   Directories,
+  Directory,
+  Archive,
   Wrapper,
   Editor,
   SendButton,
 } from './EditorPage.style'
+import directoryTreeMapping from '../../utils/DirectoryTreeMapping'
 
 const EDITOR_TOOLS = {
   header: {
@@ -55,7 +63,7 @@ const EDITOR_TOOLS = {
     shortcut: 'CMD+SHIFT+O',
     config: {
       quotePlaceholder: 'Enter a quote',
-      captionPlaceholder: 'Quote\'s author',
+      captionPlaceholder: "Quote's author",
     },
   },
   inlineCode: {
@@ -79,73 +87,101 @@ const EDITOR_TOOLS = {
       titlePlaceholder: 'Title',
       messagePlaceholder: 'Message',
     },
-  }
+  },
 }
 
 const reStyleCodexRedactor = () => {
+  let countError = 0
   const codexget = setInterval(() => {
     try {
       let codex_redactor = document.querySelector('.codex-editor__redactor')
       codex_redactor.style.paddingBottom = '0px'
       clearInterval(codexget)
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Failed to get Codex-redactor, retrying...')
+      countError++
+    } finally {
+      if (countError === 5) {
+        clearInterval(codexget)
+      }
     }
-
   }, 1000)
 }
 
 const EditorPage = () => {
-
   const [editorConfig, setEditorConfig] = useState()
+  const [directories, setDirectories] = useState([])
+
+  const handleDirectoriesMapping = async () => {
+    const response = await getDirectories()
+    const directoryTree =
+      response && response.data && directoryTreeMapping(response.data)
+    setDirectories(directoryTree)
+  }
 
   const handleSendNotes = () => {
-    editorConfig.save().then((outputData) => {
-      localStorage.setItem('user-note', JSON.stringify(outputData))
-      saveEditorTest(JSON.stringify(outputData))
-    }).catch((error) => {
-      alert('Saving failed: ', error)
-    });
+    editorConfig
+      .save()
+      .then(outputData => {
+        localStorage.setItem('user-note', JSON.stringify(outputData))
+        saveEditorTest(JSON.stringify(outputData))
+      })
+      .catch(error => {
+        alert('Saving failed: ', error)
+      })
   }
 
   const handleGetUserNotes = response => {
-
     if (!response || !response.data) return
 
     localStorage.setItem('user-note', response.data.content)
-    setEditorConfig(new EditorJs({
-      holder: 'editorjs',
-      tools: EDITOR_TOOLS,
-      data: JSON.parse(localStorage.getItem('user-note')),
-    }))
+    setEditorConfig(
+      new EditorJs({
+        holder: 'editorjs',
+        tools: EDITOR_TOOLS,
+        data: JSON.parse(localStorage.getItem('user-note')),
+      }),
+    )
   }
 
   useEffect(() => {
-    getUserNotes().then(response => handleGetUserNotes(response),
-      () => setEditorConfig(new EditorJs({ tools: EDITOR_TOOLS }))
+    getUserNotes().then(
+      response => handleGetUserNotes(response),
+      () => setEditorConfig(new EditorJs({ tools: EDITOR_TOOLS })),
     )
 
     reStyleCodexRedactor()
-
+    handleDirectoriesMapping()
   }, [])
 
   return (
     <Page>
       <Directories>
-        <ul>
-          <li>A</li>
-          <li>A</li>
-          <li>A</li>
-          <li>A</li>
-        </ul>
+        {directories &&
+          directories.map((directory, index) => {
+            switch (directory.type) {
+              case 0:
+                return (
+                  <Directory key={index} level={directory.level}>
+                    <FolderIcon style={{marginRight: 10}}/>
+                    {directory.name}
+                  </Directory>
+                )
+              case 1:
+                return (
+                  <Archive key={index} level={directory.level}>
+                    <FileIcon style={{marginRight: 10}}/>
+                    {directory.name}
+                  </Archive>
+                )
+              default:
+                return <></>
+            }
+          })}
       </Directories>
       <Wrapper>
-        <SendButton onClick={handleSendNotes}>
-          Send Button
-      </SendButton>
-        <Editor
-          id="editorjs" />
+        <SendButton onClick={handleSendNotes}>Send Button</SendButton>
+        <Editor id="editorjs" />
       </Wrapper>
     </Page>
   )

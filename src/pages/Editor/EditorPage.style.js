@@ -7,8 +7,24 @@ export const Page = styled.div`
   padding: 5px 0;
 
 `
-export const Directories = styled.div`
+export const Directories = styled.ul`
+  width: 150px;
+  padding-left: 20px;
+  list-style-type: square;
+`
 
+export const Directory = styled.button`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: ${props => props.level * 20}px;
+`
+
+export const Archive = styled.button`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: ${props => props.level * 20}px;
 `
 
 export const Wrapper = styled.div`
