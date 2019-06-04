@@ -27,7 +27,7 @@ export const CardWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px;
-  padding: 24px;
+  padding: 8px;
 `
 
 export const SubjectTitle = styled.h1`
