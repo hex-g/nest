@@ -39,6 +39,7 @@ export const Card = styled.div`
   min-height: 250px;
   cursor: pointer;
   padding: 16px;
+  position: relative;
 `
 
 export const SubjectTitle = styled.h1`
@@ -65,19 +66,51 @@ export const BoldLabel = styled(Label)`
 export const ProgressWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  width: 50%;
 `
 
 export const ProgressBar = styled.progress`
+  appearance: none;
+  width: 70%;
+  height: 20px;
+
+  &::-webkit-progress-bar{
+    border-radius: 4px;
+    overflow: hidden;
+    background: ${design.wildSand};
+    border: solid 1px ${design.rajah};
+  }
+
+  &::-webkit-progress-value{
+    background: ${design.rajah};
+  }
 `
 
-export const ProgressPercentage = styled.p`
+export const ProgressPercentage = styled(BoldLabel)`
+  margin-left: 8px;
+  font-size: ${design.mediumText};
 `
 
 export const AuthorWrapper = styled.figure`
+  position: absolute;
+  bottom: 0;
+  max-width: 50%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 `
 
 export const AuthorImage = styled.img`
+  width: 25%;
+  clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
 `
 
 export const AuthorName = styled.figcaption`
+  padding: 16px 8px 24px 8px;
+  font-weight: bold;
+  box-sizing: border-box;
 `

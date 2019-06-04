@@ -18,6 +18,94 @@ import {
 } from './Subjects.style'
 import SearchBox from '../../components/SearchBox'
 
+const cards = [
+    {
+        Subject:"string",
+        DaysOfWeek:"string",
+        LastExercise:"string",
+        NextExamDate:"Date",
+        ProgressPercentage:"0",
+        pedagogue:"String<userId>"
+    },
+    {
+        Subject:"Curso Hacker 2000",
+        DaysOfWeek:"Sábados e Domingos",
+        LastExercise:"26/04/2666",
+        NextExamDate:"01/10/1001",
+        ProgressPercentage:"69",
+        pedagogue:"String<userId>"
+    },
+    {
+        Subject:"string",
+        DaysOfWeek:"string",
+        LastExercise:"string",
+        NextExamDate:"Date",
+        ProgressPercentage:"100",
+        pedagogue:"String<userId>"
+    },
+    {
+        Subject:"Curso Hacker 2000",
+        DaysOfWeek:"Sábados e Domingos",
+        LastExercise:"26/04/2666",
+        NextExamDate:"01/10/1001",
+        ProgressPercentage:"69",
+        pedagogue:"String<userId>"
+    }
+]
+
+const HandleCardMapping = () => {
+    return cards.map((card) => {
+        return(
+            <Card>
+                <SubjectTitle>
+                    {card.Subject}
+                </SubjectTitle>
+                <LabelWrapper>
+                    <Label>
+                        Aulas:
+                    </Label>
+                    <BoldLabel>
+                        {card.DaysOfWeek}
+                    </BoldLabel>
+                </LabelWrapper>
+                <LabelWrapper>
+                    <Label>
+                        Último Exercício:
+                    </Label>
+                    <BoldLabel>
+                        {card.LastExercise}
+                    </BoldLabel>
+                </LabelWrapper>
+                <LabelWrapper>
+                    <Label>
+                        Próxima Prova:
+                    </Label>
+                    <BoldLabel>
+                        {card.NextExamDate}
+                    </BoldLabel>
+                </LabelWrapper>
+                <LabelWrapper>
+                    <Label>
+                        Progresso de Atividades
+                    </Label>
+                </LabelWrapper>
+                <ProgressWrapper>
+                    <ProgressBar  max="100" value={card.ProgressPercentage}></ProgressBar>
+                    <ProgressPercentage>
+                        {card.ProgressPercentage}%
+                    </ProgressPercentage>
+                </ProgressWrapper>
+                <AuthorWrapper>
+                    <AuthorImage src="https://pbs.twimg.com/profile_images/1019786468087271425/fKvODolm_400x400.jpg"/>
+                    <AuthorName>
+                        Elmo
+                    </AuthorName>
+                </AuthorWrapper>
+            </Card>
+        )
+    })
+}
+
 const Subject = () => {
     return (
         <Page>
@@ -26,129 +114,7 @@ const Subject = () => {
                     <SearchBox />
                 </Form>
                 <CardWrapper>
-                    <Card>
-                        <SubjectTitle>
-                            Curso Hacker 2000
-                        </SubjectTitle>
-                        <Label>
-                            Virus:
-                        </Label>
-                        <BoldLabel>
-                            Baidu anti Java
-                        </BoldLabel>
-                        <ProgressWrapper>
-                            <ProgressBar  max="100" value="70">
-                                69%
-                            </ProgressBar>
-                            <ProgressPercentage>
-                                69%
-                            </ProgressPercentage>
-                        </ProgressWrapper>
-                        <AuthorWrapper>
-                            <AuthorImage/>
-                            <AuthorName>
-                                An elephant in the sunset
-                            </AuthorName>
-                        </AuthorWrapper>
-                    </Card>
-                    <Card>
-                        <SubjectTitle>
-                            Curso Hacker 2000
-                        </SubjectTitle>
-                        <Label>
-                            Virus:
-                        </Label>
-                        <BoldLabel>
-                            Baidu anti Java
-                        </BoldLabel>
-                        <ProgressWrapper>
-                            <ProgressBar  max="100" value="70">
-                                69%
-                            </ProgressBar>
-                            <ProgressPercentage>
-                                69%
-                            </ProgressPercentage>
-                        </ProgressWrapper>
-                        <AuthorWrapper>
-                            <AuthorImage/>
-                            <AuthorName>
-                                An elephant in the sunset
-                            </AuthorName>
-                        </AuthorWrapper>
-                    </Card>
-                    <Card>
-                        <SubjectTitle>
-                            Curso Hacker 2000
-                        </SubjectTitle>
-                        <LabelWrapper>
-                            <Label>
-                                Aulas:
-                            </Label>
-                            <BoldLabel>
-                                Quartas-Feiras
-                            </BoldLabel>
-                        </LabelWrapper>
-                        <LabelWrapper>
-                            <Label>
-                                Último Exercício:
-                            </Label>
-                            <BoldLabel>
-                                06/06/2006
-                            </BoldLabel>
-                        </LabelWrapper>
-                        <LabelWrapper>
-                            <Label>
-                                Próxima Prova:
-                            </Label>
-                            <BoldLabel>
-                                06/06/2006
-                            </BoldLabel>
-                        </LabelWrapper>
-                        <LabelWrapper>
-                            <Label>
-                                Progresso de Atividades:
-                            </Label>
-                        </LabelWrapper>
-                        <ProgressWrapper>
-                            <ProgressBar  max="100" value="70">
-                                69%
-                            </ProgressBar>
-                            <ProgressPercentage>
-                                69%
-                            </ProgressPercentage>
-                        </ProgressWrapper>
-                        <AuthorWrapper>
-                            <AuthorImage/>
-                            <AuthorName>
-                                An elephant in the sunset
-                            </AuthorName>
-                        </AuthorWrapper>
-                    </Card>
-                    <Card>
-                        <SubjectTitle>
-                            Curso Hacker 2000
-                        </SubjectTitle>
-                        <Label>
-                            Virus:
-                        </Label>
-                        <BoldLabel>
-                            Baidu anti Java
-                        </BoldLabel>
-                        <ProgressWrapper>
-                            <ProgressBar  max="100" value="70">
-                                69%
-                            </ProgressBar>
-                            <ProgressPercentage>
-                                69%
-                            </ProgressPercentage>
-                        </ProgressWrapper>
-                        <AuthorWrapper>
-                            <AuthorImage/>
-                            <AuthorName>
-                                An elephant in the sunset
-                            </AuthorName>
-                        </AuthorWrapper>
-                    </Card>
+                    {HandleCardMapping()}
                 </CardWrapper>
             </Container>
         </Page>
