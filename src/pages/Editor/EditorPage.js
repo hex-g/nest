@@ -12,6 +12,7 @@ import Table from '@editorjs/table'
 import Delimiter from '@editorjs/delimiter'
 import Marker from '@editorjs/marker'
 import Warning from '@editorjs/warning'
+import Paragraph from '@editorjs/paragraph'
 import { ReactComponent as FileIcon } from '../../assets/file.svg'
 import { ReactComponent as FolderIcon } from '../../assets/folder.svg'
 import {
@@ -32,66 +33,6 @@ import {
   SendButton,
 } from './EditorPage.style'
 import directoryTreeMapping from '../../utils/DirectoryTreeMapping'
-
-const EDITOR_TOOLS = {
-  header: {
-    class: Header,
-    shortcut: 'CMD+SHIFT+H',
-  },
-  list: {
-    class: List,
-    inlineToolbar: true,
-    shortcut: 'CMD+SHIFT+L',
-  },
-  checklist: {
-    class: Checklist,
-    inlineToolbar: true,
-    shortcut: 'CMD+SHIFT+K',
-  },
-  embed: {
-    class: Embed,
-    config: {
-      services: {
-        youtube: true,
-        imgur: true,
-        codepen: true,
-        'twitch-video': true,
-      },
-    },
-  },
-  image: SimpleImage,
-  quote: {
-    class: Quote,
-    inlineToolbar: true,
-    shortcut: 'CMD+SHIFT+O',
-    config: {
-      quotePlaceholder: 'Enter a quote',
-      captionPlaceholder: "Quote's author",
-    },
-  },
-  inlineCode: {
-    class: InlineCode,
-  },
-  code: Code,
-  table: {
-    class: Table,
-    inlineToolbar: true,
-  },
-  delimiter: Delimiter,
-  marker: {
-    class: Marker,
-    shortcut: 'CMD+SHIFT+M',
-  },
-  warning: {
-    class: Warning,
-    inlineToolbar: true,
-    shortcut: 'CMD+SHIFT+W',
-    config: {
-      titlePlaceholder: 'Title',
-      messagePlaceholder: 'Message',
-    },
-  },
-}
 
 const reStyleCodexRedactor = () => {
   let countError = 0
@@ -114,7 +55,8 @@ const reStyleCodexRedactor = () => {
 const EditorPage = () => {
   const [editorConfig, setEditorConfig] = useState()
   const [directories, setDirectories] = useState([])
-  const [selectedFile, setSelectedFile] = useState('')
+  const [selectedFile, setSelectedFile] = useState('Select a File..')
+  const [loading, setLoading] = useState(false)
 
   const handleDirectoriesMapping = async () => {
     const response = await getDirectories()
@@ -135,28 +77,100 @@ const EditorPage = () => {
       })
   }
 
-  const handleGetUserNotes = response => {
-    if (!response || !response.data) return
-
-    localStorage.setItem('user-note', response.data.content)
+  const handleGetUserNotes = async path => {
+    setLoading(true)
+    const response = await getUserNotes(path)
+    const content = response && response.data && response.data.content
+    localStorage.setItem('user-note', content)
+    if (editorConfig) {
+      editorConfig && editorConfig.destroy()
+      setEditorConfig(null)
+    }
     setEditorConfig(
       new EditorJs({
         holder: 'editorjs',
-        tools: EDITOR_TOOLS,
+        tools: {
+          paragraph: {
+            class: Paragraph,
+            placeholder: '.',
+          },
+          header: {
+            class: Header,
+            shortcut: 'CMD+SHIFT+H',
+          },
+          list: {
+            class: List,
+            inlineToolbar: true,
+            shortcut: 'CMD+SHIFT+L',
+          },
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+            shortcut: 'CMD+SHIFT+K',
+          },
+          embed: {
+            class: Embed,
+            config: {
+              services: {
+                youtube: true,
+                imgur: true,
+                codepen: true,
+                'twitch-video': true,
+              },
+            },
+          },
+          image: SimpleImage,
+          quote: {
+            class: Quote,
+            inlineToolbar: true,
+            shortcut: 'CMD+SHIFT+O',
+            config: {
+              quotePlaceholder: 'Enter a quote',
+              captionPlaceholder: "Quote's author",
+            },
+          },
+          inlineCode: {
+            class: InlineCode,
+          },
+          code: Code,
+          table: {
+            class: Table,
+            inlineToolbar: true,
+          },
+          delimiter: Delimiter,
+          marker: {
+            class: Marker,
+            shortcut: 'CMD+SHIFT+M',
+          },
+          warning: {
+            class: Warning,
+            inlineToolbar: true,
+            shortcut: 'CMD+SHIFT+W',
+            config: {
+              titlePlaceholder: 'Title',
+              messagePlaceholder: 'Message',
+            },
+          },
+        },
         data: JSON.parse(localStorage.getItem('user-note')),
+        onReady: () => {
+          reStyleCodexRedactor()
+          setTimeout(() => setLoading(false), 500)
+        },
       }),
     )
   }
 
   useEffect(() => {
-    getUserNotes().then(
-      response => handleGetUserNotes(response),
-      () => setEditorConfig(new EditorJs({ tools: EDITOR_TOOLS })),
-    )
-
-    reStyleCodexRedactor()
     handleDirectoriesMapping()
   }, [])
+
+  const handleClickFile = async path => {
+    try {
+      await handleGetUserNotes(path)
+      setSelectedFile(path)
+    } catch (error) {}
+  }
 
   return (
     <Page>
@@ -173,7 +187,12 @@ const EditorPage = () => {
                 )
               case 1:
                 return (
-                  <File key={index} level={directory.level}>
+                  <File
+                    key={index}
+                    level={directory.level}
+                    onClick={() => handleClickFile(directory.path)}
+                    disabled={loading}
+                  >
                     <FileIcon style={{ marginRight: 20 }} />
                     <FileName>{directory.name}</FileName>
                   </File>
@@ -184,10 +203,11 @@ const EditorPage = () => {
           })}
       </Directories>
       <Wrapper>
-        <Title>AAA</Title>
-        <Editor id="editorjs">
-          <SendButton onClick={handleSendNotes}>SAVE</SendButton>
-        </Editor>
+        <Title>
+          {selectedFile.replace(/^[/]/gim, '').replace(/[/]/gim, ' - ')}
+        </Title>
+        <SendButton onClick={handleSendNotes}>SAVE</SendButton>
+        <Editor id="editorjs" />
       </Wrapper>
     </Page>
   )

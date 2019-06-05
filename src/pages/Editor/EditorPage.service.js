@@ -1,6 +1,6 @@
 import { request } from '../../config/http-request'
 
-const API = '104.198.143.12'
+// const API = '104.198.143.12'
 const TOKEN =
   'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1NTk2MTQzMjcsImV4cCI6MTU1OTY1NzUyN30.xaHBHuxeAgMcr1iolfE02Xg3sAfHu33k74BgBFS83OZsrrCZWLg8UsHyyODi4dSN05qAXztN3L1VHWDAESsJPg'
 const API_MOCK = 'https://api.myjson.com/bins/byi87'

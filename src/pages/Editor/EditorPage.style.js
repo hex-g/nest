@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { design } from '../../components/Layout'
 
 export const Page = styled.div`
   display: flex;
@@ -138,7 +137,7 @@ export const Title = styled.h1`
 
 export const Editor = styled.div`
   width: inherit;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 110px);
   overflow-y: auto;
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
@@ -151,19 +150,15 @@ export const Editor = styled.div`
     background-color: #555555;
   }
 
-  border: 1px solid red;
+  border: 1px solid rgb(21,21,21);
 `
 
 export const SendButton = styled.button`
   z-index: 2;
   width: 50px;
-  height: 50px;
+  height: 20px;
   box-shadow: 0px 3px 5px 0px rgba(21,21,21,0.3);
-  border-radius: 100%;
   border: 1px solid rgb(21,21,21);
-  position: sticky;
-  top: 10px;
-  left: 10px;
   background: transparent;
   outline: none;
   cursor: pointer;
