@@ -11,11 +11,10 @@ export const Wrapper = styled.div`
   box-shadow: 0 2px 5px rgba(21,21,21,0.2);
 `
 
-export const UserPicture = styled.div`
-  width: 80px;
-  height: 80px;
-  background-image: ${props => props.userPicture};
-  background-size: cover;
+export const UserPicture = styled.img`
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: cover;
 `
 
 export const Content = styled.div`
