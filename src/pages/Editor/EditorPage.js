@@ -22,9 +22,12 @@ import {
 import {
   Page,
   Directories,
-  Directory,
-  Archive,
+  Folder,
+  FolderName,
+  File,
+  FileName,
   Wrapper,
+  Title,
   Editor,
   SendButton,
 } from './EditorPage.style'
@@ -111,6 +114,7 @@ const reStyleCodexRedactor = () => {
 const EditorPage = () => {
   const [editorConfig, setEditorConfig] = useState()
   const [directories, setDirectories] = useState([])
+  const [selectedFile, setSelectedFile] = useState('')
 
   const handleDirectoriesMapping = async () => {
     const response = await getDirectories()
@@ -162,17 +166,17 @@ const EditorPage = () => {
             switch (directory.type) {
               case 0:
                 return (
-                  <Directory key={index} level={directory.level}>
-                    <FolderIcon style={{marginRight: 10}}/>
-                    {directory.name}
-                  </Directory>
+                  <Folder key={index} level={directory.level}>
+                    <FolderIcon style={{ marginRight: 20 }} />
+                    <FolderName>{directory.name}</FolderName>
+                  </Folder>
                 )
               case 1:
                 return (
-                  <Archive key={index} level={directory.level}>
-                    <FileIcon style={{marginRight: 10}}/>
-                    {directory.name}
-                  </Archive>
+                  <File key={index} level={directory.level}>
+                    <FileIcon style={{ marginRight: 20 }} />
+                    <FileName>{directory.name}</FileName>
+                  </File>
                 )
               default:
                 return <></>
@@ -180,8 +184,10 @@ const EditorPage = () => {
           })}
       </Directories>
       <Wrapper>
-        <SendButton onClick={handleSendNotes}>Send Button</SendButton>
-        <Editor id="editorjs" />
+        <Title>AAA</Title>
+        <Editor id="editorjs">
+          <SendButton onClick={handleSendNotes}>SAVE</SendButton>
+        </Editor>
       </Wrapper>
     </Page>
   )
