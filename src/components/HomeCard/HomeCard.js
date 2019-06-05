@@ -10,7 +10,7 @@ import {
 
 const HomeCard = ({ userPicture, username, description, postDate }) => (
   <Wrapper>
-    <UserPicture userPicture={userPicture} />
+    <UserPicture src={userPicture} />
     <Content>
       <Username>{username}</Username>
       <Description>{description}</Description>
