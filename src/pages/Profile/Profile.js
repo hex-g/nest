@@ -1,5 +1,6 @@
 import React from 'react'
 import Icons from '../../Images/Icons'
+import SquareCard from '../../components/SquareCard'
 import {
     PageWrapper,
     PlayerHeader,
@@ -89,14 +90,14 @@ const handleBadgesRendering = badges => {
 const handlePostsRendering = posts => { 
     return posts.map(post => {
         return(
-            <PostHighlight key = {post.title}>
+            <SquareCard key = {post.title}>
                 <PostTitle>
                     {post.title}
                 </PostTitle>
                 <PostContentPreview>
                     {post.content}
                 </PostContentPreview>
-            </PostHighlight>    
+            </SquareCard>    
         )
     })
 }
