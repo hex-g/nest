@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { textColor } from '../../components/Layout'
 
 export const Page = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ export const Page = styled.div`
 export const Directories = styled.ul`
   max-width: calc(100vh - 50px);
   height: calc(100vh - 35px);
-  padding: 10px 20px;
+  padding: 10px 20px;  
   list-style-type: square;
   border-right: 1px solid #d3d3d3;
   overflow-y: auto;
@@ -39,6 +40,7 @@ export const Folder = styled.button`
 `
 
 export const FolderName = styled.span`
+  color: ${textColor};
   width: inherit;
   white-space: nowrap;
   overflow: hidden;
@@ -64,6 +66,7 @@ export const File = styled.button`
 `
 
 export const FileName = styled.span`
+  color: ${textColor};
   width: inherit;
   white-space: nowrap;
   overflow: hidden;
@@ -150,7 +153,7 @@ export const Editor = styled.div`
     background-color: #555555;
   }
 
-  border: 1px solid rgb(21,21,21);
+  border: 1px solid ${textColor};
 `
 
 export const SendButton = styled.button`
@@ -158,7 +161,7 @@ export const SendButton = styled.button`
   width: 50px;
   height: 20px;
   box-shadow: 0px 3px 5px 0px rgba(21,21,21,0.3);
-  border: 1px solid rgb(21,21,21);
+  border: 1px solid ${textColor};
   background: transparent;
   outline: none;
   cursor: pointer;
