@@ -1,4 +1,4 @@
-export const SIDEBAR_PAGES = [{title: 'Inicio', link: 'profile', icon: ''}]
+export const SIDEBAR_PAGES = [{title: 'Inicio', link: '/', icon: ''}, {title: 'Editor', link: 'editor', icon: ''}]
 
 export const THEME_COLORS = {
   LIGHT: 'light',
