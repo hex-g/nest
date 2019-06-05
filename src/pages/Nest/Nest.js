@@ -44,9 +44,7 @@ const Nest = ({
     <Page>
       <Container>
         <Form>
-          <Search>
-            <SearchBox />
-          </Search>
+          <SearchBox />
           <HorizontalNavigation>
             <HorizontalNavbar options={options} />
           </HorizontalNavigation>
