@@ -11,25 +11,19 @@ import {
   Content
 } from './Nest.style'
 
-const EXAMPLE_HORIZONTAL_NAVBAR = ['AVISOS', 'STATUS']
+const EXAMPLE_HORIZONTAL_NAVBAR = ['AVISOS']
 
 const EXAMPLE_CARD_POSTS = [
   {
-    user: 'Caio',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
+    user: 'Germano',
+    profilePic: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
+    description: 'Construir uma API REST não é tão difícil quanto parece. Neste tutorial vamos precisar das ferramentas listadas abaixo...',
     date: '20 Jan 2019',
   },
   {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
-    date: '20 Jan 1999',
-  },
-  {
-    user: 'Hirumitsu',
-    profilePic: 'url("https://img.fireden.net/v/image/1462/63/1462638729784.png")',
-    description: 'Lorem ipsum dolor sit amet',
+    user: 'Germano',
+    profilePic: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
+    description: 'Aprenda a trabalhar com uma das ferramentas mais utilizadas no mercado de Java...',
     date: '20 Jan 1999',
   },
 ]
@@ -44,9 +38,7 @@ const Nest = ({
     <Page>
       <Container>
         <Form>
-          <Search>
-            <SearchBox />
-          </Search>
+          <SearchBox />
           <HorizontalNavigation>
             <HorizontalNavbar options={options} />
           </HorizontalNavigation>

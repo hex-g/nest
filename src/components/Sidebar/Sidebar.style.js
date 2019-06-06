@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { design, backgroundColor } from '../Layout'
+import { design, backgroundColor, textColor } from '../Layout'
 
 export const Aside = styled.aside`
   height: 100%;
@@ -32,10 +32,10 @@ export const ProfileContent = styled.div`
   }
 `
 
-export const UserImage = styled.div`
-  width: 80px;
-  height: 80px;
-  background: ${({ image }) => image ? image : 'green'};
+export const UserImage = styled.img`
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: cover;
 `
 
 export const Username = styled.p`
@@ -48,6 +48,7 @@ export const NavigationItems = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
 `
 
 export const Item = styled.div`
@@ -74,6 +75,7 @@ export const ItemTitle = styled.p`
   padding: 5px 10px;
   flex-grow: 1;
   ${({ isOpen }) => isOpen ? 'display: inline-block' : 'display: none'};
+  color: ${textColor};
 `
 
 export const LogoWrapper = styled.div`
@@ -87,12 +89,6 @@ export const LogoWrapper = styled.div`
     transition-delay: 100ms;
     opacity: 0;`
   };  
-`
-
-export const Logo = styled.div`
-  width: 100%;
-  height: 100%;
-  background: blue;
 `
 
 export const ToggleButton = styled.button`

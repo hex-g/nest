@@ -13,8 +13,8 @@ import {
 
 // Remover
 const user = {
-  username: 'Caio',
-  image: 'red',
+  username: 'Germano',
+  image: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
 }
 
 const Template = ({ children, handleThemeChange }) => {
