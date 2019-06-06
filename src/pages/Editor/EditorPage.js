@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import EditorJs from '@editorjs/editorjs'
 import Header from '@editorjs/header'
 import List from '@editorjs/list'
@@ -13,8 +13,8 @@ import Delimiter from '@editorjs/delimiter'
 import Marker from '@editorjs/marker'
 import Warning from '@editorjs/warning'
 import Paragraph from '@editorjs/paragraph'
-import { ReactComponent as FileIcon } from '../../assets/file.svg'
-import { ReactComponent as FolderIcon } from '../../assets/folder.svg'
+import {ReactComponent as FileIcon} from '../../assets/file.svg'
+import {ReactComponent as FolderIcon} from '../../assets/folder.svg'
 import {
   saveEditorText,
   getUserNote,
@@ -57,15 +57,14 @@ const reStyleCodexRedactor = () => {
 
 const EditorPage = () => {
   const [editorConfig, setEditorConfig] = useState()
-  const [directories, setDirectories] = useState([])
   const [selectedFile, setSelectedFile] = useState('Select a File..')
   const [loading, setLoading] = useState(false)
 
+  const [root, setRoot] = useState({children: []})
+
   const handleDirectoriesMapping = async () => {
     const response = await getDirectories()
-    const directoryTree =
-      response && response.data && directoryTreeMapping(response.data)
-    setDirectories(directoryTree)
+    response && response.data && setRoot(response.data)
   }
 
   const handleSendNotes = () => {
@@ -247,48 +246,81 @@ const EditorPage = () => {
     try {
       await handleGetUserNotes(path)
       setSelectedFile(path)
-    } catch (error) {}
+    }catch (error){
+
+    }
+
+  }
+
+  const f = (index, e, s = '', level = 0) => {
+    console.log(e)
+    if (e === undefined) {
+      return;
+    }
+    if (e.children) {  // se for uma pasta
+      return (
+        <div>
+          <Folder key={index} level={level}>
+            <FolderIcon style={{marginRight: 20}}/>
+            <FolderName>{e.name}</FolderName>
+          </Folder>
+          <div>
+            {e.children.map((i, index) => f(index, i, s + e.name + '/', level + 1))}
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <File
+        key={index}
+        level={level}
+        onClick={() => handleClickFile(s + e.name)}
+        disabled={loading}
+      >
+        <FileIcon style={{marginRight: 20}}/>
+        <FileName>{e.name}</FileName>
+      </File>
+    )
   }
 
   return (
     <Page>
       <Directories>
         <Files>
-          {directories &&
-            directories.map((directory, index) => {
-              switch (directory.type) {
-                case 0:
-                  return (
-                    <Folder key={index} level={directory.level}>
-                      <FolderIcon style={{ marginRight: 20 }} />
-                      <FolderName>{directory.name}</FolderName>
-                    </Folder>
-                  )
-                case 1:
-                  return (
-                    <File
-                      key={index}
-                      level={directory.level}
-                      onClick={() => handleClickFile(directory.path)}
-                      disabled={loading}
-                    >
-                      <FileIcon style={{ marginRight: 20 }} />
-                      <FileName>{directory.name}</FileName>
-                    </File>
-                  )
-                default:
-                  return <></>
-              }
-            })}
+          {root.children.map((i, index) => f(index, i))}
         </Files>
         <NewFile
           onClick={() => {
-            const newFile = window.prompt('Digite o nome do Arquivo:')
-            setDirectories([
-              ...directories,
-              { name: newFile, level: 0, type: 1, path: `/${newFile}` },
-            ])
-            saveEditorText('', `/${newFile}`)
+            const path = window.prompt('Digite o nome do Arquivo:')
+
+            const nodes = path.split('/')
+            const file = nodes.pop()
+            let currentNode = root
+            nodes.forEach(name => currentNode.children.forEach(e => {
+              if (e.name === name) {
+                currentNode = e
+              }
+            }))
+            currentNode.children.push({
+              name: file,
+              children: null
+            })
+
+
+            const newRoot = {
+              children: root.children
+            }
+
+            setRoot(newRoot)
+
+            saveEditorText('', `/${path}`)
+
+            // setRoot([
+            //   ...directories,
+            //   {name: newFile, level: 0, type: 1, path: `/${newFile}`},
+            // ])
+            // saveEditorText('', `/${newFile}`)
           }}
         >
           Nova Anotação
@@ -296,10 +328,10 @@ const EditorPage = () => {
       </Directories>
       <Wrapper>
         <Title>
-          {selectedFile.replace(/^[/]/gim, '').replace(/[/]/gim, ' - ')}
+          {selectedFile.replace(/\//gmi, ' > ')}
         </Title>
         <SendButton onClick={handleSendNotes}>SAVE</SendButton>
-        <Editor id="editorjs" />
+        <Editor id="editorjs"/>
       </Wrapper>
     </Page>
   )
