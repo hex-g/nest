@@ -16,12 +16,14 @@ import Paragraph from '@editorjs/paragraph'
 import { ReactComponent as FileIcon } from '../../assets/file.svg'
 import { ReactComponent as FolderIcon } from '../../assets/folder.svg'
 import {
-  saveEditorTest,
-  getUserNotes,
+  saveEditorText,
+  getUserNote,
   getDirectories,
+  deleteUserNote,
 } from './EditorPage.service'
 import {
   Page,
+  Files,
   Directories,
   Folder,
   FolderName,
@@ -31,6 +33,7 @@ import {
   Title,
   Editor,
   SendButton,
+  NewFile,
 } from './EditorPage.style'
 import directoryTreeMapping from '../../utils/DirectoryTreeMapping'
 
@@ -70,7 +73,7 @@ const EditorPage = () => {
       .save()
       .then(outputData => {
         localStorage.setItem('user-note', JSON.stringify(outputData))
-        saveEditorTest(JSON.stringify(outputData))
+        saveEditorText(JSON.stringify(outputData), selectedFile)
       })
       .catch(error => {
         alert('Saving failed: ', error)
@@ -79,86 +82,161 @@ const EditorPage = () => {
 
   const handleGetUserNotes = async path => {
     setLoading(true)
-    const response = await getUserNotes(path)
+    const response = await getUserNote(path)
     const content = response && response.data && response.data.content
     localStorage.setItem('user-note', content)
     if (editorConfig) {
       editorConfig && editorConfig.destroy()
       setEditorConfig(null)
     }
-    setEditorConfig(
-      new EditorJs({
-        holder: 'editorjs',
-        tools: {
-          paragraph: {
-            class: Paragraph,
-            placeholder: '.',
-          },
-          header: {
-            class: Header,
-            shortcut: 'CMD+SHIFT+H',
-          },
-          list: {
-            class: List,
-            inlineToolbar: true,
-            shortcut: 'CMD+SHIFT+L',
-          },
-          checklist: {
-            class: Checklist,
-            inlineToolbar: true,
-            shortcut: 'CMD+SHIFT+K',
-          },
-          embed: {
-            class: Embed,
-            config: {
-              services: {
-                youtube: true,
-                imgur: true,
-                codepen: true,
-                'twitch-video': true,
+    if (content) {
+      setEditorConfig(
+        new EditorJs({
+          holder: 'editorjs',
+          tools: {
+            paragraph: {
+              class: Paragraph,
+              placeholder: '.',
+            },
+            header: {
+              class: Header,
+              shortcut: 'CMD+SHIFT+H',
+            },
+            list: {
+              class: List,
+              inlineToolbar: true,
+              shortcut: 'CMD+SHIFT+L',
+            },
+            checklist: {
+              class: Checklist,
+              inlineToolbar: true,
+              shortcut: 'CMD+SHIFT+K',
+            },
+            embed: {
+              class: Embed,
+              config: {
+                services: {
+                  youtube: true,
+                  imgur: true,
+                  codepen: true,
+                  'twitch-video': true,
+                },
+              },
+            },
+            image: SimpleImage,
+            quote: {
+              class: Quote,
+              inlineToolbar: true,
+              shortcut: 'CMD+SHIFT+O',
+              config: {
+                quotePlaceholder: 'Enter a quote',
+                captionPlaceholder: "Quote's author",
+              },
+            },
+            inlineCode: {
+              class: InlineCode,
+            },
+            code: Code,
+            table: {
+              class: Table,
+              inlineToolbar: true,
+            },
+            delimiter: Delimiter,
+            marker: {
+              class: Marker,
+              shortcut: 'CMD+SHIFT+M',
+            },
+            warning: {
+              class: Warning,
+              inlineToolbar: true,
+              shortcut: 'CMD+SHIFT+W',
+              config: {
+                titlePlaceholder: 'Title',
+                messagePlaceholder: 'Message',
               },
             },
           },
-          image: SimpleImage,
-          quote: {
-            class: Quote,
-            inlineToolbar: true,
-            shortcut: 'CMD+SHIFT+O',
-            config: {
-              quotePlaceholder: 'Enter a quote',
-              captionPlaceholder: "Quote's author",
+          data: JSON.parse(localStorage.getItem('user-note')),
+          onReady: () => {
+            reStyleCodexRedactor()
+            setTimeout(() => setLoading(false), 500)
+          },
+        }),
+      )
+    } else {
+      setEditorConfig(
+        new EditorJs({
+          holder: 'editorjs',
+          tools: {
+            paragraph: {
+              class: Paragraph,
+              placeholder: '.',
+            },
+            header: {
+              class: Header,
+              shortcut: 'CMD+SHIFT+H',
+            },
+            list: {
+              class: List,
+              inlineToolbar: true,
+              shortcut: 'CMD+SHIFT+L',
+            },
+            checklist: {
+              class: Checklist,
+              inlineToolbar: true,
+              shortcut: 'CMD+SHIFT+K',
+            },
+            embed: {
+              class: Embed,
+              config: {
+                services: {
+                  youtube: true,
+                  imgur: true,
+                  codepen: true,
+                  'twitch-video': true,
+                },
+              },
+            },
+            image: SimpleImage,
+            quote: {
+              class: Quote,
+              inlineToolbar: true,
+              shortcut: 'CMD+SHIFT+O',
+              config: {
+                quotePlaceholder: 'Enter a quote',
+                captionPlaceholder: "Quote's author",
+              },
+            },
+            inlineCode: {
+              class: InlineCode,
+            },
+            code: Code,
+            table: {
+              class: Table,
+              inlineToolbar: true,
+            },
+            delimiter: Delimiter,
+            marker: {
+              class: Marker,
+              shortcut: 'CMD+SHIFT+M',
+            },
+            warning: {
+              class: Warning,
+              inlineToolbar: true,
+              shortcut: 'CMD+SHIFT+W',
+              config: {
+                titlePlaceholder: 'Title',
+                messagePlaceholder: 'Message',
+              },
             },
           },
-          inlineCode: {
-            class: InlineCode,
+          onReady: () => {
+            reStyleCodexRedactor()
+            setTimeout(() => setLoading(false), 500)
           },
-          code: Code,
-          table: {
-            class: Table,
-            inlineToolbar: true,
-          },
-          delimiter: Delimiter,
-          marker: {
-            class: Marker,
-            shortcut: 'CMD+SHIFT+M',
-          },
-          warning: {
-            class: Warning,
-            inlineToolbar: true,
-            shortcut: 'CMD+SHIFT+W',
-            config: {
-              titlePlaceholder: 'Title',
-              messagePlaceholder: 'Message',
-            },
-          },
-        },
-        data: JSON.parse(localStorage.getItem('user-note')),
-        onReady: () => {
-          reStyleCodexRedactor()
-          setTimeout(() => setLoading(false), 500)
-        },
-      }),
-    )
+        }),
+      )
+    }
   }
 
   useEffect(() => {
@@ -175,32 +253,46 @@ const EditorPage = () => {
   return (
     <Page>
       <Directories>
-        {directories &&
-          directories.map((directory, index) => {
-            switch (directory.type) {
-              case 0:
-                return (
-                  <Folder key={index} level={directory.level}>
-                    <FolderIcon style={{ marginRight: 20 }} />
-                    <FolderName>{directory.name}</FolderName>
-                  </Folder>
-                )
-              case 1:
-                return (
-                  <File
-                    key={index}
-                    level={directory.level}
-                    onClick={() => handleClickFile(directory.path)}
-                    disabled={loading}
-                  >
-                    <FileIcon style={{ marginRight: 20 }} />
-                    <FileName>{directory.name}</FileName>
-                  </File>
-                )
-              default:
-                return <></>
-            }
-          })}
+        <Files>
+          {directories &&
+            directories.map((directory, index) => {
+              switch (directory.type) {
+                case 0:
+                  return (
+                    <Folder key={index} level={directory.level}>
+                      <FolderIcon style={{ marginRight: 20 }} />
+                      <FolderName>{directory.name}</FolderName>
+                    </Folder>
+                  )
+                case 1:
+                  return (
+                    <File
+                      key={index}
+                      level={directory.level}
+                      onClick={() => handleClickFile(directory.path)}
+                      disabled={loading}
+                    >
+                      <FileIcon style={{ marginRight: 20 }} />
+                      <FileName>{directory.name}</FileName>
+                    </File>
+                  )
+                default:
+                  return <></>
+              }
+            })}
+        </Files>
+        <NewFile
+          onClick={() => {
+            const newFile = window.prompt('Digite o nome do Arquivo:')
+            setDirectories([
+              ...directories,
+              { name: newFile, level: 0, type: 1, path: `/${newFile}` },
+            ])
+            saveEditorText('', `/${newFile}`)
+          }}
+        >
+          Nova Anotação
+        </NewFile>
       </Directories>
       <Wrapper>
         <Title>

@@ -7,20 +7,25 @@ export const Page = styled.div`
   padding: 5px 0;
 `
 
-export const Directories = styled.ul`
-  max-width: calc(100vh - 50px);
+export const Directories = styled.div`
+  width: 300px;
   height: calc(100vh - 35px);
-  padding: 10px 20px;  
-  list-style-type: square;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-right: 1px solid #d3d3d3;
+`
+
+export const Files = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   }
   &::-webkit-scrollbar {
     width: 3px;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #555555;
@@ -28,7 +33,7 @@ export const Directories = styled.ul`
 `
 
 export const Folder = styled.button`
-  width: 200px;
+  width: 100%;
   display: flex;
   align-items: center;
   margin-top: 10px;
@@ -50,7 +55,7 @@ export const FolderName = styled.span`
 `
 
 export const File = styled.button`
-  width: 200px;
+  width: 100%;
   display: flex;
   align-items: center;
   margin-top: 10px;
@@ -135,19 +140,18 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Title = styled.h1`
-`
+export const Title = styled.h1``
 
 export const Editor = styled.div`
   width: inherit;
   height: calc(100vh - 110px);
   overflow-y: auto;
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   }
   &::-webkit-scrollbar {
     width: 3px;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #555555;
@@ -160,10 +164,17 @@ export const SendButton = styled.button`
   z-index: 2;
   width: 50px;
   height: 20px;
-  box-shadow: 0px 3px 5px 0px rgba(21,21,21,0.3);
+  box-shadow: 0px 3px 5px 0px rgba(21, 21, 21, 0.3);
   border: 1px solid ${textColor};
   background: transparent;
   outline: none;
   cursor: pointer;
   font-size: 12px;
+  color: ${textColor};
+`
+
+export const NewFile = styled.button`
+  width: 100%;
+  height: 40px;
+  position: relative;
 `
