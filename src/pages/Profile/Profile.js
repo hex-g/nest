@@ -1,6 +1,9 @@
 import React from 'react'
 import Icons from '../../Images/Icons'
 import SquareCard from '../../components/SquareCard'
+
+import { getAccessToken } from '../../config/services/caronte.service'
+import { getMugshot } from '../../config/services/mugshot.service'
 import {
     PageWrapper,
     PlayerHeader,
@@ -117,13 +120,22 @@ const handleSocialMediaRendering = socialMediaList => {
     });
 }
 
+const requestMugshot = async () => {
+    const response = await getAccessToken('admin', 'admin')
+    response && response.headers && response.headers.authorization && console.log(response)
+    const mugsponse = await getMugshot(response.headers.authorization)
+    
+    document.querySelector('#mugshot').src = ("data:image/png;base64," + mugsponse.data)
+}
+
 const Profile = ({player = PLAYER_EXAMPLE}) => {
+    requestMugshot();
     return (
         <PageWrapper>
             <PlayerHeader headerImage={player.playerBanner} />
             <PlayerInfoWrapper>
                 <PlayerPictureWrapper>
-                    <PlayerPicture src={player.playerMugshot} />
+                    <PlayerPicture id="mugshot" />
                     <PlayerLevel>
                         {player.playerLevel}
                     </PlayerLevel>

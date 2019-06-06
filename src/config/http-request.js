@@ -2,14 +2,17 @@ import axios from 'axios'
 
 export const request = ({
   url, ...options
-}) => axios({
+}) => {
+  console.log('oi',options.data.auth)
+  return axios({
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': options.auth
+    'Authorization': options.data.auth
   },
   ...options,
   url: `${url}`,
 })
+}
 
 const configInterceptorResponse = () => {
   axios.interceptors.response.use(
