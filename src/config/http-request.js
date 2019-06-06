@@ -3,10 +3,6 @@ import axios from 'axios'
 export const request = ({
   url, ...options
 }) => axios({
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': options.auth
-  },
   ...options,
   url: `${url}`,
 })
