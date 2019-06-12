@@ -29,6 +29,10 @@ export const CardWrapper = styled.section`
   grid-gap: 24px;
   padding: 8px;
 `
+export const CardLink = styled.a`
+  text-decoration: none;
+  color: inherit;
+`
 
 export const SubjectTitle = styled.h1`
   font-size: ${design.hugeText};

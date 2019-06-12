@@ -12,7 +12,7 @@ import {
     AuthorName,
     Page,
     Container,
-    CardWrapper,
+    CardWrapper,CardLink,
     Form,
     LabelWrapper
 } from './Subjects.style'
@@ -56,6 +56,7 @@ const cards = [
 const HandleCardMapping = () => {
     return cards.map((card) => {
         return(
+        <CardLink href={`subject?subject=${card.pedagogue}`}>
             <SquareCard>
                 <SubjectTitle>
                     {card.Subject}
@@ -102,6 +103,7 @@ const HandleCardMapping = () => {
                     </AuthorName>
                 </AuthorWrapper>
             </SquareCard>
+        </CardLink>
         )
     })
 }
