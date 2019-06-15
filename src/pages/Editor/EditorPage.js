@@ -37,6 +37,65 @@ import {
 } from './EditorPage.style'
 import directoryTreeMapping from '../../utils/DirectoryTreeMapping'
 
+const alphabeticalOrder = (a, b) => {
+  if (a < b) {
+    return -1
+  }
+  if (a > b) {
+    return 1
+  }
+  return 0
+}
+
+const compareNodes = (a, b) => {
+  if (a.children === null && b.children === null) {
+    return alphabeticalOrder(a.name, b.name)
+  }
+  if (b.children === null) {
+    return -1
+  }
+  if (a.children === null) {
+    return 1
+  }
+  return alphabeticalOrder(a.name, b.name)
+}
+
+const findOrCreateDir = (parent, name) => {
+  for (let e of parent.children) {
+    if (e.name === name) {
+      return e
+    }
+  }
+  const node = {
+    name: name,
+    children: [],
+  }
+  parent.children.push(node)
+  parent.children.sort(compareNodes)
+  return node
+}
+
+const createFile = (parent, name) => {
+  if (parent.children.find(e => e.name === name)) {
+    return false
+  }
+  parent.children.push({
+    name: name,
+    children: null,
+  })
+  parent.children.sort(compareNodes)
+  return true
+}
+
+const sortTree = root => {
+  if (root.children === null) {
+    return root
+  }
+  root.children.sort(compareNodes)
+  root.children.forEach(sortTree)
+  return root
+}
+
 const reStyleCodexRedactor = () => {
   let countError = 0
   const codexget = setInterval(() => {
@@ -64,7 +123,7 @@ const EditorPage = () => {
 
   const handleDirectoriesMapping = async () => {
     const response = await getDirectories()
-    response && response.data && setRoot(response.data)
+    response && response.data && setRoot(sortTree(response.data))
   }
 
   const handleSendNotes = () => {
@@ -252,7 +311,7 @@ const EditorPage = () => {
 
   }
 
-  const f = (index, e, s = '', level = 0) => {
+  const walkTree = (index, e, s = '', level = 0) => {
     console.log(e)
     if (e === undefined) {
       return;
@@ -265,7 +324,7 @@ const EditorPage = () => {
             <FolderName>{e.name}</FolderName>
           </Folder>
           <div>
-            {e.children.map((i, index) => f(index, i, s + e.name + '/', level + 1))}
+            {e.children.map((i, index) => walkTree(index, i, s + e.name + '/', level + 1))}
           </div>
         </div>
       )
@@ -288,7 +347,7 @@ const EditorPage = () => {
     <Page>
       <Directories>
         <Files>
-          {root.children.map((i, index) => f(index, i))}
+          {root.children.map((i, index) => walkTree(index, i))}
         </Files>
         <NewFile
           onClick={() => {
@@ -297,16 +356,8 @@ const EditorPage = () => {
             const nodes = path.split('/')
             const file = nodes.pop()
             let currentNode = root
-            nodes.forEach(name => currentNode.children.forEach(e => {
-              if (e.name === name) {
-                currentNode = e
-              }
-            }))
-            currentNode.children.push({
-              name: file,
-              children: null
-            })
-
+            nodes.forEach(name => currentNode = findOrCreateDir(currentNode, name))
+            createFile(currentNode, file)
 
             const newRoot = {
               children: root.children
@@ -315,12 +366,6 @@ const EditorPage = () => {
             setRoot(newRoot)
 
             saveEditorText('', `/${path}`)
-
-            // setRoot([
-            //   ...directories,
-            //   {name: newFile, level: 0, type: 1, path: `/${newFile}`},
-            // ])
-            // saveEditorText('', `/${newFile}`)
           }}
         >
           Nova Anotação

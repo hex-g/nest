@@ -1,7 +1,7 @@
 import { request } from '../../config/http-request'
 
 const API = 'http://104.198.143.12:8762'
-const TOKEN = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1NTk4NTY2NjgsImV4cCI6MTU1OTg5OTg2OH0.9NEB4z7R8v2_n0NphMzVaLFpzh92MgQhRjlXvboK91S4A1A4JH94Ixwe5AR9nz-FQJGNUalYTsLu96IdaHhfMQ'
+const TOKEN = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1NjA1NDg5NjksImV4cCI6MTU2MDU5MjE2OX0.eqEnjpGG2cag2PQf_zjEauzoo2Eywru2jJ-MXeSfOsXY-KTuJyqqD9YI-wnCSCnC8-KnIv8PZbs6NhCSgrlMcw'
 
 export const saveEditorText = async (note, path) => {
   return await request({
