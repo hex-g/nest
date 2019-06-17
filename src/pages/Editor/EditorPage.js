@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import EditorJs from '@editorjs/editorjs'
 import Header from '@editorjs/header'
 import List from '@editorjs/list'
@@ -13,13 +13,14 @@ import Delimiter from '@editorjs/delimiter'
 import Marker from '@editorjs/marker'
 import Warning from '@editorjs/warning'
 import Paragraph from '@editorjs/paragraph'
-import {ReactComponent as FileIcon} from '../../assets/file.svg'
-import {ReactComponent as FolderIcon} from '../../assets/folder.svg'
+import { ReactComponent as FileIcon } from '../../assets/file.svg'
+import { ReactComponent as FolderIcon } from '../../assets/folder.svg'
 import {
   saveEditorText,
   getUserNote,
   getDirectories,
   deleteUserNote,
+  pegaToken,
 } from './EditorPage.service'
 import {
   Page,
@@ -28,14 +29,15 @@ import {
   Folder,
   FolderName,
   File,
+  FileButton,
   FileName,
   Wrapper,
   Title,
   Editor,
   SendButton,
   NewFile,
+  DeleteButton,
 } from './EditorPage.style'
-import directoryTreeMapping from '../../utils/DirectoryTreeMapping'
 
 const alphabeticalOrder = (a, b) => {
   if (a < b) {
@@ -116,10 +118,10 @@ const reStyleCodexRedactor = () => {
 
 const EditorPage = () => {
   const [editorConfig, setEditorConfig] = useState()
-  const [selectedFile, setSelectedFile] = useState('Select a File..')
+  const [selectedFile, setSelectedFile] = useState('Select a file...')
   const [loading, setLoading] = useState(false)
 
-  const [root, setRoot] = useState({children: []})
+  const [root, setRoot] = useState({ children: [] })
 
   const handleDirectoriesMapping = async () => {
     const response = await getDirectories()
@@ -305,26 +307,22 @@ const EditorPage = () => {
     try {
       await handleGetUserNotes(path)
       setSelectedFile(path)
-    }catch (error){
+    } catch (error) {
 
     }
 
   }
 
-  const walkTree = (index, e, s = '', level = 0) => {
-    console.log(e)
-    if (e === undefined) {
-      return;
-    }
-    if (e.children) {  // se for uma pasta
+  const walkTree = (index, e, path = '', level = 0) => {
+    if (e.children !== null) {
       return (
         <div>
           <Folder key={index} level={level}>
-            <FolderIcon style={{marginRight: 20}}/>
+            <FolderIcon style={{ marginRight: 20 }} />
             <FolderName>{e.name}</FolderName>
           </Folder>
           <div>
-            {e.children.map((i, index) => walkTree(index, i, s + e.name + '/', level + 1))}
+            {e.children.map((i, index) => walkTree(index, i, path + e.name + '/', level + 1))}
           </div>
         </div>
       )
@@ -334,11 +332,18 @@ const EditorPage = () => {
       <File
         key={index}
         level={level}
-        onClick={() => handleClickFile(s + e.name)}
-        disabled={loading}
       >
-        <FileIcon style={{marginRight: 20}}/>
-        <FileName>{e.name}</FileName>
+        <FileButton onClick={() => handleClickFile(path + e.name)}
+          disabled={loading}>
+          <FileIcon style={{ marginRight: 20 }} />
+          <FileName>{e.name}</FileName>
+        </FileButton>
+        <DeleteButton onClick={
+          async () => {
+            await deleteUserNote(path + e.name)
+            handleDirectoriesMapping()
+          }
+        }>X</DeleteButton>
       </File>
     )
   }
@@ -347,7 +352,7 @@ const EditorPage = () => {
     <Page>
       <Directories>
         <Files>
-          {root.children.map((i, index) => walkTree(index, i))}
+          {root.children.map((i, index) => i && walkTree(index, i))}
         </Files>
         <NewFile
           onClick={() => {
@@ -376,7 +381,7 @@ const EditorPage = () => {
           {selectedFile.replace(/\//gmi, ' > ')}
         </Title>
         <SendButton onClick={handleSendNotes}>SAVE</SendButton>
-        <Editor id="editorjs"/>
+        <Editor id="editorjs" />
       </Wrapper>
     </Page>
   )
