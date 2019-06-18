@@ -3,7 +3,7 @@ import Sidebar from '../components/Sidebar'
 import InfoBar from '../components/InfoBar'
 import Configuration from './Informations/Configuration'
 import { THEME_COLORS } from '../config/constants'
-import { SIDEBAR_PAGES } from '../config/constants'
+import { SIDEBAR_PAGES, ACCESS_TOKEN } from '../config/constants'
 import {
   TemplateSection,
   Navigation,
@@ -42,11 +42,16 @@ const Template = ({ children, handleThemeChange }) => {
       handleThemeChange(THEME_COLORS.LIGHT)
     }
   }
-  
+
+  const handleLogout = () => {
+    localStorage.removeItem(ACCESS_TOKEN)
+    window.location.reload()
+  }
+
   const informationReducer = (state, action) => {
     switch (action.type) {
       case 'configuration':
-        return (<Configuration handleDarkModeChange={handleDarkModeChange} />)
+        return (<Configuration handleDarkModeChange={handleDarkModeChange} handleLogout={handleLogout} />)
       default:
         throw new Error()
     }

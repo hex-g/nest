@@ -2,12 +2,16 @@ import axios from 'axios'
 
 export const request = ({
   url, ...options
+<<<<<<< HEAD
 }) => {
   return axios({
   headers: {
     'Content-Type': 'application/json',
     'Authorization': options.data.auth
   },
+=======
+}) => axios({
+>>>>>>> dev
   ...options,
   url: `${url}`,
 })

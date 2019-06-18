@@ -13,6 +13,7 @@ export const Navigation = styled.div`
 `
 
 export const Content = styled.div`
+  overflow-y: auto;
   width: 100%;
   z-index: 1;
 `

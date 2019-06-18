@@ -34,5 +34,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@editorjs/editorjs": "^2.13.0",
+    "@editorjs/paragraph": "^2.5.0"
+  }
 }
