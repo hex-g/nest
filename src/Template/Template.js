@@ -12,24 +12,10 @@ import {
 } from './Template.style'
 
 // Remover
-import { getAccessToken } from '../config/services/caronte.service'
-import { getMugshot } from '../config/services/mugshot.service'
-
-
-const requestMugshot = async () => {
-  const response = await getAccessToken('admin', 'admin')
-  response && response.headers && response.headers.authorization && console.log(response)
-  const mugsponse = await getMugshot(response.headers.authorization)
-  
-  user.image = "data:image/png;base64," + mugsponse.data
-}
-
 const user = {
   username: 'Germano',
-  image: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU'
+  image: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
 }
-
-requestMugshot()
 
 const Template = ({ children, handleThemeChange }) => {
 
@@ -64,7 +50,7 @@ const Template = ({ children, handleThemeChange }) => {
   return (
     <TemplateSection>
       <Navigation isOpen={toggleNavigation}>
-        <Sidebar id = "side"
+        <Sidebar
           isOpen={toggleNavigation}
           handleToggleNavigation={() => handleToggleNavigation(!toggleNavigation)}
           pages={SIDEBAR_PAGES}
