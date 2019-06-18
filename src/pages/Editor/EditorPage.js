@@ -35,7 +35,7 @@ import {
   Editor,
   SendButton,
   NewFile,
-  DeleteButton,
+  DeleteButton
 } from './EditorPage.style'
 
 const alphabeticalOrder = (a, b) => {
@@ -155,21 +155,21 @@ const EditorPage = () => {
           tools: {
             paragraph: {
               class: Paragraph,
-              placeholder: '.',
+              placeholder: '.'
             },
             header: {
               class: Header,
-              shortcut: 'CMD+SHIFT+H',
+              shortcut: 'CMD+SHIFT+H'
             },
             list: {
               class: List,
               inlineToolbar: true,
-              shortcut: 'CMD+SHIFT+L',
+              shortcut: 'CMD+SHIFT+L'
             },
             checklist: {
               class: Checklist,
               inlineToolbar: true,
-              shortcut: 'CMD+SHIFT+K',
+              shortcut: 'CMD+SHIFT+K'
             },
             embed: {
               class: Embed,
@@ -178,9 +178,9 @@ const EditorPage = () => {
                   youtube: true,
                   imgur: true,
                   codepen: true,
-                  'twitch-video': true,
-                },
-              },
+                  'twitch-video': true
+                }
+              }
             },
             image: SimpleImage,
             quote: {
@@ -189,21 +189,21 @@ const EditorPage = () => {
               shortcut: 'CMD+SHIFT+O',
               config: {
                 quotePlaceholder: 'Enter a quote',
-                captionPlaceholder: "Quote's author",
-              },
+                captionPlaceholder: "Quote's author"
+              }
             },
             inlineCode: {
-              class: InlineCode,
+              class: InlineCode
             },
             code: Code,
             table: {
               class: Table,
-              inlineToolbar: true,
+              inlineToolbar: true
             },
             delimiter: Delimiter,
             marker: {
               class: Marker,
-              shortcut: 'CMD+SHIFT+M',
+              shortcut: 'CMD+SHIFT+M'
             },
             warning: {
               class: Warning,
@@ -211,16 +211,16 @@ const EditorPage = () => {
               shortcut: 'CMD+SHIFT+W',
               config: {
                 titlePlaceholder: 'Title',
-                messagePlaceholder: 'Message',
-              },
-            },
+                messagePlaceholder: 'Message'
+              }
+            }
           },
           data: JSON.parse(localStorage.getItem('user-note')),
           onReady: () => {
             reStyleCodexRedactor()
             setTimeout(() => setLoading(false), 500)
-          },
-        }),
+          }
+        })
       )
     } else {
       setEditorConfig(
@@ -229,21 +229,21 @@ const EditorPage = () => {
           tools: {
             paragraph: {
               class: Paragraph,
-              placeholder: '.',
+              placeholder: '.'
             },
             header: {
               class: Header,
-              shortcut: 'CMD+SHIFT+H',
+              shortcut: 'CMD+SHIFT+H'
             },
             list: {
               class: List,
               inlineToolbar: true,
-              shortcut: 'CMD+SHIFT+L',
+              shortcut: 'CMD+SHIFT+L'
             },
             checklist: {
               class: Checklist,
               inlineToolbar: true,
-              shortcut: 'CMD+SHIFT+K',
+              shortcut: 'CMD+SHIFT+K'
             },
             embed: {
               class: Embed,
@@ -252,9 +252,9 @@ const EditorPage = () => {
                   youtube: true,
                   imgur: true,
                   codepen: true,
-                  'twitch-video': true,
-                },
-              },
+                  'twitch-video': true
+                }
+              }
             },
             image: SimpleImage,
             quote: {
@@ -263,21 +263,21 @@ const EditorPage = () => {
               shortcut: 'CMD+SHIFT+O',
               config: {
                 quotePlaceholder: 'Enter a quote',
-                captionPlaceholder: "Quote's author",
-              },
+                captionPlaceholder: "Quote's author"
+              }
             },
             inlineCode: {
-              class: InlineCode,
+              class: InlineCode
             },
             code: Code,
             table: {
               class: Table,
-              inlineToolbar: true,
+              inlineToolbar: true
             },
             delimiter: Delimiter,
             marker: {
               class: Marker,
-              shortcut: 'CMD+SHIFT+M',
+              shortcut: 'CMD+SHIFT+M'
             },
             warning: {
               class: Warning,
@@ -285,15 +285,15 @@ const EditorPage = () => {
               shortcut: 'CMD+SHIFT+W',
               config: {
                 titlePlaceholder: 'Title',
-                messagePlaceholder: 'Message',
-              },
-            },
+                messagePlaceholder: 'Message'
+              }
+            }
           },
           onReady: () => {
             reStyleCodexRedactor()
             setTimeout(() => setLoading(false), 500)
-          },
-        }),
+          }
+        })
       )
     }
   }
@@ -306,10 +306,7 @@ const EditorPage = () => {
     try {
       await handleGetUserNotes(path)
       setSelectedFile(path)
-    } catch (error) {
-
-    }
-
+    } catch (error) {}
   }
 
   const walkTree = (index, e, path = '', level = 0) => {
@@ -321,28 +318,31 @@ const EditorPage = () => {
             <FolderName>{e.name}</FolderName>
           </Folder>
           <div>
-            {e.children.map((i, index) => walkTree(index, i, path + e.name + '/', level + 1))}
+            {e.children.map((i, index) =>
+              walkTree(index, i, path + e.name + '/', level + 1)
+            )}
           </div>
         </div>
       )
     }
 
     return (
-      <File
-        key={index}
-        level={level}
-      >
-        <FileButton onClick={() => handleClickFile(path + e.name)}
-          disabled={loading}>
+      <File key={index} level={level}>
+        <FileButton
+          onClick={() => handleClickFile(path + e.name)}
+          disabled={loading}
+        >
           <FileIcon style={{ marginRight: 20 }} />
           <FileName>{e.name}</FileName>
         </FileButton>
-        <DeleteButton onClick={
-          async () => {
+        <DeleteButton
+          onClick={async () => {
             await deleteUserNote(path + e.name)
             handleDirectoriesMapping()
-          }
-        }>X</DeleteButton>
+          }}
+        >
+          X
+        </DeleteButton>
       </File>
     )
   }
@@ -355,30 +355,32 @@ const EditorPage = () => {
         </Files>
         <NewFile
           onClick={() => {
-            const path = window.prompt('Digite o nome do Arquivo:')
+            try {
+              const path = window.prompt('Digite o nome do Arquivo:')
 
-            const nodes = path.split('/')
-            const file = nodes.pop()
-            let currentNode = root
-            nodes.forEach(name => currentNode = findOrCreateDir(currentNode, name))
-            createFile(currentNode, file)
+              const nodes = path.split('/')
+              const file = nodes.pop()
+              let currentNode = root
+              nodes.forEach(
+                name => (currentNode = findOrCreateDir(currentNode, name))
+              )
+              createFile(currentNode, file)
 
-            const newRoot = {
-              children: root.children
-            }
+              const newRoot = {
+                children: root.children
+              }
 
-            setRoot(newRoot)
+              setRoot(newRoot)
 
-            saveEditorText('', `/${path}`)
+              saveEditorText('', `/${path}`)
+            } catch (error) {}
           }}
         >
           Nova Anotação
         </NewFile>
       </Directories>
       <Wrapper>
-        <Title>
-          {selectedFile.replace(/\//gmi, ' > ')}
-        </Title>
+        <Title>{selectedFile.replace(/\//gim, ' > ')}</Title>
         <SendButton onClick={handleSendNotes}>SAVE</SendButton>
         <Editor id="editorjs" />
       </Wrapper>
