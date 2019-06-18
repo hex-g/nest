@@ -3,7 +3,6 @@ import axios from 'axios'
 export const request = ({
   url, ...options
 }) => {
-  console.log('oi',options.data.auth)
   return axios({
   headers: {
     'Content-Type': 'application/json',

@@ -1,9 +1,10 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
+
 import Icons from '../../Images/Icons'
 import SquareCard from '../../components/SquareCard'
+import { requestMugshot } from '../../config/services/mugshot.service'
 
-import { getAccessToken } from '../../config/services/caronte.service'
-import { getMugshot } from '../../config/services/mugshot.service'
 import {
     PageWrapper,
     PlayerHeader,
@@ -23,10 +24,11 @@ import {
     PostContentPreview
 } from './Profile.style'
 
+
 const PLAYER_EXAMPLE = {
     playerName: 'Germano Brigido',
     playerLevel: 7,
-    playerMugshot: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
+    playerMugshot: requestMugshot,
     playerBio: 'Envagelista de React, amante de CSS e o melhor ADC que vai conhecer 🏹',
     playerBanner: 'http://2.bp.blogspot.com/-hrv3ysQ065Y/VHdDPPDHJqI/AAAAAAAAnVs/ZqfAgci55Ag/s1600/elmo%2Bxablau.jpg',
     playerMedals: [
@@ -120,22 +122,25 @@ const handleSocialMediaRendering = socialMediaList => {
     });
 }
 
-const requestMugshot = async () => {
-    const response = await getAccessToken('admin', 'admin')
-    response && response.headers && response.headers.authorization && console.log(response)
-    const mugsponse = await getMugshot(response.headers.authorization)
-    
-    document.querySelector('#mugshot').src = ("data:image/png;base64," + mugsponse.data)
-}
+
+
+
 
 const Profile = ({player = PLAYER_EXAMPLE}) => {
-    requestMugshot();
+    
+    async function funcaoBonita() {
+        ReactDOM.render(
+            <PlayerPicture id="mugshot" src={await requestMugshot()}/>, 
+            document.getElementById('HHH')
+        )
+    }
+    funcaoBonita()
     return (
         <PageWrapper>
             <PlayerHeader headerImage={player.playerBanner} />
             <PlayerInfoWrapper>
                 <PlayerPictureWrapper>
-                    <PlayerPicture id="mugshot" />
+                    <div id='HHH' />
                     <PlayerLevel>
                         {player.playerLevel}
                     </PlayerLevel>
