@@ -32,7 +32,7 @@ const Template = ({ children, handleThemeChange }) => {
   const informationReducer = (state, action) => {
     switch (action.type) {
       case 'configuration':
-        return (<Configuration handleDarkModeChange={handleDarkModeChange} handleLogout={handleLogout} />)
+        return (<Configuration handleDarkModeChange={handleDarkModeChange} />)
       default:
         throw new Error()
     }
