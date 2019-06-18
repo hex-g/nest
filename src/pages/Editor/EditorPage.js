@@ -19,7 +19,6 @@ import {
   saveEditorText,
   getUserNote,
   getDirectories,
-  deleteUserNote,
 } from './EditorPage.service'
 import {
   Page,
