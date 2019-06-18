@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 import Icons from '../../Images/Icons'
@@ -128,19 +128,16 @@ const handleSocialMediaRendering = socialMediaList => {
 
 const Profile = ({player = PLAYER_EXAMPLE}) => {
     
-    async function funcaoBonita() {
-        ReactDOM.render(
-            <PlayerPicture id="mugshot" src={await requestMugshot()}/>, 
-            document.getElementById('HHH')
-        )
-    }
-    funcaoBonita()
+    const [mugshot, setMugshot] = useState('')
+    requestMugshot().then(returnedMugshot => setMugshot(returnedMugshot)).catch(error => console.error(error))
+
     return (
         <PageWrapper>
             <PlayerHeader headerImage={player.playerBanner} />
             <PlayerInfoWrapper>
                 <PlayerPictureWrapper>
-                    <div id='HHH' />
+                    
+                    <PlayerPicture id="mugshot" src={mugshot}/>
                     <PlayerLevel>
                         {player.playerLevel}
                     </PlayerLevel>
