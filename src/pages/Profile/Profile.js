@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import Icons from '../../Images/Icons'
 import SquareCard from '../../components/SquareCard'
 import { requestMugshot } from '../../config/services/mugshot.service'
+import {DEFAULT_IMAGE} from '../../config/constants'
 
 import {
     PageWrapper,
@@ -128,7 +129,7 @@ const handleSocialMediaRendering = socialMediaList => {
 
 const Profile = ({player = PLAYER_EXAMPLE}) => {
     
-    const [mugshot, setMugshot] = useState('')
+    const [mugshot, setMugshot] = useState(DEFAULT_IMAGE)
     requestMugshot().then(returnedMugshot => setMugshot(returnedMugshot)).catch(error => console.error(error))
 
     return (
