@@ -20,7 +20,6 @@ import {
   getUserNote,
   getDirectories,
   deleteUserNote,
-  pegaToken,
 } from './EditorPage.service'
 import {
   Page,

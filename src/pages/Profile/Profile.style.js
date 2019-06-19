@@ -12,6 +12,17 @@ export const PageWrapper = styled.section`
     font-size: ${design.largeText};
     position: relative;
     overflow-y: auto;
+    overflow-x: hidden;
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+  }
+  &::-webkit-scrollbar {
+    width: 16px;
+    background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #555555;
+  }
 `
 
 export const PlayerHeader = styled.header`
