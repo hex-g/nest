@@ -49,6 +49,7 @@ export const PlayerPictureWrapper = styled.picture`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: transparent;
 `
 
 export const PlayerPicture = styled.img`
@@ -56,6 +57,7 @@ export const PlayerPicture = styled.img`
     width: 100%;
     clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
     margin-bottom: -10px;
+    background: transparent;
 `
 
 export const PlayerLevel = styled.em`
