@@ -20,6 +20,7 @@ import {
   getUserNote,
   getDirectories,
   deleteUserNote,
+  pegaToken,
 } from './EditorPage.service'
 import {
   Page,
@@ -28,14 +29,74 @@ import {
   Folder,
   FolderName,
   File,
+  FileButton,
   FileName,
   Wrapper,
   Title,
   Editor,
   SendButton,
   NewFile,
+  DeleteButton,
 } from './EditorPage.style'
-import directoryTreeMapping from '../../utils/DirectoryTreeMapping'
+
+const alphabeticalOrder = (a, b) => {
+  if (a < b) {
+    return -1
+  }
+  if (a > b) {
+    return 1
+  }
+  return 0
+}
+
+const compareNodes = (a, b) => {
+  if (a.children === null && b.children === null) {
+    return alphabeticalOrder(a.name, b.name)
+  }
+  if (b.children === null) {
+    return -1
+  }
+  if (a.children === null) {
+    return 1
+  }
+  return alphabeticalOrder(a.name, b.name)
+}
+
+const findOrCreateDir = (parent, name) => {
+  for (let e of parent.children) {
+    if (e.name === name) {
+      return e
+    }
+  }
+  const node = {
+    name: name,
+    children: [],
+  }
+  parent.children.push(node)
+  parent.children.sort(compareNodes)
+  return node
+}
+
+const createFile = (parent, name) => {
+  if (parent.children.find(e => e.name === name)) {
+    return false
+  }
+  parent.children.push({
+    name: name,
+    children: null,
+  })
+  parent.children.sort(compareNodes)
+  return true
+}
+
+const sortTree = root => {
+  if (root.children === null) {
+    return root
+  }
+  root.children.sort(compareNodes)
+  root.children.forEach(sortTree)
+  return root
+}
 
 const reStyleCodexRedactor = () => {
   let countError = 0
@@ -57,15 +118,14 @@ const reStyleCodexRedactor = () => {
 
 const EditorPage = () => {
   const [editorConfig, setEditorConfig] = useState()
-  const [directories, setDirectories] = useState([])
-  const [selectedFile, setSelectedFile] = useState('Select a File..')
+  const [selectedFile, setSelectedFile] = useState('Select a file...')
   const [loading, setLoading] = useState(false)
+
+  const [root, setRoot] = useState({ children: [] })
 
   const handleDirectoriesMapping = async () => {
     const response = await getDirectories()
-    const directoryTree =
-      response && response.data && directoryTreeMapping(response.data)
-    setDirectories(directoryTree)
+    response && response.data && setRoot(sortTree(response.data))
   }
 
   const handleSendNotes = () => {
@@ -247,48 +307,70 @@ const EditorPage = () => {
     try {
       await handleGetUserNotes(path)
       setSelectedFile(path)
-    } catch (error) {}
+    } catch (error) {
+
+    }
+
+  }
+
+  const walkTree = (index, e, path = '', level = 0) => {
+    if (e.children !== null) {
+      return (
+        <div>
+          <Folder key={index} level={level}>
+            <FolderIcon style={{ marginRight: 20 }} />
+            <FolderName>{e.name}</FolderName>
+          </Folder>
+          <div>
+            {e.children.map((i, index) => walkTree(index, i, path + e.name + '/', level + 1))}
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <File
+        key={index}
+        level={level}
+      >
+        <FileButton onClick={() => handleClickFile(path + e.name)}
+          disabled={loading}>
+          <FileIcon style={{ marginRight: 20 }} />
+          <FileName>{e.name}</FileName>
+        </FileButton>
+        <DeleteButton onClick={
+          async () => {
+            await deleteUserNote(path + e.name)
+            handleDirectoriesMapping()
+          }
+        }>X</DeleteButton>
+      </File>
+    )
   }
 
   return (
     <Page>
       <Directories>
         <Files>
-          {directories &&
-            directories.map((directory, index) => {
-              switch (directory.type) {
-                case 0:
-                  return (
-                    <Folder key={index} level={directory.level}>
-                      <FolderIcon style={{ marginRight: 20 }} />
-                      <FolderName>{directory.name}</FolderName>
-                    </Folder>
-                  )
-                case 1:
-                  return (
-                    <File
-                      key={index}
-                      level={directory.level}
-                      onClick={() => handleClickFile(directory.path)}
-                      disabled={loading}
-                    >
-                      <FileIcon style={{ marginRight: 20 }} />
-                      <FileName>{directory.name}</FileName>
-                    </File>
-                  )
-                default:
-                  return <></>
-              }
-            })}
+          {root.children.map((i, index) => i && walkTree(index, i))}
         </Files>
         <NewFile
           onClick={() => {
-            const newFile = window.prompt('Digite o nome do Arquivo:')
-            setDirectories([
-              ...directories,
-              { name: newFile, level: 0, type: 1, path: `/${newFile}` },
-            ])
-            saveEditorText('', `/${newFile}`)
+            const path = window.prompt('Digite o nome do Arquivo:')
+
+            const nodes = path.split('/')
+            const file = nodes.pop()
+            let currentNode = root
+            nodes.forEach(name => currentNode = findOrCreateDir(currentNode, name))
+            createFile(currentNode, file)
+
+            const newRoot = {
+              children: root.children
+            }
+
+            setRoot(newRoot)
+
+            saveEditorText('', `/${path}`)
           }}
         >
           Nova Anotação
@@ -296,7 +378,7 @@ const EditorPage = () => {
       </Directories>
       <Wrapper>
         <Title>
-          {selectedFile.replace(/^[/]/gim, '').replace(/[/]/gim, ' - ')}
+          {selectedFile.replace(/\//gmi, ' > ')}
         </Title>
         <SendButton onClick={handleSendNotes}>SAVE</SendButton>
         <Editor id="editorjs" />
