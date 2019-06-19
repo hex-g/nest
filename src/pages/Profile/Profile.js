@@ -15,7 +15,7 @@ import {
     PlayerBadgesWrapper,
     PlayerBadge,
     PostsHighlightWrapper,
-    PostHighlight,
+    // PostHighlight,
     PostTitle,
     PostContentPreview
 } from './Profile.style'
@@ -44,22 +44,7 @@ const PLAYER_EXAMPLE = {
     ],
     socialMedia: [
         {
-            socialMedia: 'Generic',
-            userName: '@dani_Santos_S2_<3_XOXO',
-            url: 'https://twitter.com'
-        },
-        {
             socialMedia: 'Github',
-            userName: '@dani_Santos_S2_<3_XOXO',
-            url: 'https://twitter.com'
-        },
-        {
-            socialMedia: 'Instagram',
-            userName: '@dani_Santos_S2_<3_XOXO',
-            url: 'https://twitter.com'
-        },
-        {
-            socialMedia: 'Facebook',
             userName: '@dani_Santos_S2_<3_XOXO',
             url: 'https://twitter.com'
         },

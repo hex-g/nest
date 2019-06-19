@@ -19,7 +19,7 @@ import {
   saveEditorText,
   getUserNote,
   getDirectories,
-  deleteUserNote
+  deleteUserNote,
 } from './EditorPage.service'
 import {
   Page,

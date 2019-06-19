@@ -3,13 +3,7 @@ import styled from 'styled-components'
 
 export const Options = styled.div`
       width: 200px;
-<<<<<<< Updated upstream
       height: 100%;
-=======
-      max-height: 100%;
-      display: flex;
-      flex-direction: column;
->>>>>>> Stashed changes
     `
 
 export const ButtonWrapper = styled.div`

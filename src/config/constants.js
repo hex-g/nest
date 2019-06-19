@@ -15,3 +15,5 @@ export const THEME_COLORS = {
 
 export const DIRECTORY_TYPE = 0;
 export const ARCHIVE_TYPE = 1;
+
+export const ACCESS_TOKEN = 'access_token'
