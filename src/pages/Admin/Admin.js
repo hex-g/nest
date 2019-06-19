@@ -51,8 +51,8 @@ const Admin = () => {
             <input id="ra-student" name="ra" />
           </FormElement>
       </Form>
-      <FormTitle show={currentForm === 'pedagogue' || true}>Cadastro do professor:</FormTitle>
-      <Form id="pedagogue-form" show={currentForm === 'pedagogue' || true}>
+      <FormTitle show={currentForm === 'pedagogue'}>Cadastro do professor:</FormTitle>
+      <Form id="pedagogue-form" show={currentForm === 'pedagogue'}>
           <FormElement>
             <label for="name-pedagogue">Nome</label>
             <input id="name-pedagogue" name="name" />
