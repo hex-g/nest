@@ -28,7 +28,7 @@ const Template = ({ children, handleThemeChange }) => {
       handleThemeChange(THEME_COLORS.LIGHT)
     }
   }
-  
+
   const informationReducer = (state, action) => {
     switch (action.type) {
       case 'configuration':

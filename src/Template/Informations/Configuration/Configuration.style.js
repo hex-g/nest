@@ -3,7 +3,13 @@ import styled from 'styled-components'
 
 export const Options = styled.div`
       width: 200px;
+<<<<<<< Updated upstream
       height: 100%;
+=======
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+>>>>>>> Stashed changes
     `
 
 export const ButtonWrapper = styled.div`
@@ -15,8 +21,8 @@ export const ButtonWrapper = styled.div`
 
 export const Label = styled.label`
       cursor: pointer;
-      text-indent: -9999px;
       background-color: ${design.wildSand};
+      text-indent: -9999px;
       border: 2px solid ${design.burntSienna};
       width: 55px;
       height: 30px;
