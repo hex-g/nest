@@ -29,11 +29,6 @@ const Template = ({ children, handleThemeChange }) => {
     }
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem(ACCESS_TOKEN)
-    window.location.reload()
-  }
-
   const informationReducer = (state, action) => {
     switch (action.type) {
       case 'configuration':
