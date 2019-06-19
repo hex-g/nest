@@ -15,7 +15,7 @@ export const design = {
   hoverOuterSpace: lighten(0.4, '#313638'),
   placeholderOuterSpace: lighten(0.6, '#313638'),
   heliotrope: '#c13ff4',
-  carnation: '#c13ff4',
+  thunderbird: '#D02911',
   eletricViolet: '#8A3FF4',
   laPalma: '#18AC15',
   gold: '#F0D000',

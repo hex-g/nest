@@ -17,6 +17,7 @@ export const UserPicture = styled.img`
   max-height: 80px;
   object-fit: cover;
   align-self: center;
+  clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
 `
 
 export const Content = styled.div`
@@ -43,7 +44,7 @@ export const Tag = styled.button`
     if (props.color <= 1) {
       return design.heliotrope
     } else if (props.color >= 2 && props.color <= 3) {
-      return design.carnation
+      return design.thunderbird
     } else if (props.color >= 4 && props.color <= 5) {
       return design.eletricViolet
     } else if (props.color >= 6 && props.color <= 7) {

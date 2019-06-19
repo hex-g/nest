@@ -6,7 +6,6 @@ import {
   Page,
   Container,
   Form,
-  Search,
   HorizontalNavigation,
   Content
 } from './Nest.style'

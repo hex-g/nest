@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="211px" height="172px" viewBox="0 0 211 172" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>undraw_map_dros</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-2" points="171.275 151.771742 129.155512 151.771742 64.907874 157.956677 0.163779528 151.771742 0.163779528 0.244645161 64.6417323 4.88270968 130.509252 0.244645161 194.94626 9.006 194.94626 128.061548"></polygon>
+        <linearGradient x1="50.0041594%" y1="100%" x2="50.0041594%" y2="0%" id="linearGradient-4">
+            <stop stop-color="#000000" stop-opacity="0.12" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.09" offset="55%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.02" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="99.993309%" x2="50%" y2="-0.00334548861%" id="linearGradient-5">
+            <stop stop-color="#000000" stop-opacity="0.12" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.09" offset="55%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.02" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-6">
+            <stop stop-color="#000000" stop-opacity="0.12" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.09" offset="55%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.02" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Hive-LP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cadastro-3" transform="translate(-108.000000, -532.000000)">
+            <g id="undraw_map_dros" transform="translate(108.000000, 532.000000)">
+                <polygon id="a073cd38-4eb0-453d-a1d0-70f9c24b1634" fill="url(#linearGradient-1)" fill-rule="nonzero" points="180.592982 165.256002 139.733152 165.256002 70.1364 172 0 165.256002 0 0 69.8448364 5.05799831 141.198642 0 211 9.55484703 209.209697 136.461376"></polygon>
+                <polygon id="59230751-4dc4-41f9-b924-118a87d1b7cc" fill="#FFFFFF" fill-rule="nonzero" points="179.315782 163.411714 139.422827 163.411714 71.474354 170 3 163.411714 3 2 71.1909908 6.94185426 140.852407 2 209 11.3331911 207.251317 135.289235"></polygon>
+                <polygon id="5b2d8654-11e0-49b5-a1f9-dad8b3034394" fill="#F6BD60" fill-rule="nonzero" points="179.302306 158.803771 137.135781 158.803771 72.8189582 165 8 158.803771 8 7 72.5499573 11.6490862 138.491033 7 203 15.7799053 203 135.052838"></polygon>
+                <g id="Clipped" transform="translate(25.000000, 8.000000)">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <g id="c9ed84a9-8cab-4a44-9ea6-8594f096f2dc"></g>
+                    <polygon id="Path" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-3)" points="235.957677 195.242129 88.0545276 113.678452 125.621457 -10.619129 112.836417 -15.6674839 94.6312992 44.5687419 -50.421063 -35.4225806 -56.2992126 -21.4956452 90.1836614 59.283129 56.7419291 169.934097 69.5269685 174.982452 83.6068898 128.392839 230.079528 209.169065"></polygon>
+                </g>
+                <polyline id="Path" fill="#000000" fill-rule="nonzero" opacity="0.1" points="73 165 137 158.803771 137 7 73 11.6490862"></polyline>
+                <polygon id="Path" fill="url(#linearGradient-4)" fill-rule="nonzero" points="177 163 177.500291 132 208 133.20484"></polygon>
+                <polygon id="Path" fill="#FFFFFF" fill-rule="nonzero" points="179 163 179.450334 134 207 135.129172"></polygon>
+                <path d="M136,61.3858017 C136,74.8614299 110.5,113 110.5,113 C110.5,113 85,74.8614299 85,61.3858017 C85,47.9101736 96.4177958,37 110.5,37 C124.582204,37 136,47.9178013 136,61.3858017 Z" id="Path" fill="url(#linearGradient-5)" fill-rule="nonzero"></path>
+                <circle id="Oval" fill="url(#linearGradient-6)" fill-rule="nonzero" cx="110.5" cy="59.5" r="7.5"></circle>
+                <path d="M132,61.901175 C132,74.187825 110.004443,109 110.004443,109 C110.004443,109 88.0088854,74.187825 88.0088854,61.901175 C87.7817847,53.7976414 91.9220492,46.2092986 98.8181952,42.0896994 C105.714341,37.9701002 114.276847,37.9701002 121.172993,42.0896994 C128.069139,46.2092986 132.209403,53.7976414 131.982302,61.901175 L132,61.901175 Z" id="Path" fill="#FF5252" fill-rule="nonzero"></path>
+                <circle id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="110" cy="60" r="7"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

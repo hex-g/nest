@@ -14,6 +14,7 @@ export const Navigation = styled.div`
 
 export const Content = styled.div`
   width: 100%;
+  padding: 0 24px;
   z-index: 1;
 `
 
