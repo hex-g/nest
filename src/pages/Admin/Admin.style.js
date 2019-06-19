@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { design, textColor } from '../../components/Layout'
+import { design, textColor, backgroundColor } from '../../components/Layout'
 
 export const AdminWrapper = styled.section`
   height: 100%;
@@ -8,21 +8,6 @@ export const AdminWrapper = styled.section`
   padding: 0 25%;
   justify-content: center;
   font-family: ${design.secondaryFont};
-  button {
-    margin: 32px 0;
-    width: 140px;
-    height: 50px;
-    border: none;
-    border-radius: 7px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    background-color: ${design.burntSienna};
-    font-size: 17px;
-    font-weight: bold;
-    font-style: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: ${design.wildSand};
-  }
 `
 
 export const Title = styled.h2`
@@ -64,7 +49,7 @@ export const Choice = styled.div`
     font-weight: normal;
     font-style: normal;
     letter-spacing: normal;
-    color: ${design.outerSpace};
+    color: ${textColor};
   }
 `
 
@@ -92,6 +77,25 @@ export const FormElement = styled.div`
     border: none;
     border-radius: 8px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-    background-color: ${design.wildSand};
+  }
+`
+
+export const ButtonWrapper = styled.div`
+  display: ${props => props.show ? 'flex' : 'none'};
+  button {
+    margin: 32px 0;
+    margin-right: 28px;
+    width: 140px;
+    height: 50px;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: ${design.burntSienna};
+    font-size: 17px;
+    font-weight: bold;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: ${backgroundColor};
   }
 `
