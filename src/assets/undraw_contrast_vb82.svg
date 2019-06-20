@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140px" height="108px" viewBox="0 0 140 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>undraw_contrast_vb82</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-2">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-3">
+            <stop stop-color="#000000" stop-opacity="0.12" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.09" offset="55%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.02" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-4">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-5">
+            <stop stop-color="#000000" stop-opacity="0.12" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.09" offset="55%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.02" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Hive-LP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-278.000000, -848.000000)" fill-rule="nonzero">
+            <g id="Group-5" transform="translate(-540.000000, -170.000000)">
+                <g id="Group-3" transform="translate(760.000000, 890.000000)">
+                    <g id="O-que-é-1" transform="translate(0.000000, 103.000000)">
+                        <g id="undraw_contrast_vb82" transform="translate(58.000000, 25.000000)">
+                            <rect id="Rectangle" fill="#F6BD60" opacity="0.2" x="10" y="12" width="130" height="96"></rect>
+                            <polygon id="Path" fill="url(#linearGradient-1)" points="0 0 0 5.1973037 0 103 131 103 131 5.1973037 131 0"></polygon>
+                            <rect id="Rectangle" fill="#FFFFFF" x="2" y="7" width="127" height="95"></rect>
+                            <rect id="Rectangle" fill="#F5F5F5" x="2" y="1" width="127" height="6"></rect>
+                            <circle id="Oval" fill="#FF5252" cx="5.5" cy="4.5" r="1.5"></circle>
+                            <circle id="Oval" fill="#FFFF00" cx="8.5" cy="4.5" r="1.5"></circle>
+                            <circle id="Oval" fill="#69F0AE" cx="12.5" cy="4.5" r="1.5"></circle>
+                            <rect id="Rectangle" fill="#F6BD60" x="65" y="7" width="64" height="95"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-2)" x="12" y="40" width="35" height="4"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-3)" x="78" y="40" width="35" height="4"></rect>
+                            <rect id="Rectangle" fill="#F6BD60" x="13" y="40" width="33" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-4)" x="7" y="48" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-5)" x="74" y="48" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-5)" x="74" y="52" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-5)" x="74" y="55" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-5)" x="74" y="59" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-5)" x="74" y="64" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-4)" x="7" y="52" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-4)" x="7" y="55" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-4)" x="7" y="59" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="url(#linearGradient-4)" x="7" y="64" width="46" height="3"></rect>
+                            <rect id="Rectangle" fill="#F6BD60" x="7" y="48" width="46" height="2"></rect>
+                            <rect id="Rectangle" fill="#F6BD60" x="7" y="52" width="46" height="2"></rect>
+                            <rect id="Rectangle" fill="#F6BD60" x="7" y="55" width="46" height="2"></rect>
+                            <rect id="Rectangle" fill="#F6BD60" x="7" y="59" width="46" height="2"></rect>
+                            <rect id="Rectangle" fill="#F6BD60" x="7" y="63" width="46" height="2"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" x="79" y="40" width="33" height="3"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" x="74" y="48" width="46" height="2"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" x="74" y="52" width="46" height="2"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" x="74" y="55" width="46" height="2"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" x="74" y="59" width="46" height="2"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" x="74" y="63" width="46" height="2"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

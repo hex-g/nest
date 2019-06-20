@@ -16,7 +16,7 @@ import {
 } from './Sidebar.style'
 
 const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) => (
-  <Aside>
+  <Aside isOpen={isOpen}>
     <Menu>
       <ProfileContent isOpen={isOpen}>
         <Link to={`/profile`}>
@@ -35,8 +35,10 @@ const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) => (
             </Item>
           ))}
       </NavigationItems>
-      <LogoWrapper isOpen={isOpen}>
-        <Logo />
+      <LogoWrapper>
+        <Link to={`/`}>
+          <Logo />
+        </Link>
       </LogoWrapper>
     </Menu>
     <ToggleArea>

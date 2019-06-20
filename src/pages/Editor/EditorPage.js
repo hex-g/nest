@@ -18,8 +18,8 @@ import { ReactComponent as FolderIcon } from '../../assets/folder.svg'
 import {
   saveEditorText,
   getUserNote,
-  getDirectories,
   deleteUserNote,
+  getDirectories,
 } from './EditorPage.service'
 import {
   Page,
@@ -152,6 +152,7 @@ const EditorPage = () => {
       setEditorConfig(
         new EditorJs({
           holder: 'editorjs',
+          placeholder: 'Comece a digitar suas anotações =D!',
           tools: {
             paragraph: {
               class: Paragraph,
@@ -226,6 +227,7 @@ const EditorPage = () => {
       setEditorConfig(
         new EditorJs({
           holder: 'editorjs',
+          placeholder: 'Comece a digitar suas anotações',
           tools: {
             paragraph: {
               class: Paragraph,

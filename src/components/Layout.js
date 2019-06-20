@@ -14,6 +14,12 @@ export const design = {
   outerSpace: '#313638',
   hoverOuterSpace: lighten(0.4, '#313638'),
   placeholderOuterSpace: lighten(0.6, '#313638'),
+  heliotrope: '#c13ff4',
+  thunderbird: '#D02911',
+  eletricViolet: '#8A3FF4',
+  laPalma: '#18AC15',
+  gold: '#F0D000',
+  catalinaBlue: '#072588',
   cardBoxShadow: '6px 8px 20px 0 rgba(0, 0, 0, 0.08)',
   buttonBoxShadow: '0 2px 10px 2px rgba(0, 0, 0, 0.2)',
   inputBoxShadow: '0 2px 10px 2px rgba(0, 0, 0, 0.07)',
@@ -54,6 +60,10 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: lighter;
     color: ${textColor};
     background-color: ${backgroundColor};
+  }
+
+  button {
+    color: ${textColor};
   }
 `
 

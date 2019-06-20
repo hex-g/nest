@@ -16,3 +16,9 @@ export const Item = styled.li`
   border-bottom: 3px solid ${props => props.activated ? '#f6bd60' : 'none'};
   cursor: pointer;
 `
+
+export const OptionButton = styled.button`
+  background: none;
+  border: none;
+  outline: none;
+`

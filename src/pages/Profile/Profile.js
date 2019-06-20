@@ -19,7 +19,6 @@ import {
     PlayerBadgesWrapper,
     PlayerBadge,
     PostsHighlightWrapper,
-    PostHighlight,
     PostTitle,
     PostContentPreview
 } from './Profile.style'
