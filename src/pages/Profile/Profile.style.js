@@ -12,6 +12,17 @@ export const PageWrapper = styled.section`
     font-size: ${design.largeText};
     position: relative;
     overflow-y: auto;
+    overflow-x: hidden;
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+  }
+  &::-webkit-scrollbar {
+    width: 16px;
+    background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #555555;
+  }
 `
 
 export const PlayerHeader = styled.header`
@@ -38,6 +49,7 @@ export const PlayerPictureWrapper = styled.picture`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: transparent;
 `
 
 export const PlayerPicture = styled.img`
@@ -45,6 +57,7 @@ export const PlayerPicture = styled.img`
     width: 100%;
     clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
     margin-bottom: -10px;
+    background: transparent;
 `
 
 export const PlayerLevel = styled.em`

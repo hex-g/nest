@@ -7,6 +7,7 @@ export const request = ({
   url: `${url}`,
 })
 
+
 const configInterceptorResponse = () => {
   axios.interceptors.response.use(
     response => response

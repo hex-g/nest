@@ -1,5 +1,6 @@
 import React from 'react'
 import { ReactComponent as ConfigIcon } from './settings.svg'
+import { handleLogout } from '../../utils/token/token'
 import {
   Aside,
   Menu,
@@ -8,6 +9,7 @@ import {
   Item,
   ToggleArea,
   ToggleButton,
+  Logout,
 } from './InfoBar.style'
 
 const InfoBar = ({
@@ -31,6 +33,7 @@ const InfoBar = ({
             {information}
           </Information>
         )}
+        <Logout isOpen={isOpen} onClick={handleLogout}>LOGOUT</Logout>
       </Menu>
     </Aside>
   )
