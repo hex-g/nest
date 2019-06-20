@@ -4,6 +4,7 @@ import Nest from '../pages/Nest'
 import Editor from '../pages/Editor'
 import Profile from '../pages/Profile'
 import Subjects from '../pages/Subjects'
+import Admin from '../pages/Admin'
 
 const Routes = () => (
   <div>
@@ -11,6 +12,7 @@ const Routes = () => (
     <Route path="/editor" component={Editor} />
     <Route path="/profile" component={Profile} />
     <Route path="/subjects" component={Subjects} />
+    <Route path="/admin" component={Admin} />
   </div>
 )
 

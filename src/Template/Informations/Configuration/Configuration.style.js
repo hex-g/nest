@@ -15,8 +15,8 @@ export const ButtonWrapper = styled.div`
 
 export const Label = styled.label`
       cursor: pointer;
-      text-indent: -9999px;
       background-color: ${design.wildSand};
+      text-indent: -9999px;
       border: 2px solid ${design.burntSienna};
       width: 55px;
       height: 30px;
