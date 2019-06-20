@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
 
 import Icons from '../../Images/Icons'
 import SquareCard from '../../components/SquareCard'
 import { requestMugshot } from '../../config/services/mugshot.service'
-import {DEFAULT_IMAGE} from '../../config/constants'
+import MugshotImage from '../../components/MugshotImage'
 
 import {
     PageWrapper,
@@ -122,16 +121,14 @@ const handleSocialMediaRendering = socialMediaList => {
 
 const Profile = ({player = PLAYER_EXAMPLE}) => {
     
-    const [mugshot, setMugshot] = useState(DEFAULT_IMAGE)
-    requestMugshot().then(returnedMugshot => setMugshot(returnedMugshot)).catch(error => console.error(error))
-
+    
     return (
         <PageWrapper>
             <PlayerHeader headerImage={player.playerBanner} />
             <PlayerInfoWrapper>
                 <PlayerPictureWrapper>
                     
-                    <PlayerPicture id="mugshot" src={mugshot}/>
+                    <PlayerPicture id="mugshot" src={MugshotImage()}/>
                     <PlayerLevel>
                         {player.playerLevel}
                     </PlayerLevel>
