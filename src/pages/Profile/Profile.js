@@ -3,8 +3,9 @@ import React, {useState} from 'react'
 import Icons from '../../Images/Icons'
 import SquareCard from '../../components/SquareCard'
 import MugshotImage from '../../components/MugshotImage'
+import PlayerData from '../../components/PlayerData'
 import Badges from '../../Images/Badges'
-import Alert, { showAlert, hideAlert } from '../../components/Alert'
+import Alert, { showAlert } from '../../components/Alert'
 
 import {
     PageWrapper,
@@ -122,6 +123,7 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
 
     const [file, setFile] = useState(null)
 
+    //PlayerData()
     const MugshotSrc = MugshotImage(file)
     const MB_SIZE = 1000000
 
