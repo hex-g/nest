@@ -7,7 +7,7 @@ const Mugshotimage = (newFile) => {
 
     
     const request = () => {
-        requestMugshot().then(returnedMugshot => setMugshot(returnedMugshot)).catch(error => DEFAULT_IMAGE)
+        requestMugshot().then(returnedMugshot => setMugshot(returnedMugshot)).catch(error => setMugshot(DEFAULT_IMAGE))
     }
     
     if(newFile){
