@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="18px" viewBox="0 0 22 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>speech-bubble</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Hive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hive-Forum" transform="translate(-365.000000, -304.000000)" fill="#E9724C" fill-rule="nonzero">
+            <g id="Card" transform="translate(247.000000, 138.000000)">
+                <g id="speech-bubble" transform="translate(118.500000, 166.000000)">
+                    <path d="M18.375,0 L2.625,0 C1.18125,0 0,1.15714286 0,2.57142857 L0,11.5714286 C0,12.9857143 1.18125,14.1428571 2.625,14.1428571 L7.875,14.1428571 L13.125,18 L13.125,14.1428571 L18.375,14.1428571 C19.81875,14.1428571 21,12.9857143 21,11.5714286 L21,2.57142857 C21,1.15714286 19.81875,0 18.375,0 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

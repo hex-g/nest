@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="34px" viewBox="0 0 29 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Notification</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Hive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hive-Central-de-Compartilhamento---Open" transform="translate(-1105.000000, -16.000000)" fill="#F6BD60" fill-rule="nonzero">
+            <g id="Notification" transform="translate(1105.000000, 16.000000)">
+                <g id="notifications-button">
+                    <path d="M14.5,34 C16.3764706,34 17.9117647,32.47 17.9117647,30.6 L11.0882353,30.6 C11.0882353,32.47 12.6235294,34 14.5,34 Z M25.5882353,23.8 L25.5882353,14.45 C25.5882353,9.18 22.0058824,4.93 17.0588235,3.74 L17.0588235,2.55 C17.0588235,1.19 15.8647059,0 14.5,0 C13.1352941,0 11.9411765,1.19 11.9411765,2.55 L11.9411765,3.74 C6.99411765,4.93 3.41176471,9.18 3.41176471,14.45 L3.41176471,23.8 L0,27.2 L0,28.9 L29,28.9 L29,27.2 L25.5882353,23.8 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
