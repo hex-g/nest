@@ -13,7 +13,7 @@ import {
 import SvgMapping from '../SvgMapping'
 
 const LoginSection = (props) => {
-  let lock = props.lockFields === 'loading' ? true : false
+  let lock = props.lockFields
   return (
     <Section>
       <LoginWrapper>

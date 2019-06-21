@@ -1,4 +1,5 @@
 import React from 'react'
+import { handleLogout } from '../../utils/token/token'
 import { ReactComponent as ConfigIcon } from './settings.svg'
 import { ReactComponent as Notification } from './notification.svg'
 import { ReactComponent as LogOut } from './exit.svg'
@@ -30,7 +31,7 @@ const InfoBar = ({
           <Item isOpen={isOpen} onClick={() => handleInformationChange({type: 'notification'})}>
             <Notification />
           </Item>
-          <Item isOpen={isOpen} onClick={() => handleInformationChange({type: 'logout'})}>
+          <Item isOpen={isOpen} onClick={handleLogout}>
             <LogOut />
           </Item>
         </ItemsMenu>

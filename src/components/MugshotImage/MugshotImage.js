@@ -1,11 +1,21 @@
-import React, { useState } from 'react'
-import { requestMugshot } from '../../config/services/mugshot.service'
+import { useState } from 'react'
+import { requestMugshot, postMugshot } from '../../config/services/mugshot.service'
 import {DEFAULT_IMAGE} from '../../config/constants'
 
-const Mugshotimage = (newMugshot) => {
+const Mugshotimage = (newFile) => {
     const [mugshotSrc, setMugshot] = useState(DEFAULT_IMAGE)
 
-    requestMugshot().then(returnedMugshot => setMugshot(returnedMugshot)).catch(error => console.error(error))
+    
+    const request = () => {
+        requestMugshot().then(returnedMugshot => setMugshot(returnedMugshot)).catch(error => DEFAULT_IMAGE)
+    }
+    
+    if(newFile){
+        postMugshot(newFile).then(request)
+    }
+    else{
+        request();
+    }
     
     return mugshotSrc
 }

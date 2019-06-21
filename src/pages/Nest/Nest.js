@@ -2,6 +2,7 @@ import React from 'react'
 import HorizontalNavbar from '../../components/HorizontalNavbar'
 import HomeCard from '../../components/HomeCard'
 import SearchBox from '../../components/SearchBox'
+import MugshotImage from '../../components/MugshotImage'
 import {
   Page,
   Container,
@@ -46,11 +47,12 @@ const NEWS = [
   },
 ]
 
-
 const Nest = ({
   posts = EXAMPLE_CARD_POSTS,
   options = EXAMPLE_HORIZONTAL_NAVBAR
 }) => {
+
+  const MugshotSrc = MugshotImage()
 
   const [page, setPage] = React.useState(posts)
 
@@ -75,7 +77,7 @@ const Nest = ({
           {page.map((post, index) => (
             <HomeCard
               key={`${post.user}-${index}`}
-              userPicture={post.profilePic}
+              userPicture={MugshotSrc}
               username={post.user}
               description={post.description}
               postDate={post.date}
