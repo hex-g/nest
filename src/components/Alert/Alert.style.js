@@ -9,19 +9,16 @@ export const MessageWrapper = styled.div`
     position: absolute;
     top: 0;
     width: 100%;
-    top: ${ props => props.behavior.show ? '0px' : '-56px' };
-    transition: .3s ease-in;
+    top: -56px;
+    transition: top .3s ease-in;
     height: auto;
     z-index: 3;
-    transition-delay: ${props => props.behavior.type === 'idling' ? '.5s' : '0s'};
 `
 
 export const MessageBox = styled.div`
     height: 24px;
     padding: 16px 48px;
-    background: ${props => props.behavior.type === 'error' 
-        ? design.burntSienna 
-        : design.hippieBlue};
+    background: ${design.hippieBlue};
     color: ${design.wildSand};
     font-family: ${design.primaryFont};
     font-size: ${design.largeText};

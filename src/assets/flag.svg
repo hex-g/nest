@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="27px" viewBox="0 0 22 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>flag</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Hive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hive-Central-de-Compartilhamento---Open" transform="translate(-883.000000, -1335.000000)" fill-rule="nonzero">
+            <g id="Group-5" transform="translate(883.000000, 1335.000000)">
+                <g id="flag">
+                    <polygon id="Path" fill="#E9724C" points="22 17 1 17 1 2 22 2 17.4347826 9.5"></polygon>
+                    <path d="M0.5,0 C0.224,0 0,0.20115 0,0.45 L0,1.8 L0,26.55 C0,26.79885 0.224,27 0.5,27 C0.776,27 1,26.79885 1,26.55 L1,1.8 L1,0.45 C1,0.20115 0.776,0 0.5,0 Z" id="Path" fill="#424A60"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

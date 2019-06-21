@@ -52,17 +52,53 @@ export const PlayerPictureWrapper = styled.picture`
     background: transparent;
 `
 
-export const PlayerPicture = styled.img`
+
+export const MugshotEdit = styled.input`
+    display: none;
+
+`
+
+export const MugshotEditLabel = styled.label`
+    display: none;
+    background: rgba(0,0,0,.7);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: ${design.secondaryFont};
+    font-size: ${design.mediumText};
+    box-sizing: border-box;
+    padding: 24px;
+    font-weight: 100;
+    line-height: 1.2em;
+`
+
+export const PlayerMugshotWrapper = styled.div`
     height: 100%;
     width: 100%;
     clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
-    margin-bottom: -10px;
+    position: absolute;
+    overflow: hidden;
+    &:hover ${MugshotEditLabel} {
+        display: flex;
+    }
+`
+
+export const PlayerMugshot = styled.img`
+    height: 100%;
+    width: 100%;
     background: transparent;
 `
 
+
 export const PlayerLevel = styled.em`
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    bottom: -10px;
     color: ${design.wildSand};
     background: ${design.burntSienna};
     padding: 3px 12px;

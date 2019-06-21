@@ -1,8 +1,9 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { design, backgroundColor, textColor } from '../Layout'
 
 export const Aside = styled.aside`
   height: 100%;
+  width: ${props => props.isOpen ? '200px' : '100px'};
   display: flex;
 `
 
@@ -26,6 +27,7 @@ export const ProfileContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 40px;
 
   & > p{
     ${({ isOpen }) => isOpen ? 'display: block' : 'display: none'}
@@ -33,9 +35,11 @@ export const ProfileContent = styled.div`
 `
 
 export const UserImage = styled.img`
+  font-size: ${design.largeText};
   max-width: 80px;
   max-height: 80px;
   object-fit: cover;
+  clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
 `
 
 export const Username = styled.p`
@@ -52,7 +56,7 @@ export const NavigationItems = styled.ul`
 `
 
 export const Item = styled.div`
-  margin-top: 16px;
+  margin-top: 24px;
   display: flex;
   justify-content: center;
 
@@ -79,16 +83,7 @@ export const ItemTitle = styled.p`
 `
 
 export const LogoWrapper = styled.div`
-  width: 80px;
-  height: 80px;
-  ${({ isOpen }) => isOpen ?
-    css`
-    opacity: 1;`
-    :
-    css`
-    transition-delay: 100ms;
-    opacity: 0;`
-  };  
+  width: 50%;
 `
 
 export const ToggleButton = styled.button`

@@ -1,17 +1,20 @@
-import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
+import React, {useState} from 'react'
 
 import Icons from '../../Images/Icons'
 import SquareCard from '../../components/SquareCard'
-import { requestMugshot } from '../../config/services/mugshot.service'
-import {DEFAULT_IMAGE} from '../../config/constants'
+import MugshotImage from '../../components/MugshotImage'
+import Badges from '../../Images/Badges'
+import Alert, { showAlert, hideAlert } from '../../components/Alert'
 
 import {
     PageWrapper,
     PlayerHeader,
     PlayerInfoWrapper,
     PlayerPictureWrapper,
-    PlayerPicture,
+    PlayerMugshotWrapper,
+    PlayerMugshot,
+    MugshotEdit,
+    MugshotEditLabel,
     PlayerLevel,
     SocialMediaWrapper,
     SocialMediaIcon,
@@ -20,7 +23,6 @@ import {
     PlayerBadgesWrapper,
     PlayerBadge,
     PostsHighlightWrapper,
-    PostHighlight,
     PostTitle,
     PostContentPreview
 } from './Profile.style'
@@ -29,21 +31,20 @@ import {
 const PLAYER_EXAMPLE = {
     playerName: 'Germano Brigido',
     playerLevel: 7,
-    playerMugshot: requestMugshot,
     playerBio: 'Envagelista de React, amante de CSS e o melhor ADC que vai conhecer 🏹',
     playerBanner: 'https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/03/como-adicionar-css-no-html-sem-tag.png',
     playerMedals: [
         {
             name: 'Melhor batata',
-            image: 'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_960_720.png'
+            image: Badges.TeamWorkBadge
         },
         {
-            name: 'Melhor batata',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png'
+            name: 'Melhor baatata',
+            image: Badges.ChatBadge
         },
         {
-            name: 'Melhor batata',
-            image: 'https://www.shareicon.net/download/2015/09/16/102069_html5.svg'
+            name: 'Melhor bataata',
+            image: Badges.CssBadge
         }
     ],
     playerPosts: [
@@ -74,6 +75,7 @@ const PLAYER_EXAMPLE = {
         }
     ]
 }
+
 
 const handleBadgesRendering = badges => {
     return badges.map(badge => {
@@ -116,22 +118,40 @@ const handleSocialMediaRendering = socialMediaList => {
     });
 }
 
+const Profile = ({player = PLAYER_EXAMPLE}) => {   
 
+    const [file, setFile] = useState(null)
 
+    const MugshotSrc = MugshotImage(file)
+    const MB_SIZE = 1000000
 
-
-const Profile = ({player = PLAYER_EXAMPLE}) => {
-    
-    const [mugshot, setMugshot] = useState(DEFAULT_IMAGE)
-    requestMugshot().then(returnedMugshot => setMugshot(returnedMugshot)).catch(error => console.error(error))
+    const validateFile = ({ target }) => {
+        const file = target.files[0]
+        if(file.size){
+            if(file.size > MB_SIZE){
+                showAlert('Ops, Seu arquivo deve ser menor que 1MB', 'error')
+                return false
+            }
+            showAlert('Só um minutinho, Estamos processando...')
+            setFile(file)
+            return true
+        }
+        return false
+    }
 
     return (
         <PageWrapper>
+            <Alert />
             <PlayerHeader headerImage={player.playerBanner} />
             <PlayerInfoWrapper>
                 <PlayerPictureWrapper>
-                    
-                    <PlayerPicture id="mugshot" src={mugshot}/>
+                    <PlayerMugshotWrapper>
+                        <PlayerMugshot id="mugshot" src={MugshotSrc}/>
+                        <MugshotEditLabel htmlFor='mugshotEdit'>
+                            Clique para Editar
+                            <MugshotEdit type='file' accept="image/*" data-max-size="1024" id='mugshotEdit' onChange={e => validateFile(e)}></MugshotEdit>
+                        </MugshotEditLabel>
+                    </PlayerMugshotWrapper>
                     <PlayerLevel>
                         {player.playerLevel}
                     </PlayerLevel>

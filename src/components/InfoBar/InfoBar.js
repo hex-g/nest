@@ -1,6 +1,8 @@
 import React from 'react'
-import { ReactComponent as ConfigIcon } from './settings.svg'
 import { handleLogout } from '../../utils/token/token'
+import { ReactComponent as ConfigIcon } from './settings.svg'
+import { ReactComponent as Notification } from './notification.svg'
+import { ReactComponent as LogOut } from './exit.svg'
 import {
   Aside,
   Menu,
@@ -8,8 +10,7 @@ import {
   Information,
   Item,
   ToggleArea,
-  ToggleButton,
-  Logout,
+  ToggleButton
 } from './InfoBar.style'
 
 const InfoBar = ({
@@ -24,8 +25,14 @@ const InfoBar = ({
       </ToggleArea>
       <Menu>
         <ItemsMenu isOpen={isOpen}>
-          <Item onClick={() => handleInformationChange({type: 'configuration'})}>
+          <Item isOpen={isOpen} onClick={() => handleInformationChange({type: 'configuration'})}>
             <ConfigIcon />
+          </Item>
+          <Item isOpen={isOpen} onClick={() => handleInformationChange({type: 'notification'})}>
+            <Notification />
+          </Item>
+          <Item isOpen={isOpen} onClick={handleLogout}>
+            <LogOut />
           </Item>
         </ItemsMenu>
         {isOpen && (
@@ -33,7 +40,6 @@ const InfoBar = ({
             {information}
           </Information>
         )}
-        <Logout isOpen={isOpen} onClick={handleLogout}>LOGOUT</Logout>
       </Menu>
     </Aside>
   )

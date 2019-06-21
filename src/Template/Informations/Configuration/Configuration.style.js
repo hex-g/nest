@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 export const Options = styled.div`
       width: 200px;
-      height: 100%;
+      height: auto;
+      flex-grow: 1;
     `
 
 export const ButtonWrapper = styled.div`
