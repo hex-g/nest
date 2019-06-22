@@ -24,14 +24,19 @@ export const Input = styled.input`
   color: ${textColor};
 
   &::placeholder {
+    color: ${design.hoverOuterSpace};
     font-size: ${design.mediumText};
   }
 `
 
 export const Button = styled.button`
-width: 30px;
-padding: 5px 5px;
-background: transparent;
-outline: none;
-border: none;
+  width: 30px;
+  padding: 5px 5px;
+  background: transparent;
+  outline: none;
+  border: none;
+
+  svg {
+    fill: ${textColor};
+  }
 `

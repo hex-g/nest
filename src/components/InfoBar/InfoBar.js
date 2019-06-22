@@ -25,11 +25,11 @@ const InfoBar = ({
       </ToggleArea>
       <Menu>
         <ItemsMenu isOpen={isOpen}>
-          <Item isOpen={isOpen} onClick={() => handleInformationChange({type: 'configuration'})}>
-            <ConfigIcon />
-          </Item>
           <Item isOpen={isOpen} onClick={() => handleInformationChange({type: 'notification'})}>
             <Notification />
+          </Item>
+          <Item isOpen={isOpen} onClick={() => handleInformationChange({type: 'configuration'})}>
+            <ConfigIcon />
           </Item>
           <Item isOpen={isOpen} onClick={handleLogout}>
             <LogOut />

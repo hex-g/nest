@@ -1,20 +1,19 @@
 import styled from 'styled-components'
-import { textColor } from '../../components/Layout'
+import { design, textColor } from '../../components/Layout'
 
 export const Page = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 0;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  height: 100%;
 `
 
 export const Directories = styled.div`
   min-width: 300px;
-  height: calc(100vh - 35px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  height: calc(1px + 100%);
+  display: grid;
+  grid-template-rows: 1fr 0.1fr;
   border-right: 1px solid #d3d3d3;
-  padding: 10px;
+  padding: 0px 35px 14px 0;
 `
 
 export const Files = styled.div`
@@ -160,8 +159,6 @@ export const Editor = styled.div`
   &::-webkit-scrollbar-thumb {
     background-color: #555555;
   }
-
-  border: 1px solid ${textColor};
 `
 
 export const SendButton = styled.button`
@@ -179,8 +176,20 @@ export const SendButton = styled.button`
 
 export const NewFile = styled.button`
   width: 100%;
-  height: 40px;
+  height: 72px;
+  align-self: end;
+  font-size: ${design.largeText};
   position: relative;
+  background-color: ${design.rajah};
+  color: ${design.wildSand};
+  border: none;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${design.burntSienna};
+    transition: 0.2s ease-in;
+  }
 `
 
 export const DeleteButton = styled.button`
