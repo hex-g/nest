@@ -15,15 +15,15 @@ export const SIDEBAR_PAGES = [
   { title: "Feedback", link: "/feedback", icon: <Feedback /> },
   { title: "HiveCentral", link: "/hivecentral", icon: <HiveCentral /> },
   { title: "HiveShare", link: "/hiveshare", icon: <HiveShare /> }
-];
+]
 
 export const THEME_COLORS = {
   LIGHT: "light",
   DARK: "dark"
-};
+}
 
-export const DIRECTORY_TYPE = 0;
-export const ARCHIVE_TYPE = 1;
+export const DIRECTORY_TYPE = 0
+export const ARCHIVE_TYPE = 1
 
 export const ACCESS_TOKEN = 'access_token'
 
