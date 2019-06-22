@@ -36,15 +36,15 @@ const PLAYER_EXAMPLE = {
     playerBanner: 'https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/03/como-adicionar-css-no-html-sem-tag.png',
     playerMedals: [
         {
-            name: 'Melhor batata',
+            name: 'Teamwork maestry',
             image: Badges.TeamWorkBadge
         },
         {
-            name: 'Melhor baatata',
+            name: '+50 Feedback',
             image: Badges.ChatBadge
         },
         {
-            name: 'Melhor bataata',
+            name: 'CSS Ninja',
             image: Badges.CssBadge
         }
     ],
@@ -61,17 +61,17 @@ const PLAYER_EXAMPLE = {
     socialMedia: [
         {
             socialMedia: 'Github',
-            userName: '@dani_Santos_S2_<3_XOXO',
+            userName: 'GitHub',
             url: 'https://twitter.com'
         },
         {
             socialMedia: 'Linkedin',
-            userName: '@dani_Santos_S2_<3_XOXO',
+            userName: 'LinkedIn',
             url: 'https://twitter.com'
         },
         {
             socialMedia: 'Twitter',
-            userName: '@dani_Santos_S2_<3_XOXO',
+            userName: 'Twitter',
             url: 'https://twitter.com'
         }
     ]

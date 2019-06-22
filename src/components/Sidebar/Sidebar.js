@@ -31,10 +31,17 @@ const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
           {pages &&
             pages.map(page => (
               <Item key={page.link}>
-                <Link to={`/${page.link}`}>
-                  {page.icon}
-                  <ItemTitle isOpen={isOpen}>{page.title}</ItemTitle>
-                </Link>
+                {page.link === 'https://alexandria-corporation.azurewebsites.net/login' ?
+                  <a href={page.link}>
+                    {page.icon}
+                    <ItemTitle isOpen={isOpen}>{page.title}</ItemTitle>
+                  </a>
+                  :
+                  <Link to={page.link}>
+                    {page.icon}
+                    <ItemTitle isOpen={isOpen}>{page.title}</ItemTitle>
+                  </Link>
+                }
               </Item>
             ))}
         </NavigationItems>

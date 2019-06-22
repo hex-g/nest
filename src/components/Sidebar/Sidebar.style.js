@@ -36,7 +36,7 @@ export const ProfileContent = styled.div`
 
 export const UserImage = styled.img`
   font-size: ${design.largeText};
-  max-width: 80px;
+  max-width: 60px;
   max-height: 80px;
   object-fit: cover;
   clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
@@ -96,7 +96,7 @@ cursor: pointer;
 
 &::before{
   content:"";
-background-color: ${design.rajah};
+  background-color: ${design.rajah};
   width: 2px;
   height: 10px;
   position: absolute;
