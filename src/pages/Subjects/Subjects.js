@@ -1,126 +1,140 @@
 import React from 'react'
 import SquareCard from '../../components/SquareCard'
 import {
-    SubjectTitle, 
-    Label, 
-    BoldLabel,
-    ProgressWrapper, 
-    ProgressBar, 
-    ProgressPercentage, 
-    AuthorWrapper, 
-    AuthorImage, 
-    AuthorName,
-    Page,
-    Container,
-    CardWrapper,CardLink,
-    Form,
-    LabelWrapper
+  SubjectTitle,
+  Label,
+  BoldLabel,
+  ProgressWrapper,
+  ProgressBar,
+  ProgressPercentage,
+  AuthorWrapper,
+  AuthorImage,
+  AuthorName,
+  Page,
+  Container,
+  CardWrapper,
+  CardLink,
+  Form,
+  LabelWrapper
 } from './Subjects.style'
 import SearchBox from '../../components/SearchBox'
 
 const cards = [
-    {
-        Subject:"string",
-        DaysOfWeek:"string",
-        LastExercise:"string",
-        NextExamDate:"Date",
-        ProgressPercentage:"0",
-        pedagogue:"String<userId>"
-    },
-    {
-        Subject:"Curso Hacker 2000",
-        DaysOfWeek:"Sábados e Domingos",
-        LastExercise:"26/04/2666",
-        NextExamDate:"01/10/1001",
-        ProgressPercentage:"69",
-        pedagogue:"String<userId>"
-    },
-    {
-        Subject:"string",
-        DaysOfWeek:"string",
-        LastExercise:"string",
-        NextExamDate:"Date",
-        ProgressPercentage:"100",
-        pedagogue:"String<userId>"
-    },
-    {
-        Subject:"Curso Hacker 2000",
-        DaysOfWeek:"Sábados e Domingos",
-        LastExercise:"26/04/2666",
-        NextExamDate:"01/10/1001",
-        ProgressPercentage:"30",
-        pedagogue:"Elmo"
-    }
+  {
+    Subject: "Estrutura de Dados",
+    DaysOfWeek: "quartas-feiras",
+    LastExercise: "Lista Estática",
+    NextExamDate: "22/05/2019",
+    ProgressPercentage: "100",
+    profileImage: 'https://media.licdn.com/dms/image/C4D03AQERbUJGQ7saKg/profile-displayphoto-shrink_800_800/0?e=1566432000&v=beta&t=Qq-EnpnRRWSenXY5Sa9595WARS3AB-m3D-ivCen1nLE',
+    pedagogue: "Célia Taniwaki"
+  },
+  {
+    Subject: "Técnicas de Programação Web",
+    DaysOfWeek: "segundas e terças-feiras",
+    LastExercise: "Testes unitário",
+    NextExamDate: "19/05/2019",
+    ProgressPercentage: "40",
+    profileImage: 'https://media.licdn.com/dms/image/C4E03AQHjlnVy1ck_PA/profile-displayphoto-shrink_800_800/0?e=1566432000&v=beta&t=k7EIrvhG6A9iNxG79YhwiDtDQl7Ja9eNhfH8lE0BRuo',
+    pedagogue: "Rodrigo Pinto"
+  },
+  {
+    Subject: "Engenharia de Software",
+    DaysOfWeek: "terças-feiras",
+    LastExercise: "Formulário UX",
+    NextExamDate: "-",
+    ProgressPercentage: "90",
+    profileImage: 'https://media.licdn.com/dms/image/C5603AQHvUSwEC84prg/profile-displayphoto-shrink_800_800/0?e=1566432000&v=beta&t=ctSKBs0FUr9aDb0CX8uBadSaudr9SNudBNbGdiIAUNY',
+    pedagogue: "Gerson Santos"
+  },
+  {
+    Subject: "Pesquisa e Inovação",
+    DaysOfWeek: "quintas-feiras",
+    LastExercise: "-",
+    NextExamDate: "23/05/2019",
+    ProgressPercentage: "0",
+    profileImage: 'https://media.licdn.com/dms/image/C5603AQGWz5M0js_VjA/profile-displayphoto-shrink_800_800/0?e=1566432000&v=beta&t=3fJqfzuOGUJobmXgOTTpoNx6r5CLdh7h1KwOryaAGQ0',
+    pedagogue: "Fernando Brandão"
+  },
+  {
+    Subject: "Socioemocional",
+    DaysOfWeek: "exceto às terças-feiras",
+    LastExercise: "Apresentação",
+    NextExamDate: "-",
+    ProgressPercentage: "100",
+    profileImage: 'https://media.licdn.com/dms/image/C5603AQGD7Ux4mw63MQ/profile-displayphoto-shrink_800_800/0?e=1566432000&v=beta&t=xfP3Y-yKnZqMeRmRexlSxyT6rJfBHqMAdpojK3XrHjs',
+    pedagogue: "Vera Goulart"
+  },
 ]
 
 const HandleCardMapping = () => {
-    return cards.map((card) => {
-        return(
-        <CardLink href={`subject?subject=${card.pedagogue}`}>
-            <SquareCard>
-                <SubjectTitle>
-                    {card.Subject}
-                </SubjectTitle>
-                <LabelWrapper>
-                    <Label>
-                        Aulas:
+  return cards.map((card) => {
+    return (
+      <CardLink href={`subject?subject=${card.Subject}`}>
+        <SquareCard>
+          <SubjectTitle>
+            {card.Subject}
+          </SubjectTitle>
+          <LabelWrapper>
+            <Label>
+              Aulas:
+            </Label>
+            <BoldLabel>
+              {card.DaysOfWeek}
+            </BoldLabel>
+          </LabelWrapper>
+          <LabelWrapper>
+            <Label>
+              Último Exercício:
                     </Label>
-                    <BoldLabel>
-                        {card.DaysOfWeek}
-                    </BoldLabel>
-                </LabelWrapper>
-                <LabelWrapper>
-                    <Label>
-                        Último Exercício:
+            <BoldLabel>
+              {card.LastExercise}
+            </BoldLabel>
+          </LabelWrapper>
+          <LabelWrapper>
+            <Label>
+              Próxima Prova:
                     </Label>
-                    <BoldLabel>
-                        {card.LastExercise}
-                    </BoldLabel>
-                </LabelWrapper>
-                <LabelWrapper>
-                    <Label>
-                        Próxima Prova:
+            <BoldLabel>
+              {card.NextExamDate}
+            </BoldLabel>
+          </LabelWrapper>
+          <LabelWrapper>
+            <Label>
+              Progresso de Atividades
                     </Label>
-                    <BoldLabel>
-                        {card.NextExamDate}
-                    </BoldLabel>
-                </LabelWrapper>
-                <LabelWrapper>
-                    <Label>
-                        Progresso de Atividades
-                    </Label>
-                </LabelWrapper>
-                <ProgressWrapper>
-                    <ProgressBar  max="100" value={card.ProgressPercentage}></ProgressBar>
-                    <ProgressPercentage>
-                        {card.ProgressPercentage}%
+          </LabelWrapper>
+          <ProgressWrapper>
+            <ProgressBar max="100" value={card.ProgressPercentage}></ProgressBar>
+            <ProgressPercentage>
+              {card.ProgressPercentage}%
                     </ProgressPercentage>
-                </ProgressWrapper>
-                <AuthorWrapper>
-                    <AuthorImage src="https://pbs.twimg.com/profile_images/1019786468087271425/fKvODolm_400x400.jpg"/>
-                    <AuthorName>
-                        {card.pedagogue}
-                    </AuthorName>
-                </AuthorWrapper>
-            </SquareCard>
-        </CardLink>
-        )
-    })
+          </ProgressWrapper>
+          <AuthorWrapper>
+            <AuthorImage src={card.profileImage} />
+            <AuthorName>
+              {card.pedagogue}
+            </AuthorName>
+          </AuthorWrapper>
+        </SquareCard>
+      </CardLink>
+    )
+  })
 }
 
 const Subject = () => {
-    return (
-        <Page>
-            <Container>
-                <Form>
-                    <SearchBox />
-                </Form>
-                <CardWrapper>
-                    {HandleCardMapping()}
-                </CardWrapper>
-            </Container>
-        </Page>
-    )
+  return (
+    <Page>
+      <Container>
+        <Form>
+          <SearchBox />
+        </Form>
+        <CardWrapper>
+          {HandleCardMapping()}
+        </CardWrapper>
+      </Container>
+    </Page>
+  )
 }
 
 export default Subject

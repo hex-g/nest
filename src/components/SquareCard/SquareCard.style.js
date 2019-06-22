@@ -8,6 +8,7 @@ export default styled.div`
   flex-direction: column;
   align-items: flex-start;
   min-height: 250px;
+  max-width: 400px;
   cursor: pointer;
   padding: 16px;
   position: relative;

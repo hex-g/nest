@@ -25,9 +25,9 @@ export const Form = styled.div`
 
 export const CardWrapper = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 24px;
-  padding: 8px;
+  padding: 64px 24px;
 `
 export const CardLink = styled.a`
   text-decoration: none;
@@ -97,7 +97,7 @@ export const AuthorWrapper = styled.figure`
 `
 
 export const AuthorImage = styled.img`
-  width: 25%;
+  width: 80px;
   clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
 `
 
