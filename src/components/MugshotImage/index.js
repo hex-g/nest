@@ -1,1 +1,1 @@
-export { default } from './MugshotImage'
+export { MugshotImage, BannerImage } from './MugshotImage'

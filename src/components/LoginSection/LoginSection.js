@@ -26,8 +26,9 @@ const LoginSection = (props) => {
           <TextInput type='text' placeholder='Nome de Usuário' id="usernameInput" onChange={(e) => props.onUsernameChange(e.target.value)} disabled={lock} />
           <Label>Senha</Label>
           <TextInput type='password' placeholder='Senha' id="passwordInput" onChange={(e) => props.onPasswordChange(e.target.value)} disabled={lock} />
+          
+          <Button onClick={(event) => {event.preventDefault(); props.onButtonClick()}} >Entrar</Button>
         </Form>
-        <Button onClick={() => props.onButtonClick()} >Entrar</Button>
         <Description>
           Ainda não possui uma conta? <a href='http://hive-lp.netlify.com/RegisterAccount/'> Cadastre-se </a> agora mesmo! :)
         </Description>

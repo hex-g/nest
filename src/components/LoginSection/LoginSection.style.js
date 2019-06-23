@@ -7,9 +7,11 @@ export const Section = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 `
 
 export const LoginWrapper = styled.div`
+  min-width: 300px;
   width: 40%;
   height: 100%;
   display: flex;
@@ -30,6 +32,7 @@ export const Title = styled.h2`
   font-family: ${design.primaryFont}, sans-serif;
   font-size: ${design.smallTitle};
   margin-top: 24px;
+  text-align: center;
   span{
     font-weight: bold;
     color: ${design.rajah};
@@ -41,6 +44,7 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: flex-start;
   width: 75%;
+  min-width: 270px;
 `
 
 export const Label = styled.p`
@@ -54,10 +58,11 @@ export const Label = styled.p`
 
 export const TextInput = styled.input`
   text-align: left;
-  width: calc(100% - 20px);
+  box-sizing: border-box;
+  width: 100%;
   font-size: 18px;
   margin-top: 10px;
-  height: 30px;
+  height: 50px;
   padding: 10px 10px;
   border-radius: 7px;
   outline: none;
@@ -77,11 +82,13 @@ export const Button = styled.button`
   text-align: center;
   font-size: ${design.mediumText};
   margin: 20px;
+  margin-top: 48px;
   background: ${design.hippieBlue};
   color: ${design.wildSand};
   font-weight: bold;
   outline: none;
   border: none;
+  align-self: center;
   cursor: pointer;
 `
 export const Description = styled.p`

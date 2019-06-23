@@ -2,7 +2,6 @@ import React from 'react'
 import HorizontalNavbar from '../../components/HorizontalNavbar'
 import HomeCard from '../../components/HomeCard'
 import SearchBox from '../../components/SearchBox'
-import MugshotImage from '../../components/MugshotImage'
 import { NEWS } from '../../config/constants'
 import {
   Page,
@@ -64,16 +63,21 @@ const Nest = ({
   options = EXAMPLE_HORIZONTAL_NAVBAR
 }) => {
 
-  const MugshotSrc = MugshotImage()
 
   const [page, setPage] = React.useState(posts)
 
-  const switchPage = () => {
-    if (page === EXAMPLE_CARD_POSTS) {
-      setPage(NEWS)
-      return
+  const switchPage = (target) => {
+    switch(target){
+      case 0:
+        setPage(EXAMPLE_CARD_POSTS)
+        return;
+      case 1:
+        setPage(NEWS)
+        return;
+      default:
+        setPage(EXAMPLE_CARD_POSTS)
+        return;
     }
-    setPage(EXAMPLE_CARD_POSTS)
   }
 
   return (
