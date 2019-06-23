@@ -1,6 +1,6 @@
 import { request } from '../../config/http-request'
 
-const REQUEST_ADDRESS = 'http://104.198.143.12:8763'
+const REQUEST_ADDRESS = 'https://hiveapi.bolognini.me'
 
 export const getAccessToken = async (username, password) => {
     return await request({
