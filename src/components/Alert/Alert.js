@@ -4,9 +4,12 @@ import {design} from '../Layout'
 
 export const showAlert = (message='Estamos processando...', type = 'idling',  HideAutomaticaly = true, HideTime = 5000) => {
     const alertMessage = document.querySelector('#alertMessage')
+
+    if (!alertMessage) return
+    
     const messageContent = alertMessage.querySelector('#messageContent')
 
-    if (!alertMessage || !messageContent) return
+    if(!messageContent) return
 
     let color = design.hippieBlue
     switch(type){

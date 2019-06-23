@@ -66,12 +66,18 @@ const Nest = ({
 
   const [page, setPage] = React.useState(posts)
 
-  const switchPage = () => {
-    if (page === EXAMPLE_CARD_POSTS) {
-      setPage(NEWS)
-      return
+  const switchPage = (target) => {
+    switch(target){
+      case 0:
+        setPage(EXAMPLE_CARD_POSTS)
+        return;
+      case 1:
+        setPage(NEWS)
+        return;
+      default:
+        setPage(EXAMPLE_CARD_POSTS)
+        return;
     }
-    setPage(EXAMPLE_CARD_POSTS)
   }
 
   return (

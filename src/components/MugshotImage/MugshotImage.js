@@ -1,20 +1,22 @@
 import { useState } from 'react'
-import { requestMugshot, postMugshot } from '../../config/services/mugshot.service'
-import { hideAlert } from '../../components/Alert'
+import { requestMugshot, postMugshot, requestBanner, postBanner } from '../../config/services/mugshot.service'
+import { hideAlert, showAlert } from '../../components/Alert'
 import {DEFAULT_IMAGE} from '../../config/constants'
 
-const Mugshotimage = (newFile) => {
+
+export const MugshotImage = (newFile) => {
     const [mugshotSrc, setMugshot] = useState(DEFAULT_IMAGE)
+
     const updateAllMugshots = () => {
         document.querySelectorAll('[data-mugshot = true]').forEach( (image) => image.src=mugshotSrc )
     }
 
     const request = () => {
-        requestMugshot().then(returnedMugshot => { setMugshot(returnedMugshot); hideAlert() }).catch(error => setMugshot(DEFAULT_IMAGE))
+        requestMugshot().then(returnedMugshot => {setMugshot(returnedMugshot) }).catch(error => {setMugshot(DEFAULT_IMAGE)})
     }
-    
+
     if(newFile){
-        postMugshot(newFile).then(() => {request(); updateAllMugshots()})
+        postMugshot(newFile).then(async () => {await request(); updateAllMugshots(); hideAlert()})
     }
     else{
         request();
@@ -22,4 +24,18 @@ const Mugshotimage = (newFile) => {
     return mugshotSrc
 }
 
-export default Mugshotimage
+export const BannerImage = (newFile) => {
+    const [bannerSrc, setBanner] = useState(DEFAULT_IMAGE)
+
+    const request = () => {
+        requestBanner().then(returnedBanner => { setBanner(returnedBanner) }).catch(error => {setBanner(DEFAULT_IMAGE)})
+    }
+    
+    if(newFile){
+        postBanner(newFile).then(async () => {await request(); hideAlert()})
+    }
+    else{
+        request();
+    }
+    return bannerSrc
+}

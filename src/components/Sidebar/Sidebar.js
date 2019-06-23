@@ -1,5 +1,5 @@
 import React from 'react'
-import MugshotImage from '../../components/MugshotImage'
+import { MugshotImage } from '../../components/MugshotImage'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../assets/Hive Isologo.svg'
 import {

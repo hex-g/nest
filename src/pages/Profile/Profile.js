@@ -2,10 +2,10 @@ import React, {useState} from 'react'
 
 import Icons from '../../Images/Icons'
 import SquareCard from '../../components/SquareCard'
-import MugshotImage from '../../components/MugshotImage'
+import { MugshotImage, BannerImage } from '../../components/MugshotImage'
 import PlayerData from '../../components/PlayerData'
 import Badges from '../../Images/Badges'
-import Alert, { showAlert } from '../../components/Alert'
+import Alert, { showAlert, hideAlert } from '../../components/Alert'
 
 import {
     PageWrapper,
@@ -14,7 +14,7 @@ import {
     PlayerPictureWrapper,
     PlayerMugshotWrapper,
     PlayerMugshot,
-    MugshotEdit,
+    ImageEdit,
     MugshotEditLabel,
     PlayerLevel,
     SocialMediaWrapper,
@@ -25,7 +25,8 @@ import {
     PlayerBadge,
     PostsHighlightWrapper,
     PostTitle,
-    PostContentPreview
+    PostContentPreview,
+    HeaderEditLabel
 } from './Profile.style'
 
 
@@ -121,38 +122,56 @@ const handleSocialMediaRendering = socialMediaList => {
 
 const Profile = ({player = PLAYER_EXAMPLE}) => {   
 
-    const [file, setFile] = useState(null)
-
+    const [mugshotFile, setMugshot] = useState(null)
+    const [bannerFile, setBanner] = useState(null)
+    const [playerBio, setBio] = useState('Fale sobre você...')
     const playerInfo = PlayerData()
-    console.table(playerInfo)
-    const MugshotSrc = MugshotImage(file)
-    const MB_SIZE = 1000000
 
-    const validateFile = ({ target }) => {
-        const file = target.files[0]
+    //console.table(playerInfo)
+    const MugshotSrc = MugshotImage(mugshotFile)
+    const BannerSrc = BannerImage(bannerFile)
+    const MB_SIZE = 2000000
+
+    const validateFile = (file) => {
         if(file && file.size){
             if(file.size > MB_SIZE){
-                showAlert('Ops, Seu arquivo deve ser menor que 1MB', 'error')
+                showAlert('Ops, Seu arquivo deve ser menor que 2MB', 'error')
                 return false
             }
             showAlert('Só um minutinho, Estamos processando...', 'idling', false)
-            setFile(file)
             return true
         }
         return false
     }
 
+    const validateMugshot = ({ target }) => {
+        const file = target.files[0]
+        if(validateFile(file)) 
+            setMugshot(file)
+    }
+
+    const validateBanner = ({ target }) => {
+        const file = target.files[0]
+        if(validateFile(file)) 
+            setBanner(file)
+    }
+
     return (
         <PageWrapper>
             <Alert />
-            <PlayerHeader headerImage={player.playerBanner} />
+            <PlayerHeader headerImage={BannerSrc}>
+                <HeaderEditLabel htmlFor='HeaderEdit'>
+                    Clique para Editar
+                    <ImageEdit type='file' accept="image/*" data-max-size="2048" id='HeaderEdit' onChange={e => validateBanner(e)}></ImageEdit>
+                </HeaderEditLabel>
+            </PlayerHeader>
             <PlayerInfoWrapper>
                 <PlayerPictureWrapper>
                     <PlayerMugshotWrapper>
                         <PlayerMugshot id="mugshot" data-mugshot={true} src={MugshotSrc}/>
                         <MugshotEditLabel htmlFor='mugshotEdit'>
                             Clique para Editar
-                            <MugshotEdit type='file' accept="image/*" data-max-size="1024" id='mugshotEdit' onChange={e => validateFile(e)}></MugshotEdit>
+                            <ImageEdit type='file' accept="image/*" data-max-size="2048" id='mugshotEdit' onChange={e => validateMugshot(e)}></ImageEdit>
                         </MugshotEditLabel>
                     </PlayerMugshotWrapper>
                     <PlayerLevel>
@@ -162,8 +181,8 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
                 <PlayerName>
                     {player.playerName}
                 </PlayerName>
-                <PlayerBio>
-                    {player.playerBio}    
+                <PlayerBio contentEditable={true} onBlur={({ target }) => setBio(playerBio)}>
+                    {playerBio}
                 </PlayerBio>
                 <PlayerBadgesWrapper>
                     {handleBadgesRendering(player.playerMedals)}

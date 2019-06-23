@@ -1,6 +1,6 @@
 import { request } from '../http-request'
 
-const REQUEST_ADDRESS = 'http://104.198.143.12:8763/'
+const REQUEST_ADDRESS = 'http://104.198.143.12:8762/'
 
 const PLAYER = `${REQUEST_ADDRESS}player`
 

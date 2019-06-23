@@ -6,7 +6,7 @@ export const MessageWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     top: -56px;
