@@ -70,7 +70,7 @@ const cards = [
 const HandleCardMapping = () => {
   return cards.map((card) => {
     return (
-      <CardLink href={`subject?subject=${card.pedagogue}`}>
+      <CardLink href={`subject?subject=${card.Subject}`}>
         <SquareCard>
           <SubjectTitle>
             {card.Subject}
@@ -78,7 +78,7 @@ const HandleCardMapping = () => {
           <LabelWrapper>
             <Label>
               Aulas:
-                    </Label>
+            </Label>
             <BoldLabel>
               {card.DaysOfWeek}
             </BoldLabel>
