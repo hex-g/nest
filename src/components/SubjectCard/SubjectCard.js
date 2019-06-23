@@ -26,7 +26,7 @@ const findIcon = (type) => {
   return target[0].icon
 }
 
-const SubjectCard = ({ type, taskName, description, fileName, postDate }) => (
+const SubjectCard = ({ type, taskName, description, fileName, postDate, checked }) => (
   <Wrapper>
     <Image>
       {findIcon(type)}
@@ -38,7 +38,7 @@ const SubjectCard = ({ type, taskName, description, fileName, postDate }) => (
     </Content>
     <RightContent>
       <Date>{postDate}</Date>
-      <CheckBox type='checkbox'></CheckBox>
+      <CheckBox type='checkbox' checked={checked}></CheckBox>
     </RightContent>
   </Wrapper>
 )
