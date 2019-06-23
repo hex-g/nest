@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { codeBackground } from '../Layout'
 
 export const Aside = styled.aside`
   height: 100%;
@@ -10,7 +11,7 @@ export const Menu = styled.div`
   display: flex; 
   flex-direction: column;
   align-items: center;
-  border-left: 1px solid #d8d8d8;
+  border-left: 1px solid ${codeBackground};
   background: ${props => props.theme.wildSand};
 `
 
