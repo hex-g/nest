@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { design, backgroundColor, textColor } from '../Layout'
+import { design, backgroundColor, textColor, codeBackground } from '../Layout'
 
 export const Aside = styled.aside`
   height: 100%;
@@ -13,7 +13,7 @@ export const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 1px solid #d8d8d8;
+  border-right: 1px solid ${codeBackground};
   background: ${backgroundColor};
 `
 
