@@ -29,13 +29,6 @@ export const ACCESS_TOKEN = 'access_token'
 
 export const NEWS = [
   {
-    user: 'Thiago Bonacelli',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
-    description: 'Comunicado ImportanteComunicado ImportanteComunicado ImportanteComunicado ImportanteComunicado ImportanteComunicado ImportanteComunicado Importante',
-    date: '20 Jan 2019',
-    tag: [],
-  },
-  {
     user: 'Célia Taniwaki',
     profilePic: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
     description: 'Avaliação continuada 03',
