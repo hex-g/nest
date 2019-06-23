@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { design, textColor, backgroundScroll, codeBackground } from '../../components/Layout'
+import { design, textColor, backgroundScroll, codeBackground, codeBlock, codeColor } from '../../components/Layout'
 
 export const Page = styled.div`
   display: grid;
@@ -156,6 +156,19 @@ export const Wrapper = styled.div`
     background-color: ${codeBackground};
     color: ${textColor};
     resize: none;
+  }
+
+  code {
+    color: ${design.rajah};
+    border: 1px solid ${codeColor};
+    border-radius: 4px;
+    background-color: ${codeBlock};
+    padding: 8px 16px;
+  }
+
+  a {
+    color: ${design.rajah};
+    text-decoration: none;
   }
 `
 
