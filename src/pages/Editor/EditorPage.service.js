@@ -1,7 +1,7 @@
 import { request } from '../../config/http-request'
 import { getToken } from '../../utils/token/token'
 
-const API = 'http://104.198.143.12:8762'
+const API = 'http://104.198.143.12:8763'
 
 export const saveEditorText = async (note, path) => {
   return await request({

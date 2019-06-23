@@ -2,15 +2,18 @@ import React, { Fragment } from 'react'
 import theme from 'styled-theming'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import reset from 'styled-reset'
-import { lighten } from 'polished'
+import { lighten, darken } from 'polished'
 
 export const design = {
   rajah: '#F6BD60',
   burntSienna: '#E9724C',
+  hoverBurntSienna: lighten(0.2, '#E9724C'),
   wildSand: '#F5F4F4',
+  darkWildSand: darken(0.1, '#F5F4F4'),
   hippieBlue: '#5C9EAD',
   hoverHippieBlue: lighten(0.2, '#5C9EAD'),
   capeCod: '#3E4447',
+  emperor: '#555555',
   outerSpace: '#313638',
   hoverOuterSpace: lighten(0.4, '#313638'),
   placeholderOuterSpace: lighten(0.6, '#313638'),
@@ -49,6 +52,16 @@ export const textColor = theme('mode', {
 export const cardBackground = theme('mode', {
   light: design.wildSand,
   dark: design.capeCod
+})
+
+export const codeBackground = theme('mode', {
+  light: design.darkWildSand,
+  dark: design.capeCod
+})
+
+export const backgroundScroll = theme('mode', {
+  light: design.darkWildSand,
+  dark: design.emperor
 })
 
 export const GlobalStyle = createGlobalStyle`

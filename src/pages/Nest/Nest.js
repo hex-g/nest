@@ -2,6 +2,7 @@ import React from 'react'
 import HorizontalNavbar from '../../components/HorizontalNavbar'
 import HomeCard from '../../components/HomeCard'
 import SearchBox from '../../components/SearchBox'
+import { NEWS } from '../../config/constants'
 import {
   Page,
   Container,
@@ -55,37 +56,6 @@ const EXAMPLE_CARD_POSTS = [
     date: '20 Jan 1999',
     tag: ['Frontend', 'CSS'],
   },
-]
-
-const NEWS = [
-  {
-    user: 'Thiago Bonacelli',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
-    description: 'Comunicado Importante',
-    date: '20 Jan 2019',
-    tag: [],
-  },
-  {
-    user: 'Célia Taniwaki',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
-    description: 'Avaliação continuada 03',
-    date: '20 Jan 1999',
-    tag: [],
-  },
-  {
-    user: 'Erika Lucena',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
-    description: 'Biblioteca - Ratificando as regras',
-    date: '20 Jan 1999',
-    tag: [],
-  },
-  {
-    user: 'Kaline Barreira',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU',
-    description: 'AULA DE REFORÇO BANCO DE DADOS - 1º SEMESTRE',
-    date: '20 Jan 1999',
-    tag: [],
-  }
 ]
 
 const Nest = ({
