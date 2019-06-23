@@ -31,8 +31,7 @@ export const postMugshot = async (file) => {
 }
 
 export const requestMugshot = async (token = localStorage.getItem('access_token')) => {
-  const mugsponse = await getMugshot(token)  
-  
+  const mugsponse = await getMugshot(token) 
   const src = "data:image/png;base64," + mugsponse.data
 
   return src

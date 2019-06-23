@@ -12,7 +12,7 @@ const HorizontalNavbar = ({ options, listOption }) => {
   return (
       <ItensList>
       {options.map((option, index) => (
-        <OptionButton onClick={() => listOption()}>
+        <OptionButton onClick={() => listOption()} key={index}>
           <Item
             key={`nav-item-${index}`}
             activated={index === selectedItem}

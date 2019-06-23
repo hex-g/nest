@@ -314,7 +314,7 @@ const EditorPage = () => {
   const walkTree = (index, e, path = '', level = 0) => {
     if (e.children !== null) {
       return (
-        <div>
+        <div key={path+index}>
           <Folder key={index} level={level}>
             <FolderIcon style={{ marginRight: 20 }} />
             <FolderName>{e.name}</FolderName>

@@ -23,7 +23,7 @@ const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
       <Menu>
         <ProfileContent isOpen={isOpen}>
           <Link to={`/profile`}>
-            <UserImage src={MugshotSrc} />
+            <UserImage data-mugshot={true} src={MugshotSrc} />
           </Link>
             <Username>{userInfo.username}</Username>
         </ProfileContent>

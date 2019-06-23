@@ -123,18 +123,19 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
 
     const [file, setFile] = useState(null)
 
-    //PlayerData()
+    const playerInfo = PlayerData()
+    console.table(playerInfo)
     const MugshotSrc = MugshotImage(file)
     const MB_SIZE = 1000000
 
     const validateFile = ({ target }) => {
         const file = target.files[0]
-        if(file.size){
+        if(file && file.size){
             if(file.size > MB_SIZE){
                 showAlert('Ops, Seu arquivo deve ser menor que 1MB', 'error')
                 return false
             }
-            showAlert('Só um minutinho, Estamos processando...')
+            showAlert('Só um minutinho, Estamos processando...', 'idling', false)
             setFile(file)
             return true
         }
@@ -148,7 +149,7 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
             <PlayerInfoWrapper>
                 <PlayerPictureWrapper>
                     <PlayerMugshotWrapper>
-                        <PlayerMugshot id="mugshot" src={MugshotSrc}/>
+                        <PlayerMugshot id="mugshot" data-mugshot={true} src={MugshotSrc}/>
                         <MugshotEditLabel htmlFor='mugshotEdit'>
                             Clique para Editar
                             <MugshotEdit type='file' accept="image/*" data-max-size="1024" id='mugshotEdit' onChange={e => validateFile(e)}></MugshotEdit>
