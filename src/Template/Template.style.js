@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { design, backgroundScroll } from '../components/Layout'
 
 export const TemplateSection = styled.div`
   display: flex;
@@ -17,10 +18,20 @@ export const Content = styled.div`
   width: 100%;
   padding: 0 24px;
   z-index: 1;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    background-color: ${design.wildSand};
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${backgroundScroll};
+  }
 `
 
 export const Informations = styled.div`
-  width: ${({isOpen}) => isOpen ? '300px' : '105px'};
+  width: ${({isOpen}) => isOpen ? '350px' : '105px'};
+  max-height: 100vh;
+  overflow: hidden;
   z-index: 2;
   transition: 150ms;
 `

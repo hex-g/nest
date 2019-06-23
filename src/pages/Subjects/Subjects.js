@@ -25,7 +25,7 @@ const cards = [
     DaysOfWeek: "quartas-feiras",
     LastExercise: "Lista Estática",
     NextExamDate: "22/05/2019",
-    ProgressPercentage: "100",
+    ProgressPercentage: "90",
     profileImage: 'https://media.licdn.com/dms/image/C4D03AQERbUJGQ7saKg/profile-displayphoto-shrink_800_800/0?e=1566432000&v=beta&t=Qq-EnpnRRWSenXY5Sa9595WARS3AB-m3D-ivCen1nLE',
     pedagogue: "Célia Taniwaki"
   },
@@ -43,7 +43,7 @@ const cards = [
     DaysOfWeek: "terças-feiras",
     LastExercise: "Formulário UX",
     NextExamDate: "-",
-    ProgressPercentage: "90",
+    ProgressPercentage: "100",
     profileImage: 'https://media.licdn.com/dms/image/C5603AQHvUSwEC84prg/profile-displayphoto-shrink_800_800/0?e=1566432000&v=beta&t=ctSKBs0FUr9aDb0CX8uBadSaudr9SNudBNbGdiIAUNY',
     pedagogue: "Gerson Santos"
   },
