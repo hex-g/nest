@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { design, textColor } from '../../components/Layout'
+import { design, textColor, backgroundScroll, codeBackground } from '../../components/Layout'
 
 export const Page = styled.div`
   display: grid;
@@ -9,25 +9,22 @@ export const Page = styled.div`
 
 export const Directories = styled.div`
   min-width: 300px;
-  height: calc(1px + 100%);
-  display: grid;
-  grid-template-rows: 1fr 0.1fr;
-  border-right: 1px solid #d3d3d3;
-  padding: 0px 35px 14px 0;
+  overflow: hidden;
+  max-width: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 35px 20px 0;
 `
 
 export const Files = styled.div`
   height: 100%;
   overflow: auto;
-  &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-  }
   &::-webkit-scrollbar {
     width: 3px;
-    background-color: #f5f5f5;
+    background-color: ${design.wildSand};
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #555555;
+    background-color: ${backgroundScroll};
   }
 `
 
@@ -65,16 +62,18 @@ export const FileButton = styled.button`
   align-items: center;
   background: transparent;
   outline: none;
-  border: none;
+  border: 1px dashed transparent;
+  transition: 0.2s ease;
   cursor: pointer;
 
   &:hover {
     border: 1px dashed orange;
+    transition: 0.2s ease;
   }
 `
 
 export const FileName = styled.span`
-  width: 200px;
+  width: 150px;
   color: ${textColor};
   white-space: nowrap;
   overflow: hidden;
@@ -87,68 +86,122 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: calc(100% - 10px);
   padding-left: 20px;
+  border-left: 1px solid #d3d3d3;
+  overflow-y: auto;
+  height: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    background-color: ${design.wildSand};
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${backgroundScroll};
+  }
+
   h1 {
     display: block;
     font-size: 2em;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
   }
+
   h2 {
     display: block;
     font-size: 1.5em;
-    margin-top: 0.83em;
-    margin-bottom: 0.83em;
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
   }
+
   h3 {
     display: block;
     font-size: 1.17em;
-    margin-top: 1em;
-    margin-bottom: 1em;
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
   }
+
   h4 {
     display: block;
     font-size: 1em;
-    margin-top: 1.33em;
-    margin-bottom: 1.33em;
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
   }
+
   h5 {
     display: block;
     font-size: 0.83em;
-    margin-top: 1.67em;
-    margin-bottom: 1.67em;
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
   }
+
   h6 {
     display: block;
     font-size: 0.67em;
-    margin-top: 2.33em;
-    margin-bottom: 2.33em;
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
   }
+
+  textarea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 70px;
+    background-color: ${codeBackground};
+    color: ${textColor};
+    resize: none;
+  }
 `
 
-export const Title = styled.h1``
+export const Breadcrumb = styled.span`
+  margin-top: 32px;
+  font-size: ${design.mediumText};
+  color: ${design.rajah};
+`
+
+export const EditorMenu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid;
+  border-bottom-color:${props => props.empty ? 'transparent' : textColor};
+  padding: 16px 0 8px 0;
+
+  svg {
+    display: ${props => props.empty ? 'none' : 'inline'};
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+      fill: blue;
+    }
+  }
+`
+
+export const Title = styled.span`
+  font-size: ${design.smallTitle};
+`
+
+export const WaitComponent = styled.div`
+  display: inline;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.5;
+  margin: auto 0;
+  padding: 0 20%;
+  font-size: 32px;
+`
 
 export const Editor = styled.div`
   width: auto;
   height: calc(100vh - 110px);
-  overflow-y: auto;
+  
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   }
@@ -162,22 +215,23 @@ export const Editor = styled.div`
 `
 
 export const SendButton = styled.button`
+  display: ${props => props.empty ? 'none' : 'inline'};
   z-index: 2;
-  width: 50px;
+  width: 20px;
   height: 20px;
-  box-shadow: 0px 3px 5px 0px rgba(21, 21, 21, 0.3);
-  border: 1px solid ${textColor};
+  border: none;
   background: transparent;
   outline: none;
   cursor: pointer;
   font-size: 12px;
   color: ${textColor};
+  margin-right: 16px;
+  padding: 0;
 `
 
 export const NewFile = styled.button`
   width: 100%;
   height: 72px;
-  align-self: end;
   font-size: ${design.largeText};
   position: relative;
   background-color: ${design.rajah};
@@ -194,8 +248,8 @@ export const NewFile = styled.button`
 
 export const DeleteButton = styled.button`
   border: none;
-  color: red;
-  font-size: 16px;
+  color: ${design.burntSienna};
+  font-size: 24px;
   font-weight: bold;
   padding: 4px;
   background: transparent;

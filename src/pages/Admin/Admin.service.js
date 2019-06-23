@@ -1,6 +1,6 @@
 import { request } from '../../config/http-request'
 
-const API = 'http://104.198.143.12:8762/pokedex/'
+const API = 'http://104.198.143.12:8763/pokedex/'
 const TOKEN = localStorage.getItem('access_token')
 
 export const submitForm = async (entity, data) => {

@@ -15,6 +15,9 @@ import Warning from '@editorjs/warning'
 import Paragraph from '@editorjs/paragraph'
 import { ReactComponent as FileIcon } from '../../assets/file.svg'
 import { ReactComponent as FolderIcon } from '../../assets/folder.svg'
+import { ReactComponent as Share } from '../../assets/share.svg'
+import { ReactComponent as Save } from '../../assets/save.svg'
+import { ReactComponent as Garbage } from '../../assets/garbage.svg'
 import {
   saveEditorText,
   getUserNote,
@@ -31,8 +34,11 @@ import {
   FileButton,
   FileName,
   Wrapper,
+  Breadcrumb,
+  EditorMenu,
   Title,
   Editor,
+  WaitComponent,
   SendButton,
   NewFile,
   DeleteButton
@@ -117,7 +123,9 @@ const reStyleCodexRedactor = () => {
 
 const EditorPage = () => {
   const [editorConfig, setEditorConfig] = useState()
-  const [selectedFile, setSelectedFile] = useState('Select a file...')
+  const [selectedFile, setSelectedFile] = useState('')
+  const [isEmpty, setIsEmpty] = useState(true)
+  const [title, setTitle] = useState('')
   const [loading, setLoading] = useState(false)
 
   const [root, setRoot] = useState({ children: [] })
@@ -308,7 +316,9 @@ const EditorPage = () => {
     try {
       await handleGetUserNotes(path)
       setSelectedFile(path)
-    } catch (error) {}
+      setTitle(path)
+      setIsEmpty(false)
+    } catch (error) { }
   }
 
   const walkTree = (index, e, path = '', level = 0) => {
@@ -343,7 +353,7 @@ const EditorPage = () => {
             handleDirectoriesMapping()
           }}
         >
-          X
+          &times;
         </DeleteButton>
       </File>
     )
@@ -375,16 +385,26 @@ const EditorPage = () => {
               setRoot(newRoot)
 
               saveEditorText('', `/${path}`)
-            } catch (error) {}
+            } catch (error) { }
           }}
         >
           Nova Anotação
         </NewFile>
       </Directories>
       <Wrapper>
-        <Title>{selectedFile.replace(/\//gim, ' > ')}</Title>
-        <SendButton onClick={handleSendNotes}>SAVE</SendButton>
-        <Editor id="editorjs" />
+        <Breadcrumb>{selectedFile.replace(/\//gim, ' > ')}</Breadcrumb>
+        <EditorMenu empty={isEmpty}>
+          <Title>{title.replace(/.+?\//, '')}</Title>
+          <div>
+            <SendButton empty={isEmpty} onClick={handleSendNotes}><Save /></SendButton>
+            <SendButton empty={isEmpty} onClick={handleSendNotes}><Share /></SendButton>
+            <SendButton empty={isEmpty} onClick={handleSendNotes}><Garbage /></SendButton>
+          </div>
+        </EditorMenu>
+        {isEmpty ?
+          <WaitComponent id='editorjs'>Crie uma nova anotação ou selecione uma já existente para começar a editar <span role='img' aria-label='sunglass emoji'>😉</span></ WaitComponent>
+          :
+          <Editor id='editorjs' />}
       </Wrapper>
     </Page>
   )
