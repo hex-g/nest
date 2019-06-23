@@ -140,6 +140,8 @@ export const PlayerName = styled.h2`
 export const PlayerBio = styled.blockquote`
     font-family: ${design.secondaryFont};
     text-align: center;
+    max-width: 390px;
+    width: 100%;
     cursor: pointer;
 
     &:focus{

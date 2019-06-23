@@ -124,12 +124,10 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
 
     const [mugshotFile, setMugshot] = useState(null)
     const [bannerFile, setBanner] = useState(null)
-    const [playerBio, setBio] = useState('Fale sobre você...')
-    const playerInfo = PlayerData()
-
-    //console.table(playerInfo)
+    const [playerProfileInfo, setProfileInfo] = useState(null)
     const MugshotSrc = MugshotImage(mugshotFile)
     const BannerSrc = BannerImage(bannerFile)
+    const PlayerInfo = PlayerData(playerProfileInfo)
     const MB_SIZE = 2000000
 
     const validateFile = (file) => {
@@ -181,8 +179,13 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
                 <PlayerName>
                     {player.playerName}
                 </PlayerName>
-                <PlayerBio contentEditable={true} onBlur={({ target }) => setBio(playerBio)}>
-                    {playerBio}
+                <PlayerBio 
+                    contentEditable={true} 
+                    onBlur={({ target }) => {
+                            setProfileInfo({...PlayerInfo, flavorText: target.textContent})
+                        }
+                    }>
+                    {(PlayerInfo && PlayerInfo.flavorText) || 'Conte um pouco sobre você...'}
                 </PlayerBio>
                 <PlayerBadgesWrapper>
                     {handleBadgesRendering(player.playerMedals)}

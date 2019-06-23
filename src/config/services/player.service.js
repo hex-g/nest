@@ -6,7 +6,6 @@ const PLAYER = `${REQUEST_ADDRESS}player`
 
 
 export const getPlayer = async (auth) => { 
-
         return await request({
         headers: {Authorization: localStorage.getItem('access_token')},
         url: PLAYER,
@@ -14,6 +13,15 @@ export const getPlayer = async (auth) => {
         data: {
             auth
         },
+    })
+}
+
+export const postPlayer = async (userInfo) => {
+    return await request({
+        url: PLAYER,
+        headers: { Authorization: localStorage.getItem('access_token'), 'Content-Type': 'application/json' },
+        method: 'post',
+        data: userInfo
     })
 }
 
