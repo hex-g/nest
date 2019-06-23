@@ -15,8 +15,8 @@ const HomeCard = ({ userPicture, username, description, postDate, tag, index }) 
     <Content>
       <Username>{username}</Username>
       <Description>{description}</Description>
-      {tag && tag.map((tags) =>
-        <Tag color={tags.length}>{tags}</Tag>
+      {tag && tag.map((tags, index) =>
+        <Tag color={tags.length} key={index}>{tags}</Tag>
       )}
     </Content>
     <Date>{postDate}</Date>

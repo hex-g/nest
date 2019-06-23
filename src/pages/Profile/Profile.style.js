@@ -25,11 +25,35 @@ export const PageWrapper = styled.section`
   }
 `
 
+
+export const HeaderEditLabel = styled.label`
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    display: none;
+    background: rgba(0,0,0,.7);
+    align-items: center;
+    justify-content: center;
+    font-family: ${design.secondaryFont};
+    font-size: ${design.mediumText};
+    font-weight: 100;
+    cursor: pointer;
+`
+
 export const PlayerHeader = styled.header`
     min-width: 100%;
     background: url('${ ({headerImage}) => headerImage }');
     min-height: 215px;
     background-size: cover;
+    background-position: center;
+    position: relative;
+
+    
+    &:hover ${HeaderEditLabel} {
+        display: flex;
+    }
 `
 
 export const PlayerInfoWrapper = styled.main`
@@ -53,7 +77,7 @@ export const PlayerPictureWrapper = styled.picture`
 `
 
 
-export const MugshotEdit = styled.input`
+export const ImageEdit = styled.input`
     display: none;
 
 `
@@ -116,6 +140,11 @@ export const PlayerName = styled.h2`
 export const PlayerBio = styled.blockquote`
     font-family: ${design.secondaryFont};
     text-align: center;
+    cursor: pointer;
+
+    &:focus{
+        cursor: text;
+    }
 `
 
 export const PlayerBadgesWrapper = styled.div`

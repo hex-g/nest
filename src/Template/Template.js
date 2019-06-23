@@ -4,7 +4,7 @@ import InfoBar from '../components/InfoBar'
 import Configuration from './Informations/Configuration'
 import Notification from './Informations/Notification'
 import { THEME_COLORS } from '../config/constants'
-import { SIDEBAR_PAGES, ACCESS_TOKEN } from '../config/constants'
+import { SIDEBAR_PAGES } from '../config/constants'
 import {
   TemplateSection,
   Navigation,

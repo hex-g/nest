@@ -1,5 +1,5 @@
 import React from 'react'
-import MugshotImage from '../../components/MugshotImage'
+import { MugshotImage } from '../../components/MugshotImage'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../assets/Hive Isologo.svg'
 import {
@@ -23,7 +23,7 @@ const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
       <Menu>
         <ProfileContent isOpen={isOpen}>
           <Link to={`/profile`}>
-            <UserImage src={MugshotSrc} />
+            <UserImage data-mugshot={true} src={MugshotSrc} />
           </Link>
             <Username>{userInfo.username}</Username>
         </ProfileContent>

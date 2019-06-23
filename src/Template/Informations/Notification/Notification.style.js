@@ -1,4 +1,4 @@
-import { design } from '../../../components/Layout'
+
 import styled from 'styled-components'
 
 export const Notifications = styled.div`
