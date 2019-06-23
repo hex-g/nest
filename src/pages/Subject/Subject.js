@@ -50,8 +50,8 @@ const classes = {
       "lastExercise": "Lista Estática"
     },
     {
-      "id": "0",
-      "cherryId": "0",
+      "id": "1",
+      "cherryId": "1",
       "className": "Engenharia de Software",
       "pedagogueName": ["Gerson Santos"],
       "academicTermId": "2019",
@@ -72,6 +72,78 @@ const classes = {
       "completedPercentage": "10",
       "nextExamDate": "2019-06-26",
       "lastExercise": "Formulário UX"
+    },
+    {
+      "id": "2",
+      "cherryId": "2",
+      "className": "Técnicas de Programação Web",
+      "pedagogueName": ["Rodrigo Pinto"],
+      "academicTermId": "2019",
+      "classRoomRestrict": ["A", "B"],
+      "daysOfWeek": [2, 3],
+      "tasks": [
+        {
+          "id": "1",
+          "name": "Testes unitários",
+          "description": "Vamos aprender como realizar TDD em nossa aplicação Java",
+          "experienceValue": 5,
+          "postDate": "2019-06-19",
+          "type": "file",
+          "fileName": "TDD com Java.pdf",
+          "check": true
+        }
+      ],
+      "completedPercentage": "10",
+      "nextExamDate": "2019-06-26",
+      "lastExercise": "Testes unitários"
+    },
+    {
+      "id": "3",
+      "cherryId": "3",
+      "className": "Pesquisa e Inovação",
+      "pedagogueName": ["Fernando Brandão"],
+      "academicTermId": "2019",
+      "classRoomRestrict": ["A", "B"],
+      "daysOfWeek": [5],
+      "tasks": [
+        {
+          "id": "1",
+          "name": "Última sprint",
+          "description": "Revisão de entrega",
+          "experienceValue": 5,
+          "postDate": "2019-06-19",
+          "type": "file",
+          "fileName": "Sprint.doc",
+          "check": false
+        }
+      ],
+      "completedPercentage": "10",
+      "nextExamDate": "2019-06-26",
+      "lastExercise": "Última sprint"
+    },
+    {
+      "id": "4",
+      "cherryId": "4",
+      "className": "Socioemocional",
+      "pedagogueName": ["Vera Goulart"],
+      "academicTermId": "2019",
+      "classRoomRestrict": ["A", "B"],
+      "daysOfWeek": [1, 3, 4],
+      "tasks": [
+        {
+          "id": "1",
+          "name": "Apresentação",
+          "description": "Apresentação de evolução pessoal ao longo dos últimos 6 meses",
+          "experienceValue": 5,
+          "postDate": "2019-06-19",
+          "type": "upload",
+          "fileName": "upload",
+          "check": true
+        }
+      ],
+      "completedPercentage": "10",
+      "nextExamDate": "2019-06-26",
+      "lastExercise": "Apresentação"
     },
   ]
 }

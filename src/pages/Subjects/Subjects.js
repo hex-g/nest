@@ -50,7 +50,7 @@ const cards = [
   {
     Subject: "Pesquisa e Inovação",
     DaysOfWeek: "quintas-feiras",
-    LastExercise: "-",
+    LastExercise: "Última sprint",
     NextExamDate: "23/05/2019",
     ProgressPercentage: "0",
     profileImage: 'https://media.licdn.com/dms/image/C5603AQGWz5M0js_VjA/profile-displayphoto-shrink_800_800/0?e=1566432000&v=beta&t=3fJqfzuOGUJobmXgOTTpoNx6r5CLdh7h1KwOryaAGQ0',
