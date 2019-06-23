@@ -22,7 +22,7 @@ import {
   saveEditorText,
   getUserNote,
   deleteUserNote,
-  getDirectories,
+  getDirectories
 } from './EditorPage.service'
 import {
   Page,
@@ -75,7 +75,7 @@ const findOrCreateDir = (parent, name) => {
   }
   const node = {
     name: name,
-    children: [],
+    children: []
   }
   parent.children.push(node)
   parent.children.sort(compareNodes)
@@ -88,7 +88,7 @@ const createFile = (parent, name) => {
   }
   parent.children.push({
     name: name,
-    children: null,
+    children: null
   })
   parent.children.sort(compareNodes)
   return true
@@ -318,13 +318,13 @@ const EditorPage = () => {
       setSelectedFile(path)
       setTitle(path)
       setIsEmpty(false)
-    } catch (error) { }
+    } catch (error) {}
   }
 
   const walkTree = (index, e, path = '', level = 0) => {
     if (e.children !== null) {
       return (
-        <div key={path+index}>
+        <div key={path + index}>
           <Folder key={index} level={level}>
             <FolderIcon style={{ marginRight: 20 }} />
             <FolderName>{e.name}</FolderName>
@@ -351,6 +351,9 @@ const EditorPage = () => {
           onClick={async () => {
             await deleteUserNote(path + e.name)
             handleDirectoriesMapping()
+            setTitle('')
+            setIsEmpty(true)
+            setSelectedFile('')
           }}
         >
           &times;
@@ -385,7 +388,7 @@ const EditorPage = () => {
               setRoot(newRoot)
 
               saveEditorText('', `/${path}`)
-            } catch (error) { }
+            } catch (error) {}
           }}
         >
           Nova Anotação
@@ -396,15 +399,37 @@ const EditorPage = () => {
         <EditorMenu empty={isEmpty}>
           <Title>{title.replace(/.+?\//, '')}</Title>
           <div>
-            <SendButton empty={isEmpty} onClick={handleSendNotes}><Save /></SendButton>
-            <SendButton empty={isEmpty} onClick={handleSendNotes}><Share /></SendButton>
-            <SendButton empty={isEmpty} onClick={handleSendNotes}><Garbage /></SendButton>
+            <SendButton empty={isEmpty} onClick={handleSendNotes}>
+              <Save />
+            </SendButton>
+            <SendButton empty={isEmpty} onClick={handleSendNotes}>
+              <Share />
+            </SendButton>
+            <SendButton
+              empty={isEmpty}
+              onClick={async () => {
+                await deleteUserNote(title)
+                handleDirectoriesMapping()
+                setTitle('')
+                setIsEmpty(true)
+                setSelectedFile('')
+              }}
+            >
+              <Garbage />
+            </SendButton>
           </div>
         </EditorMenu>
-        {isEmpty ?
-          <WaitComponent id='editorjs'>Crie uma nova anotação ou selecione uma já existente para começar a editar <span role='img' aria-label='sunglass emoji'>😉</span></ WaitComponent>
-          :
-          <Editor id='editorjs' />}
+        {isEmpty ? (
+          <WaitComponent id="editorjs">
+            Crie uma nova anotação ou selecione uma já existente para começar a
+            editar{' '}
+            <span role="img" aria-label="sunglass emoji">
+              😉
+            </span>
+          </WaitComponent>
+        ) : (
+          <Editor id="editorjs" />
+        )}
       </Wrapper>
     </Page>
   )
