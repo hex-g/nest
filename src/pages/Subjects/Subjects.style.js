@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { design, textColor } from '../../components/Layout'
+import { design, textColor, backgroundScroll } from '../../components/Layout'
 
 export const Page = styled.div`
   display: flex;
@@ -11,7 +11,6 @@ export const Page = styled.div`
   a{
     text-decoration: none;
   }
-
 `
 
 export const Container = styled.div`
@@ -19,6 +18,14 @@ export const Container = styled.div`
   position: relative;
   overflow: auto;
   width: inherit;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    background-color: ${design.wildSand};
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${backgroundScroll};
+  }
 `
 
 export const Form = styled.div`

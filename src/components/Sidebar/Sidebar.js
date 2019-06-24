@@ -35,8 +35,8 @@ const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
           {pages &&
             pages.map(page => (
               <Item key={page.link}>
-                {page.link === 'https://alexandria-corporation.azurewebsites.net/login' ?
-                  <a href={page.link}>
+                {page.link === 'https://alexandria-corporation.azurewebsites.net/' ?
+                  <a target='_blank' href={page.link}>
                     {page.icon}
                     <ItemTitle isOpen={isOpen}>{page.title}</ItemTitle>
                   </a>
