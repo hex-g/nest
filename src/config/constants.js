@@ -107,6 +107,11 @@ export const NEWS = [
   }
 ]
 
+export const DEFAULT_POKE = {
+  firstName: null,
+  lastName: null
+}
+
 export const DEFAULT_PLAYER = {
   "loginAlias": null,
   "email": null,

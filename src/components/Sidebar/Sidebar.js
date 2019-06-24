@@ -1,5 +1,6 @@
 import React from 'react'
 import { MugshotImage } from '../../components/MugshotImage'
+import PokeData from '../../components/Pokedexdata'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../assets/Hive Isologo.svg'
 import {
@@ -18,6 +19,9 @@ import {
 
 const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
   const MugshotSrc = MugshotImage()
+  
+  const playerName = PokeData().firstName
+
   return (
     <Aside isOpen={isOpen}>
       <Menu>
@@ -25,7 +29,7 @@ const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
           <Link to={`/profile`}>
             <UserImage data-mugshot={true} src={MugshotSrc} />
           </Link>
-            <Username>{userInfo.username}</Username>
+            <Username>{playerName}</Username>
         </ProfileContent>
         <NavigationItems>
           {pages &&
