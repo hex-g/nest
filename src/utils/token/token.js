@@ -5,6 +5,6 @@ export const getToken = () => {
 }
 
 export const handleLogout = () => {
-  localStorage.removeItem(ACCESS_TOKEN)
-  window.location.reload()
+  localStorage.clear()
+  window.location.href = '/'
 }

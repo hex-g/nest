@@ -59,6 +59,16 @@ export const codeBackground = theme('mode', {
   dark: design.capeCod
 })
 
+export const codeBlock = theme('mode', {
+  light: design.wildSand,
+  dark: design.capeCod
+})
+
+export const codeColor = theme('mode', {
+  light: design.darkWildSand,
+  dark: 'none'
+})
+
 export const backgroundScroll = theme('mode', {
   light: design.darkWildSand,
   dark: design.emperor
