@@ -22,7 +22,7 @@ export const Image = styled.div`
 
 export const Content = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1.5fr;
   font-size: 18px;
   align-self: center;
 `
