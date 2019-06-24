@@ -212,7 +212,7 @@ export const PostContentPreview = styled.p`
 
 export const BadgeSelectDialog = styled.dialog`
     position: fixed;
-    display: ${props => props.show ? `flex` : `none`};
+    display: none;
     justify-content: center;
     align-items: center;
     align-self: center;
@@ -226,6 +226,10 @@ export const BadgeSelectDialog = styled.dialog`
     left: 0;
     right: 0;
     z-index: 2;
+
+    &[data-show='true']{
+        display: flex;
+    }
 `
 
 export const BadgeSelectOutter = styled.div`
