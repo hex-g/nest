@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { design, textColor, backgroundColor } from '../../components/Layout'
+import { design, textColor, backgroundBadge } from '../../components/Layout'
 
 export const PageWrapper = styled.section`
     display: flex;
@@ -34,7 +34,7 @@ export const HeaderEditLabel = styled.label`
     top: 0;
     bottom: 0;
     display: none;
-    background: rgba(0,0,0,.7);
+    background: rgba(0,0,0,.5);
     align-items: center;
     justify-content: center;
     font-family: ${design.secondaryFont};
@@ -85,7 +85,7 @@ export const ImageEdit = styled.input`
 
 export const MugshotEditLabel = styled.label`
     display: none;
-    background: rgba(0,0,0,.7);
+    background: rgba(0,0,0,.5);
     height: 100%;
     width: 100%;
     position: absolute;
@@ -170,7 +170,7 @@ export const PlayerBadge = styled.img`
     }
 
     &:hover{
-        filter: drop-shadow(0px 0px 0.25em ${textColor}) brightness(30%)
+        filter: drop-shadow(0px 0px 0.25em ${textColor}) brightness(50%)
     }
 `
 
@@ -239,7 +239,6 @@ export const BadgeSelectOutter = styled.div`
     width: 100%;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,.7);
     cursor: pointer;
 `
 
@@ -253,9 +252,9 @@ export const BadgeSelectWrapper = styled.div`
     padding: 24px;
     align-items: flex-start;
     justify-content: flex-start;
-    background: ${backgroundColor};
+    background: ${backgroundBadge};
     border: none;
-    box-shadow: 0px 0px 16px rgba(0,0,0,.7);
+    box-shadow: 0px 4px 8px rgba(0,0,0,.5);
     border-radius: 7px;
     overflow-y: auto;
 

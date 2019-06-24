@@ -79,12 +79,12 @@ const PLAYER_EXAMPLE = {
     {
       socialMedia: 'Github',
       userName: 'GitHub',
-      url: 'https://twitter.com'
+      url: 'https://github.com/LiviaSayuri'
     },
     {
       socialMedia: 'Linkedin',
       userName: 'LinkedIn',
-      url: 'https://twitter.com'
+      url: 'https://linkedin.com'
     },
     {
       socialMedia: 'Twitter',
