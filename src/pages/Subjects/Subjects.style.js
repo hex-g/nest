@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { design } from '../../components/Layout'
+import { design, textColor } from '../../components/Layout'
 
 export const Page = styled.div`
   display: flex;
@@ -7,6 +7,11 @@ export const Page = styled.div`
   width: 100%;
   overflow: auto;
   max-height: 100vh;
+
+  a{
+    text-decoration: none;
+  }
+
 `
 
 export const Container = styled.div`
@@ -29,9 +34,9 @@ export const CardWrapper = styled.section`
   grid-gap: 24px;
   padding: 64px 24px;
 `
-export const CardLink = styled.a`
+export const CardLink = styled.div`
   text-decoration: none;
-  color: inherit;
+  color: ${textColor};
 `
 
 export const SubjectTitle = styled.h1`

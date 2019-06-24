@@ -102,9 +102,9 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
     const [bannerFile, setBanner] = useState(null)
     const [playerProfileInfo, setProfileInfo] = useState(null)
     
-    const [showDialog, setShowDialog] = useState(false)
-    const [selectedBadges, setbadges] = useState([0,4,2])
+    const [selectedBadges, setbadges] = useState([0,1,2])
     const [selectedBadge, setbadge] = useState(0)
+    
 
     const MugshotSrc = MugshotImage(mugshotFile)
     const BannerSrc = BannerImage(bannerFile)
@@ -113,16 +113,17 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
 
     const MB_SIZE = 2000000
 
-
-    const handleDialog = (position) => {
-        setShowDialog(true)
+    const handleDialog = (show, position) => {
+        document.querySelector('#badgesDialog').dataset.show = show
+        if(show === false) return 
+            
         setbadge(selectedBadges[position])
     }
 
     const handleBadgeSelect = (newIndex, target) => {
         let verify = target.dataset.disabled
 
-        if(verify == 'true') return
+        if(verify === 'true') return
 
         let position = selectedBadges.indexOf(selectedBadge)
         let newArray = [...selectedBadges]
@@ -141,7 +142,7 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
                 title = {badge.name}
                 alt = {badge.name} 
                 key = {badge.name}
-                onClick =  {() => handleDialog(index)} />
+                onClick =  {() => handleDialog(true, index)} />
             ); 
         });
     }
@@ -231,8 +232,8 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
 
     return (
         <PageWrapper>
-            <BadgeSelectDialog show={showDialog}>
-                <BadgeSelectOutter onClick = { () => setShowDialog(false)}/>
+            <BadgeSelectDialog id='badgesDialog' data-show={false}>
+                <BadgeSelectOutter onClick = { () => handleDialog(false)}/>
                 <BadgeSelectWrapper>    
                     {handleDialogBadgesRendering(player.playerMedals)}
                 </BadgeSelectWrapper>
