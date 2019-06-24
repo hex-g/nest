@@ -14,6 +14,7 @@ export const design = {
   hoverHippieBlue: lighten(0.2, '#5C9EAD'),
   capeCod: '#3E4447',
   emperor: '#555555',
+  darkEmperor: darken(0.2, '#555'),
   outerSpace: '#313638',
   hoverOuterSpace: lighten(0.4, '#313638'),
   placeholderOuterSpace: lighten(0.6, '#313638'),
@@ -72,6 +73,11 @@ export const codeColor = theme('mode', {
 export const backgroundScroll = theme('mode', {
   light: design.darkWildSand,
   dark: design.emperor
+})
+
+export const backgroundBadge = theme('mode',{
+  light: design.wildSand,
+  dark: design.darkEmperor
 })
 
 export const GlobalStyle = createGlobalStyle`
