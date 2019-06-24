@@ -11,7 +11,7 @@ cd
 npm install
 npm start
 
-Tecnologias
+## Tecnologias
 React - Para a renderização de compomentes de view reutilizáveis.
 
 React Router - React Router v4 para criar as rotas no client.
