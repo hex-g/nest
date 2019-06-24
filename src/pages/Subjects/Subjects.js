@@ -1,5 +1,6 @@
 import React from 'react'
 import SquareCard from '../../components/SquareCard'
+import { Link } from 'react-router-dom'
 import {
   SubjectTitle,
   Label,
@@ -70,54 +71,56 @@ const cards = [
 const HandleCardMapping = () => {
   return cards.map((card) => {
     return (
-      <CardLink href={`subject?subject=${card.Subject}`} key={card.Subject}>
-        <SquareCard>
-          <SubjectTitle>
-            {card.Subject}
-          </SubjectTitle>
-          <LabelWrapper>
-            <Label>
-              Aulas:
-            </Label>
-            <BoldLabel>
-              {card.DaysOfWeek}
-            </BoldLabel>
-          </LabelWrapper>
-          <LabelWrapper>
-            <Label>
-              Último Exercício:
-                    </Label>
-            <BoldLabel>
-              {card.LastExercise}
-            </BoldLabel>
-          </LabelWrapper>
-          <LabelWrapper>
-            <Label>
-              Próxima Prova:
-                    </Label>
-            <BoldLabel>
-              {card.NextExamDate}
-            </BoldLabel>
-          </LabelWrapper>
-          <LabelWrapper>
-            <Label>
-              Progresso de Atividades
-                    </Label>
-          </LabelWrapper>
-          <ProgressWrapper>
-            <ProgressBar max="100" value={card.ProgressPercentage}></ProgressBar>
-            <ProgressPercentage>
-              {card.ProgressPercentage}%
-                    </ProgressPercentage>
-          </ProgressWrapper>
-          <AuthorWrapper>
-            <AuthorImage src={card.profileImage} />
-            <AuthorName>
-              {card.pedagogue}
-            </AuthorName>
-          </AuthorWrapper>
-        </SquareCard>
-      </CardLink>
+      <Link to={`subject?subject=${card.Subject}`}>
+        <CardLink key={card.Subject}>
+          <SquareCard>
+            <SubjectTitle>
+              {card.Subject}
+            </SubjectTitle>
+            <LabelWrapper>
+              <Label>
+                Aulas:
+              </Label>
+              <BoldLabel>
+                {card.DaysOfWeek}
+              </BoldLabel>
+            </LabelWrapper>
+            <LabelWrapper>
+              <Label>
+                Último Exercício:
+                      </Label>
+              <BoldLabel>
+                {card.LastExercise}
+              </BoldLabel>
+            </LabelWrapper>
+            <LabelWrapper>
+              <Label>
+                Próxima Prova:
+                      </Label>
+              <BoldLabel>
+                {card.NextExamDate}
+              </BoldLabel>
+            </LabelWrapper>
+            <LabelWrapper>
+              <Label>
+                Progresso de Atividades
+                      </Label>
+            </LabelWrapper>
+            <ProgressWrapper>
+              <ProgressBar max="100" value={card.ProgressPercentage}></ProgressBar>
+              <ProgressPercentage>
+                {card.ProgressPercentage}%
+                      </ProgressPercentage>
+            </ProgressWrapper>
+            <AuthorWrapper>
+              <AuthorImage src={card.profileImage} />
+              <AuthorName>
+                {card.pedagogue}
+              </AuthorName>
+            </AuthorWrapper>
+          </SquareCard>
+        </CardLink>
+      </Link>
     )
   })
 }
