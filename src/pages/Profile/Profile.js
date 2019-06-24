@@ -4,8 +4,9 @@ import Icons from '../../Images/Icons'
 import SquareCard from '../../components/SquareCard'
 import { MugshotImage, BannerImage } from '../../components/MugshotImage'
 import PlayerData from '../../components/PlayerData'
+import PokeData from '../../components/Pokedexdata'
 import Badges from '../../Images/Badges'
-import Alert, { showAlert, hideAlert } from '../../components/Alert'
+import Alert, { showAlert } from '../../components/Alert'
 
 import {
     PageWrapper,
@@ -26,7 +27,10 @@ import {
     PostsHighlightWrapper,
     PostTitle,
     PostContentPreview,
-    HeaderEditLabel
+    HeaderEditLabel,
+    BadgeSelectDialog,
+    BadgeSelectWrapper,
+    BadgeSelectOutter
 } from './Profile.style'
 
 
@@ -47,6 +51,18 @@ const PLAYER_EXAMPLE = {
         {
             name: 'CSS Ninja',
             image: Badges.CssBadge
+        },
+        {
+            name: 'Teamwork novice',
+            image: Badges.TeamWorkBadge2
+        },
+        {
+            name: '+100 Feedback',
+            image: Badges.ChatBadge2
+        },
+        {
+            name: 'CSS Master',
+            image: Badges.CssBadge2
         }
     ],
     playerPosts: [
@@ -79,58 +95,115 @@ const PLAYER_EXAMPLE = {
 }
 
 
-const handleBadgesRendering = badges => {
-    return badges.map(badge => {
-        return (
-            <PlayerBadge src = {badge.image}
-            title = {badge.name}
-            alt = {badge.name} 
-            key = {badge.name}/>
-        ); 
-    });
-}
-
-const handlePostsRendering = posts => { 
-    return posts.map(post => {
-        return(
-            <SquareCard key = {post.title}>
-                <PostTitle>
-                    {post.title}
-                </PostTitle>
-                <PostContentPreview>
-                    {post.content}
-                </PostContentPreview>
-            </SquareCard>    
-        )
-    })
-}
-
-
-const handleSocialMediaRendering = socialMediaList => {
-    return socialMediaList.map(socialMedia => {
-        const SocialMediaSvg = Icons[socialMedia.socialMedia]
-        return (
-            <SocialMediaIcon href = {socialMedia.url}
-            title = {socialMedia.userName}
-            alt = {socialMedia.socialMedia} 
-            key = {socialMedia.socialMedia}>
-                <SocialMediaSvg />
-            </SocialMediaIcon>
-        ); 
-    });
-}
-
 const Profile = ({player = PLAYER_EXAMPLE}) => {   
+
 
     const [mugshotFile, setMugshot] = useState(null)
     const [bannerFile, setBanner] = useState(null)
-    const [playerBio, setBio] = useState('Fale sobre você...')
-    const playerInfo = PlayerData()
+    const [playerProfileInfo, setProfileInfo] = useState(null)
+    
+    const [showDialog, setShowDialog] = useState(false)
+    const [selectedBadges, setbadges] = useState([0,4,2])
+    const [selectedBadge, setbadge] = useState(0)
 
-    //console.table(playerInfo)
     const MugshotSrc = MugshotImage(mugshotFile)
     const BannerSrc = BannerImage(bannerFile)
+    const PlayerInfo = PlayerData(playerProfileInfo)
+    const playerName = PokeData()
+
     const MB_SIZE = 2000000
+
+
+    const handleDialog = (position) => {
+        setShowDialog(true)
+        setbadge(selectedBadges[position])
+    }
+
+    const handleBadgeSelect = (newIndex, target) => {
+        let verify = target.dataset.disabled
+
+        if(verify == 'true') return
+
+        let position = selectedBadges.indexOf(selectedBadge)
+        let newArray = [...selectedBadges]
+        newArray[position] = newIndex
+        setbadges(newArray)
+        setbadge(newIndex)
+    
+    }
+
+    const handleDisplayBadgesRendering = (badges) => {
+        if(!badges) return
+
+        return badges.map((badge, index) => {
+            return (
+                <PlayerBadge src = {badge.image}
+                title = {badge.name}
+                alt = {badge.name} 
+                key = {badge.name}
+                onClick =  {() => handleDialog(index)} />
+            ); 
+        });
+    }
+
+    const handleDialogBadgesRendering = (badges) => {
+        return badges.map((badge, position) => {
+            return (
+                <PlayerBadge src = {badge.image}
+                title = {badge.name}
+                alt = {badge.name} 
+                key = {badge.name}
+                data-disabled = {selectedBadges.indexOf(position) >= 0}
+                data-selected = {selectedBadge === position}
+                onClick={({target}) => handleBadgeSelect(position, target)}/>
+            ); 
+        });
+    }
+
+
+    const handleSelectedBadgesRendering = (allBadges, selected = []) => {
+
+        let displayBadges = []
+
+        let a = selected.forEach((value, backIndex) => {
+            allBadges.forEach((badge, index) => {
+                if(index === value)displayBadges[backIndex] = badge
+            })
+        })
+
+        return displayBadges
+    }
+
+    const handlePostsRendering = posts => { 
+        return posts.map(post => {
+            return(
+                <SquareCard key = {post.title}>
+                    <PostTitle>
+                        {post.title}
+                    </PostTitle>
+                    <PostContentPreview>
+                        {post.content}
+                    </PostContentPreview>
+                </SquareCard>    
+            )
+        })
+    }
+
+
+    const handleSocialMediaRendering = socialMediaList => {
+        return socialMediaList.map(socialMedia => {
+            const SocialMediaSvg = Icons[socialMedia.socialMedia]
+            return (
+                <SocialMediaIcon href = {socialMedia.url}
+                title = {socialMedia.userName}
+                alt = {socialMedia.socialMedia} 
+                key = {socialMedia.socialMedia}>
+                    <SocialMediaSvg />
+                </SocialMediaIcon>
+            ); 
+        });
+    }
+
 
     const validateFile = (file) => {
         if(file && file.size){
@@ -158,6 +231,12 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
 
     return (
         <PageWrapper>
+            <BadgeSelectDialog show={showDialog}>
+                <BadgeSelectOutter onClick = { () => setShowDialog(false)}/>
+                <BadgeSelectWrapper>    
+                    {handleDialogBadgesRendering(player.playerMedals)}
+                </BadgeSelectWrapper>
+            </BadgeSelectDialog>
             <Alert />
             <PlayerHeader headerImage={BannerSrc}>
                 <HeaderEditLabel htmlFor='HeaderEdit'>
@@ -179,13 +258,18 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
                     </PlayerLevel>
                 </PlayerPictureWrapper>
                 <PlayerName>
-                    {player.playerName}
+                    {playerName.firstName} {playerName.lastName}
                 </PlayerName>
-                <PlayerBio contentEditable={true} onBlur={({ target }) => setBio(playerBio)}>
-                    {playerBio}
+                <PlayerBio 
+                    contentEditable={true} 
+                    onBlur={({ target }) => {
+                            setProfileInfo({...PlayerInfo, flavorText: target.textContent})
+                        }
+                    }>
+                    {(PlayerInfo && PlayerInfo.flavorText) || 'Conte um pouco sobre você...'}
                 </PlayerBio>
                 <PlayerBadgesWrapper>
-                    {handleBadgesRendering(player.playerMedals)}
+                    {handleDisplayBadgesRendering(handleSelectedBadgesRendering(player.playerMedals, selectedBadges), true)}
                 </PlayerBadgesWrapper>
             </PlayerInfoWrapper>
             <SocialMediaWrapper>

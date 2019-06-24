@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { requestMugshot, postMugshot, requestBanner, postBanner } from '../../config/services/mugshot.service'
-import { hideAlert, showAlert } from '../../components/Alert'
+import { hideAlert } from '../../components/Alert'
 import {DEFAULT_IMAGE} from '../../config/constants'
 
 
