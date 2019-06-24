@@ -35,63 +35,63 @@ import {
 
 
 const PLAYER_EXAMPLE = {
-    playerName: 'Germano Brigido',
-    playerLevel: 7,
-    playerBio: 'Envagelista de React, amante de CSS e o melhor ADC que vai conhecer 🏹',
-    playerBanner: 'https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/03/como-adicionar-css-no-html-sem-tag.png',
-    playerMedals: [
-        {
-            name: 'Teamwork maestry',
-            image: Badges.TeamWorkBadge
-        },
-        {
-            name: '+50 Feedback',
-            image: Badges.ChatBadge
-        },
-        {
-            name: 'CSS Ninja',
-            image: Badges.CssBadge
-        },
-        {
-            name: 'Teamwork novice',
-            image: Badges.TeamWorkBadge2
-        },
-        {
-            name: '+100 Feedback',
-            image: Badges.ChatBadge2
-        },
-        {
-            name: 'CSS Master',
-            image: Badges.CssBadge2
-        }
-    ],
-    playerPosts: [
-        {
-            title: 'REST API com Node.JS',
-            content: 'Construir uma API REST não é tão difícil quanto parece. Neste tutorial vamos precisar das ferramentas listadas abaixo:'
-        },
-        {
-            title: 'SpringBoot Primeiros Passos',
-            content: 'Aprenda a trabalhar com uma das ferramentas mais utilizadas no mercado de Java.'
-        }
-    ],
-    socialMedia: [
-        {
-            socialMedia: 'Github',
-            userName: 'GitHub',
-            url: 'https://twitter.com'
-        },
-        {
-            socialMedia: 'Linkedin',
-            userName: 'LinkedIn',
-            url: 'https://twitter.com'
-        },
-        {
-            socialMedia: 'Twitter',
-            userName: 'Twitter',
-            url: 'https://twitter.com'
-        }
-    ]
+  playerName: 'Germano Brigido',
+  playerLevel: 7,
+  playerBio: 'Envagelista backend, amante de C# e a melhor ADC que vai conhecer 🏹',
+  playerBanner: 'https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/03/como-adicionar-css-no-html-sem-tag.png',
+  playerMedals: [
+    {
+      name: 'Teamwork maestry',
+      image: Badges.TeamWorkBadge
+    },
+    {
+      name: '+50 Feedback',
+      image: Badges.ChatBadge
+    },
+    {
+      name: 'CSS Ninja',
+      image: Badges.CssBadge
+    },
+    {
+      name: 'Teamwork novice',
+      image: Badges.TeamWorkBadge2
+    },
+    {
+      name: '+100 Feedback',
+      image: Badges.ChatBadge2
+    },
+    {
+      name: 'CSS Master',
+      image: Badges.CssBadge2
+    }
+  ],
+  playerPosts: [
+    {
+      title: 'REST API com Node.JS',
+      content: 'Construir uma API REST não é tão difícil quanto parece. Neste tutorial vamos precisar das ferramentas listadas abaixo:'
+    },
+    {
+      title: 'SpringBoot Primeiros Passos',
+      content: 'Aprenda a trabalhar com uma das ferramentas mais utilizadas no mercado de Java.'
+    }
+  ],
+  socialMedia: [
+    {
+      socialMedia: 'Github',
+      userName: 'GitHub',
+      url: 'https://github.com/LiviaSayuri'
+    },
+    {
+      socialMedia: 'Linkedin',
+      userName: 'LinkedIn',
+      url: 'https://linkedin.com'
+    },
+    {
+      socialMedia: 'Twitter',
+      userName: 'Twitter',
+      url: 'https://twitter.com'
+    }
+  ]
 }
 
 
@@ -191,19 +191,20 @@ const Profile = ({player = PLAYER_EXAMPLE}) => {
     }
 
 
-    const handleSocialMediaRendering = socialMediaList => {
-        return socialMediaList.map(socialMedia => {
-            const SocialMediaSvg = Icons[socialMedia.socialMedia]
-            return (
-                <SocialMediaIcon href = {socialMedia.url}
-                title = {socialMedia.userName}
-                alt = {socialMedia.socialMedia} 
-                key = {socialMedia.socialMedia}>
-                    <SocialMediaSvg />
-                </SocialMediaIcon>
-            ); 
-        });
-    }
+  const handleSocialMediaRendering = socialMediaList => {
+    return socialMediaList.map(socialMedia => {
+      const SocialMediaSvg = Icons[socialMedia.socialMedia]
+      return (
+        <SocialMediaIcon href={socialMedia.url}
+          title={socialMedia.userName}
+          alt={socialMedia.socialMedia}
+          key={socialMedia.socialMedia}
+          target="_blank">
+          <SocialMediaSvg />
+        </SocialMediaIcon>
+      );
+    });
+  }
 
 
     const validateFile = (file) => {
