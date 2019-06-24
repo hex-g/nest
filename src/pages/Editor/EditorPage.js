@@ -347,17 +347,6 @@ const EditorPage = () => {
           <FileIcon style={{ marginRight: 20 }} />
           <FileName>{e.name}</FileName>
         </FileButton>
-        <DeleteButton
-          onClick={async () => {
-            await deleteUserNote(path + e.name)
-            handleDirectoriesMapping()
-            setTitle('')
-            setIsEmpty(true)
-            setSelectedFile('')
-          }}
-        >
-          &times;
-        </DeleteButton>
       </File>
     )
   }

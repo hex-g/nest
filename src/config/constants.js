@@ -10,7 +10,7 @@ import { ReactComponent as HiveShare } from "../assets/hiveshare.svg"
 export const SIDEBAR_PAGES = [
   { title: "Editor", link: "/editor", icon: <Editor /> },
   { title: "Disciplinas", link: "/subjects", icon: <Subjects /> },
-  { title: "Biblioteca", link: "https://alexandria-corporation.azurewebsites.net/login", icon: <Library /> },
+  { title: "Biblioteca", link: "https://alexandria-corporation.azurewebsites.net/", icon: <Library /> },
   { title: "Ferramentas", link: "/tools", icon: <Tools /> },
   { title: "Feedback", link: "/feedback", icon: <Feedback /> },
   { title: "HiveCentral", link: "/hivecentral", icon: <HiveCentral /> },
