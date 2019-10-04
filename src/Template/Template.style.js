@@ -8,7 +8,6 @@ export const TemplateSection = styled.div`
 `
 
 export const Navigation = styled.div`
-  width: ${({isOpen}) => isOpen ? '255px' : '105px'};
   z-index: 2;
   transition: 150ms;
 `

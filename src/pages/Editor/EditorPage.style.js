@@ -13,7 +13,7 @@ export const Directories = styled.div`
   max-width: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 0px 35px 20px 0;
+  padding: 0px 35px 20px 35px;
 `
 
 export const Files = styled.div`
@@ -86,7 +86,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: calc(100% - 10px);
   padding-left: 20px;
-  border-left: 1px solid #d3d3d3;
+  border-left: 1px solid ${codeBackground};
   overflow-y: auto;
   height: 100%;
   min-height: 100vh;
