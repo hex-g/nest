@@ -15,8 +15,8 @@ export const Navigation = styled.div`
 
 export const Content = styled.div`
   overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
-  padding: 0 24px;
   z-index: 1;
 
   &::-webkit-scrollbar {

@@ -2,19 +2,13 @@ import React from "react";
 import { ReactComponent as Editor } from "../assets/contract.svg"
 import { ReactComponent as Subjects } from "../assets/open-book.svg"
 import { ReactComponent as Library } from "../assets/book.svg"
-import { ReactComponent as Tools } from "../assets/tools.svg"
-import { ReactComponent as Feedback } from "../assets/love.svg"
 import { ReactComponent as HiveCentral } from "../assets/conversation.svg"
-import { ReactComponent as HiveShare } from "../assets/hiveshare.svg"
 
 export const SIDEBAR_PAGES = [
   { title: "Editor", link: "/editor", icon: <Editor /> },
   { title: "Disciplinas", link: "/subjects", icon: <Subjects /> },
   { title: "Biblioteca", link: "https://alexandria-corporation.azurewebsites.net/", icon: <Library /> },
-  { title: "Ferramentas", link: "/tools", icon: <Tools /> },
-  { title: "Feedback", link: "/feedback", icon: <Feedback /> },
   { title: "HiveCentral", link: "/hivecentral", icon: <HiveCentral /> },
-  { title: "HiveShare", link: "/hiveshare", icon: <HiveShare /> }
 ]
 
 export const THEME_COLORS = {
@@ -30,77 +24,77 @@ export const ACCESS_TOKEN = 'access_token'
 export const NEWS = [
   {
     user: 'Célia Taniwaki',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQERbUJGQ7saKg/profile-displayphoto-shrink_800_800/0?e=1566432000&v=beta&t=Qq-EnpnRRWSenXY5Sa9595WARS3AB-m3D-ivCen1nLE',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Avaliação continuada 03',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'Erika Lucena',
-    profilePic: 'https://media.licdn.com/dms/image/C5103AQHUqs91eAaH-A/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=sayjnTyBWbBN_P2n2-9TCQtqvUGRV5xiP6BiN7D26xY',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Biblioteca - Ratificando as regras',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'Kaline Barreira',
-    profilePic: 'https://media.licdn.com/dms/image/C4E03AQF40JcAE5t5RA/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=Bkn53HOsU2EMdf5eRAquCHMNVwk7YxzMfiV1SO76oiM',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'AULA DE REFORÇO BANCO DE DADOS - 1º SEMESTRE',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'Thiago Bonacelli',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQH7gPETmTreZQ/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=aj99X1MWnxnPEyLXfyPHOvndH1CPLz0OwnBqnVEAXMc',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Cronograma de atividades',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'José Yoshihiro',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQEN1v-yM0SjAg/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=Vhixb6t1wm1SGB6oHqWsjX_u1WCRmv3GGzfrHgRM7Ys',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Regras para prova desta semana do professor Yoshi',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'Thiago Bonacelli',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQH7gPETmTreZQ/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=aj99X1MWnxnPEyLXfyPHOvndH1CPLz0OwnBqnVEAXMc',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'PyLadies São Paulo',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'Kaline Barreira',
-    profilePic: 'https://media.licdn.com/dms/image/C4E03AQF40JcAE5t5RA/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=Bkn53HOsU2EMdf5eRAquCHMNVwk7YxzMfiV1SO76oiM',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Campanha de vacinação contra gripe',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'Thiago Bonaceli',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQH7gPETmTreZQ/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=aj99X1MWnxnPEyLXfyPHOvndH1CPLz0OwnBqnVEAXMc',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Pesquisa Brasscom',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'Erika Lucena',
-    profilePic: 'https://media.licdn.com/dms/image/C5103AQHUqs91eAaH-A/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=sayjnTyBWbBN_P2n2-9TCQtqvUGRV5xiP6BiN7D26xY',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Boleto Bancário - Semestre 2019/1',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'Erika Lucena',
-    profilePic: 'https://media.licdn.com/dms/image/C5103AQHUqs91eAaH-A/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=sayjnTyBWbBN_P2n2-9TCQtqvUGRV5xiP6BiN7D26xY',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'NÃO HAVERÁ ATENDIMENTO SECRETARIA 15/03/2019',
     date: '20 Jan 1999',
     tag: [],
   },
   {
     user: 'Vivian Silva',
-    profilePic: 'https://media.licdn.com/dms/image/C4D03AQHzCD_JoAhn3Q/profile-displayphoto-shrink_800_800/0?e=1567036800&v=beta&t=zr86PzTtkZi2Do0jjzkm6i2g5FWnpXC9W2joJIEuobc',
+    profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Carnaval',
     date: '20 Jan 1999',
     tag: [],

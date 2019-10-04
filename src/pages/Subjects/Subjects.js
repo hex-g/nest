@@ -129,9 +129,6 @@ const Subject = () => {
   return (
     <Page>
       <Container>
-        <Form>
-          <SearchBox />
-        </Form>
         <CardWrapper>
           {HandleCardMapping()}
         </CardWrapper>

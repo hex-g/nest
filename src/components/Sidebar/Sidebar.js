@@ -17,7 +17,7 @@ import {
   ToggleButton,
 } from './Sidebar.style'
 
-const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
+const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) => {
   const MugshotSrc = MugshotImage()
   
   const playerName = PokeData().firstName
