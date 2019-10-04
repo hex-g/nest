@@ -40,8 +40,7 @@ import {
   Editor,
   WaitComponent,
   SendButton,
-  NewFile,
-  DeleteButton
+  NewFile
 } from './EditorPage.style'
 
 const alphabeticalOrder = (a, b) => {

@@ -15,10 +15,8 @@ import {
   Container,
   CardWrapper,
   CardLink,
-  Form,
   LabelWrapper
 } from './Subjects.style'
-import SearchBox from '../../components/SearchBox'
 
 const cards = [
   {
