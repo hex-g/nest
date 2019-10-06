@@ -1,19 +1,19 @@
-import React from "react";
-import { ReactComponent as Editor } from "../assets/contract.svg"
-import { ReactComponent as Subjects } from "../assets/open-book.svg"
-import { ReactComponent as Library } from "../assets/book.svg"
-import { ReactComponent as HiveCentral } from "../assets/conversation.svg"
+import React from 'react'
+import { ReactComponent as Editor } from '../assets/contract.svg'
+import { ReactComponent as Subjects } from '../assets/open-book.svg'
+import { ReactComponent as Library } from '../assets/book.svg'
+import { ReactComponent as HiveCentral } from '../assets/conversation.svg'
 
 export const SIDEBAR_PAGES = [
-  { title: "Editor", link: "/editor", icon: <Editor /> },
-  { title: "Disciplinas", link: "/subjects", icon: <Subjects /> },
-  { title: "Biblioteca", link: "https://alexandria-corporation.azurewebsites.net/", icon: <Library /> },
-  { title: "HiveCentral", link: "/hivecentral", icon: <HiveCentral /> },
+  { title: 'Editor', link: '/editor', icon: <Editor /> },
+  { title: 'Disciplinas', link: '/subjects', icon: <Subjects /> },
+  { title: 'Biblioteca', link: 'https://alexandria-corporation.azurewebsites.net/', icon: <Library /> },
+  { title: 'HiveCentral', link: '/hivecentral', icon: <HiveCentral /> }
 ]
 
 export const THEME_COLORS = {
-  LIGHT: "light",
-  DARK: "dark"
+  LIGHT: 'light',
+  DARK: 'dark'
 }
 
 export const DIRECTORY_TYPE = 0
@@ -27,77 +27,77 @@ export const NEWS = [
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Avaliação continuada 03',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'Erika Lucena',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Biblioteca - Ratificando as regras',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'Kaline Barreira',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'AULA DE REFORÇO BANCO DE DADOS - 1º SEMESTRE',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'Thiago Bonacelli',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Cronograma de atividades',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'José Yoshihiro',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Regras para prova desta semana do professor Yoshi',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'Thiago Bonacelli',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'PyLadies São Paulo',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'Kaline Barreira',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Campanha de vacinação contra gripe',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'Thiago Bonaceli',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Pesquisa Brasscom',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'Erika Lucena',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Boleto Bancário - Semestre 2019/1',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'Erika Lucena',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'NÃO HAVERÁ ATENDIMENTO SECRETARIA 15/03/2019',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   },
   {
     user: 'Vivian Silva',
     profilePic: 'https://media.licdn.com/dms/image/C5603AQEjf69Dgrzv3g/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=iWPiin6uQDgP2FXNYkHfIaafgdTPC2dIWxVAC4cKkQ0',
     description: 'Carnaval',
     date: '20 Jan 1999',
-    tag: [],
+    tag: []
   }
 ]
 
@@ -107,16 +107,16 @@ export const DEFAULT_POKE = {
 }
 
 export const DEFAULT_PLAYER = {
-  "loginAlias": null,
-  "email": null,
-  "telnumber": null,
-  "flavorText": null,
-  "birthday": null,
-  "options": null,
-  "social": {
-      "github": 'https://github.com',
-      "linkedIn": 'https://linkedin.com',
-      "twitter": 'https://twitter.com'
+  loginAlias: null,
+  email: null,
+  telnumber: null,
+  flavorText: null,
+  birthday: null,
+  options: null,
+  social: {
+    github: 'https://github.com',
+    linkedIn: 'https://linkedin.com',
+    twitter: 'https://twitter.com'
   }
 }
 
