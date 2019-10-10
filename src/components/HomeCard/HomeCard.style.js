@@ -3,21 +3,21 @@ import { design, cardBackground } from '../Layout'
 
 export const Wrapper = styled.div`
   height: 115px;
-  padding: 16px 16px;
+  padding: 16px 24px;
   margin: 8px 0;
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: 0.5fr 10fr 1fr;
   background-color: ${cardBackground};
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(21,21,21,0.2);
 `
 
 export const UserPicture = styled.img`
-  max-width: 80px;
-  max-height: 80px;
+  max-width: 70px;
+  max-height: 70px;
   object-fit: cover;
   align-self: center;
-  clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
+  border-radius: 50%;
 `
 
 export const Content = styled.div`

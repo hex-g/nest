@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import SubjectCard from '../../components/SubjectCard'
-import { SearchWrapper, SubjectName } from './Subject.style'
+import { Page, SearchWrapper, SubjectName } from './Subject.style'
 import SearchBox from '../../components/SearchBox'
 
 const classes = {
@@ -235,7 +235,7 @@ export const Subject = () => {
   const tasks = classContext.tasks
 
   return (
-    <Fragment>
+    <Page>
       <SearchWrapper>
         <SearchBox />
       </SearchWrapper>
@@ -251,7 +251,7 @@ export const Subject = () => {
           checked={task.check}
         />
       )}
-    </Fragment>
+    </Page>
   )
 }
 

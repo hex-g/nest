@@ -17,7 +17,7 @@ import {
   ToggleButton,
 } from './Sidebar.style'
 
-const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
+const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) => {
   const MugshotSrc = MugshotImage()
   
   const playerName = PokeData().firstName
@@ -36,7 +36,7 @@ const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
             pages.map(page => (
               <Item key={page.link}>
                 {page.link === 'https://alexandria-corporation.azurewebsites.net/' ?
-                  <a target='_blank' href={page.link}>
+                  <a target='_blank' rel='noopener noreferrer' href={page.link}>
                     {page.icon}
                     <ItemTitle isOpen={isOpen}>{page.title}</ItemTitle>
                   </a>

@@ -8,15 +8,14 @@ export const TemplateSection = styled.div`
 `
 
 export const Navigation = styled.div`
-  width: ${({isOpen}) => isOpen ? '255px' : '105px'};
   z-index: 2;
   transition: 150ms;
 `
 
 export const Content = styled.div`
   overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
-  padding: 0 24px;
   z-index: 1;
 
   &::-webkit-scrollbar {
