@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
-
+import {
+  shape,
+  string,
+  number,
+  objectOf
+} from 'prop-types'
 import Icons from '../../Images/Icons'
 import SquareCard from '../../components/SquareCard'
 import { MugshotImage, BannerImage } from '../../components/MugshotImage'
@@ -96,8 +101,6 @@ const PLAYER_EXAMPLE = {
 
 
 const Profile = ({ player = PLAYER_EXAMPLE }) => {
-
-
   const [mugshotFile, setMugshot] = useState(null)
   const [bannerFile, setBanner] = useState(null)
   const [playerProfileInfo, setProfileInfo] = useState(null)
@@ -121,92 +124,83 @@ const Profile = ({ player = PLAYER_EXAMPLE }) => {
   }
 
   const handleBadgeSelect = (newIndex, target) => {
-    let verify = target.dataset.disabled
+    const verify = target.dataset.disabled
 
     if (verify === 'true') return
 
-    let position = selectedBadges.indexOf(selectedBadge)
-    let newArray = [...selectedBadges]
+    const position = selectedBadges.indexOf(selectedBadge)
+    const newArray = [...selectedBadges]
     newArray[position] = newIndex
     setbadges(newArray)
     setbadge(newIndex)
-
   }
 
-  const handleDisplayBadgesRendering = (badges) => {
-    if (!badges) return
+  const handleDisplayBadgesRendering = badges => {
+    if (!badges) return false
 
-    return badges.map((badge, index) => {
-      return (
-        <PlayerBadge src={badge.image}
-          title={badge.name}
-          alt={badge.name}
-          key={badge.name}
-          onClick={() => handleDialog(true, index)} />
-      );
-    });
+    return badges.map((badge, index) => (
+      <PlayerBadge
+        src={badge.image}
+        title={badge.name}
+        alt={badge.name}
+        key={badge.name}
+        onClick={() => handleDialog(true, index)}
+      />
+    ))
   }
 
-  const handleDialogBadgesRendering = (badges) => {
-    return badges.map((badge, position) => {
-      return (
-        <PlayerBadge src={badge.image}
-          title={badge.name}
-          alt={badge.name}
-          key={badge.name}
-          data-disabled={selectedBadges.indexOf(position) >= 0}
-          data-selected={selectedBadge === position}
-          onClick={({ target }) => handleBadgeSelect(position, target)} />
-      );
-    });
-  }
+  const handleDialogBadgesRendering = badges => badges.map((badge, position) => (
+    <PlayerBadge
+      src={badge.image}
+      title={badge.name}
+      alt={badge.name}
+      key={badge.name}
+      data-disabled={selectedBadges.indexOf(position) >= 0}
+      data-selected={selectedBadge === position}
+      onClick={({ target }) => handleBadgeSelect(position, target)}
+    />
+  ))
 
 
   const handleSelectedBadgesRendering = (allBadges, selected = []) => {
-
-    let displayBadges = []
-
-    let a = selected.forEach((value, backIndex) => {
+    const displayBadges = []
+    // eslint-disable-next-line no-unused-vars
+    const a = selected.forEach((value, backIndex) => {
       allBadges.forEach((badge, index) => {
         if (index === value) displayBadges[backIndex] = badge
       })
     })
-
     return displayBadges
   }
 
-  const handlePostsRendering = posts => {
-    return posts.map(post => {
-      return (
-        <SquareCard key={post.title}>
-          <PostTitle>
-            {post.title}
-          </PostTitle>
-          <PostContentPreview>
-            {post.content}
-          </PostContentPreview>
-        </SquareCard>
-      )
-    })
-  }
+  const handlePostsRendering = posts => posts.map(post => (
+    <SquareCard key={post.title}>
+      <PostTitle>
+        {post.title}
+      </PostTitle>
+      <PostContentPreview>
+        {post.content}
+      </PostContentPreview>
+    </SquareCard>
+  ))
 
 
-  const handleSocialMediaRendering = socialMediaList => {
-    return socialMediaList.map(socialMedia => {
-      const SocialMediaSvg = Icons[socialMedia.socialMedia]
-      return (
-        <SocialMediaIcon href={socialMedia.url}
-          title={socialMedia.userName}
-          alt={socialMedia.socialMedia}
-          key={socialMedia.socialMedia}>
-          <SocialMediaSvg />
-        </SocialMediaIcon>
-      );
-    });
-  }
+  const handleSocialMediaRendering = socialMediaList => socialMediaList.map(socialMedia => {
+    const SocialMediaSvg = Icons[socialMedia.socialMedia]
+    return (
+      <SocialMediaIcon
+        href={socialMedia.url}
+        title={socialMedia.userName}
+        alt={socialMedia.socialMedia}
+        key={socialMedia.socialMedia}
+      >
+        <SocialMediaSvg />
+      </SocialMediaIcon>
+    )
+  })
 
 
-  const validateFile = (file) => {
+  const validateFile = file => {
     if (file && file.size) {
       if (file.size > MB_SIZE) {
         showAlert('Ops, Seu arquivo deve ser menor que 2MB', 'error')
@@ -220,14 +214,12 @@ const Profile = ({ player = PLAYER_EXAMPLE }) => {
 
   const validateMugshot = ({ target }) => {
     const file = target.files[0]
-    if (validateFile(file))
-      setMugshot(file)
+    if (validateFile(file)) setMugshot(file)
   }
 
   const validateBanner = ({ target }) => {
     const file = target.files[0]
-    if (validateFile(file))
-      setBanner(file)
+    if (validateFile(file)) setBanner(file)
   }
 
   return (
@@ -242,16 +234,16 @@ const Profile = ({ player = PLAYER_EXAMPLE }) => {
       <PlayerHeader headerImage={BannerSrc}>
         <HeaderEditLabel htmlFor='HeaderEdit'>
           Clique para Editar
-          <ImageEdit type='file' accept="image/*" data-max-size="2048" id='HeaderEdit' onChange={e => validateBanner(e)}></ImageEdit>
+          <ImageEdit type='file' accept='image/*' data-max-size='2048' id='HeaderEdit' onChange={e => validateBanner(e)} />
         </HeaderEditLabel>
       </PlayerHeader>
       <PlayerInfoWrapper>
         <PlayerPictureWrapper>
           <PlayerMugshotWrapper>
-            <PlayerMugshot id="mugshot" data-mugshot={true} src={MugshotSrc} />
+            <PlayerMugshot id='mugshot' data-mugshot src={MugshotSrc} />
             <MugshotEditLabel htmlFor='mugshotEdit'>
               Clique para Editar
-              <ImageEdit type='file' accept="image/*" data-max-size="2048" id='mugshotEdit' onChange={e => validateMugshot(e)}></ImageEdit>
+              <ImageEdit type='file' accept='image/*' data-max-size='2048' id='mugshotEdit' onChange={e => validateMugshot(e)} />
             </MugshotEditLabel>
           </PlayerMugshotWrapper>
           <PlayerLevel>
@@ -262,15 +254,17 @@ const Profile = ({ player = PLAYER_EXAMPLE }) => {
           {playerName.firstName} {playerName.lastName}
         </PlayerName>
         <PlayerBio
-          contentEditable={true}
+          contentEditable
           onBlur={({ target }) => {
             setProfileInfo({ ...PlayerInfo, flavorText: target.textContent })
-          }
-          }>
+          }}
+        >
           {(PlayerInfo && PlayerInfo.flavorText) || 'Conte um pouco sobre você...'}
         </PlayerBio>
         <PlayerBadgesWrapper>
-          {handleDisplayBadgesRendering(handleSelectedBadgesRendering(player.playerMedals, selectedBadges), true)}
+          {handleDisplayBadgesRendering(
+            handleSelectedBadgesRendering(player.playerMedals, selectedBadges), true
+          )}
         </PlayerBadgesWrapper>
       </PlayerInfoWrapper>
       <SocialMediaWrapper>
@@ -280,7 +274,19 @@ const Profile = ({ player = PLAYER_EXAMPLE }) => {
         {handlePostsRendering(player.playerPosts)}
       </PostsHighlightWrapper>
     </PageWrapper>
-  );
+  )
+}
+
+Profile.propTypes = {
+  player: shape({
+    playerName: string,
+    playerLevel: number,
+    playerBio: string,
+    playerBanner: string,
+    playerMedals: objectOf(string),
+    playerPosts: objectOf(string),
+    socialMedia: objectOf(string)
+  }).isRequired
 }
 
 export default Profile

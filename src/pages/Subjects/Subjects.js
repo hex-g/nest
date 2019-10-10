@@ -67,7 +67,7 @@ const cards = [
 ]
 
 const HandleCardMapping = () => (
-  cards.map((card) => (
+  cards.map(card => (
     <Link to={`subject?subject=${card.Subject}`}>
       <CardLink key={card.Subject}>
         <SquareCard>
