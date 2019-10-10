@@ -13,12 +13,12 @@ export const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 1px solid ${codeBackground};
   background: ${backgroundColor};
 `
 
 export const ToggleArea = styled.div`
   display: flex;
+  border-right: 1px solid ${codeBackground};
 `
 
 export const ProfileContent = styled.div`
@@ -36,10 +36,13 @@ export const ProfileContent = styled.div`
 
 export const UserImage = styled.img`
   font-size: ${design.largeText};
-  max-width: 60px;
-  max-height: 80px;
-  object-fit: cover;
-  clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border: 1px solid ${design.rajah};
+  background-color: ${design.rajah};
+  border-radius: 50%;
+  margin-left: 20px;
 `
 
 export const Username = styled.p`
@@ -82,16 +85,14 @@ export const ItemTitle = styled.p`
   color: ${textColor};
 `
 
-export const LogoWrapper = styled.div`
-  width: 50%;
-`
+export const LogoWrapper = styled.div``
 
 export const ToggleButton = styled.button`
 flex-grow: 1;
-margin-left: 3px;
+margin-right: 3px;
+border: none;
 background: transparent;
 outline: none;
-border: none;
 cursor: pointer;
 
 &::before{
