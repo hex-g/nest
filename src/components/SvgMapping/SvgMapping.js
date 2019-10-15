@@ -1,34 +1,28 @@
 import React from 'react'
 
 const SvgComponents = (name, scale) => {
-  let ComponentSvg = ``;
-  let svgTag = ``;
+  let ComponentSvg = ``
+  let svgTag = ``
 
   function setSvgTag(width, height) {
-    let scaledWidth = Math.floor(width * scale);
-    let scaledHeight = Math.floor(height * scale);
-    return `<svg width="` + scaledWidth + `"px height="` + scaledHeight + `px" viewBox="0 0 ` + width + ` ` + height + `">`;
+    const scaledWidth = Math.floor(width * scale)
+    const scaledHeight = Math.floor(height * scale)
+    return `<svg width="${scaledWidth}px" height="${scaledHeight}px" viewBox="0 0 ${width} ${height}">`
   }
-  
-  /*function setSvgTagWithText(width, height, text) {
-    let scaledWidth = Math.floor(width * scale);
-    let scaledHeight = Math.floor(height * scale);
-    return `<svg width="` + scaledWidth + `"px height="` + scaledHeight + `px" viewBox="0 0 ` + width + ` ` + height + `">`;
-  }*/
 
   switch (name) {
     case 'hexagon':
-      svgTag = setSvgTag(1018, 817);
-      ComponentSvg = svgTag + `
+      svgTag = setSvgTag(1018, 817)
+      ComponentSvg = `${svgTag}
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
               <path d="M549.755653,-81.0764403 C589.761624,-55.8609528 844.959557,104.988544 872.667653,122.452765 C917.142571,150.485 917.142571,150.485 917.142571,201.52722 C917.142571,234.303097 917.142571,378.778035 917.142571,634.952036 C917.142571,664.804788 917.142571,664.804788 894.144183,679.385093 C813.453919,730.540357 756.837056,766.409676 724.293593,786.99305 C605.517889,862.117346 541.083473,902.517414 530.990345,908.193254 C509.053163,920.529561 509.053163,921.908785 485.844485,907.343329 C462.635807,892.777873 133.163523,685.656317 122.545251,678.294131 C106.092004,666.88626 101.144515,666.88626 101.112499,639.055807 C101.080482,611.225353 100.776612,182.169706 101.142571,170.449479 C101.70697,152.374022 101.142571,150.485 117.524382,140.159657 C133.906193,129.834315 443.534473,-65.3222537 469.137636,-81.4597506 C508.535461,-106.291928 509.749682,-106.291928 549.755653,-81.0764403 Z" id="Polygon" fill="#5C9EAD" transform="translate(509.053163, 408.910592) rotate(90.000000) translate(-509.053163, -408.910592) "></path>
             </g>
-          </svg>`;
-      break;
+          </svg>`
+      break
 
     case 'logo':
-      svgTag = setSvgTag(81, 37);
-      ComponentSvg = svgTag + `
+      svgTag = setSvgTag(81, 37)
+      ComponentSvg = `${svgTag}
           <g id="Hive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="Hive-Home" transform="translate(-56.000000, -712.000000)">
               <g id="Logo" transform="translate(56.000000, 712.000000)">
@@ -46,12 +40,12 @@ const SvgComponents = (name, scale) => {
               </g>
             </g>
           </g>
-        </svg>`;
-      break;
-    
+        </svg>`
+      break
+
     case 'adminLogo':
-      svgTag = setSvgTag(30, 37);
-      ComponentSvg = svgTag + `
+      svgTag = setSvgTag(30, 37)
+      ComponentSvg = `${svgTag}
           <g id="Hive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="Hive-Home" transform="translate(-56.000000, -712.000000)">
               <g id="Logo" transform="translate(56.000000, 712.000000)">
@@ -66,12 +60,12 @@ const SvgComponents = (name, scale) => {
               </g>
             </g>
           </g>
-        </svg>`;
-      break;
+        </svg>`
+      break
 
     case 'openSource':
-      svgTag = setSvgTag(149, 99);
-      ComponentSvg = svgTag + `
+      svgTag = setSvgTag(149, 99)
+      ComponentSvg = `${svgTag}
             <defs>
             <linearGradient x1="50.0228196%" y1="100.006339%" x2="50.0228196%" y2="-0.00916024026%" id="linearGradient-1">
               <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
@@ -143,13 +137,13 @@ const SvgComponents = (name, scale) => {
               </g>
             </g>
           </g>
-        </svg>`;
-      break;
+        </svg>`
+      break
 
     case 'gamification':
 
-      svgTag = setSvgTag(146, 110);
-      ComponentSvg = svgTag + `
+      svgTag = setSvgTag(146, 110)
+      ComponentSvg = `${svgTag}
           <defs>
             <linearGradient x1="49.998857%" y1="100.004054%" x2="49.998857%" y2="0%" id="linearGradient-1">
               <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
@@ -426,12 +420,12 @@ const SvgComponents = (name, scale) => {
             </g>
           </g>
         </svg>`
-      break;
+      break
 
     case 'customizable':
 
-      svgTag = setSvgTag(140, 108);
-      ComponentSvg = svgTag + `
+      svgTag = setSvgTag(140, 108)
+      ComponentSvg = `${svgTag}
           <defs>
             <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-1">
               <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
@@ -503,12 +497,12 @@ const SvgComponents = (name, scale) => {
               </g>
             </g>
           </g>
-        </svg >`;
-      break;
+        </svg >`
+      break
 
     case 'registerHexagonGroup':
-      svgTag = setSvgTag(99, 23);
-      ComponentSvg = svgTag + `
+      svgTag = setSvgTag(99, 23)
+      ComponentSvg = `${svgTag}
         <g id="Hive-LP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Cadastro-1" transform="translate(-141.000000, -181.000000)">
             <g id="Group-5" transform="translate(141.000000, 181.000000)">
@@ -521,12 +515,12 @@ const SvgComponents = (name, scale) => {
             </g>
           </g>
         </g>
-      </svg>`;
-    break;
+      </svg>`
+      break
 
     case 'unfillRegisterHexagonGroup':
-      svgTag = setSvgTag(169, 25);
-      ComponentSvg = svgTag + `
+      svgTag = setSvgTag(169, 25)
+      ComponentSvg = `${svgTag}
         <g id="Hive-LP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Cadastro-1" transform="translate(-140.000000, -251.000000)">
             <g id="Group-5" transform="translate(141.000000, 252.000000)">
@@ -539,12 +533,12 @@ const SvgComponents = (name, scale) => {
             </g>
           </g>
         </g>
-      </svg>`;
-    break;
-    
+      </svg>`
+      break
+
     case 'unfillRegisterHexagonGroupConfirmation':
-      svgTag = setSvgTag(169, 25);
-      ComponentSvg = svgTag + `
+      svgTag = setSvgTag(169, 25)
+      ComponentSvg = `${svgTag}
         <g id="Hive-LP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Cadastro-1" transform="translate(-140.000000, -251.000000)">
             <g id="Group-5" transform="translate(141.000000, 252.000000)">
@@ -557,21 +551,19 @@ const SvgComponents = (name, scale) => {
             </g>
           </g>
         </g>
-      </svg>`;
-    break;
-    default: return;
+      </svg>`
+      break
+    default: return
   }
-  return ComponentSvg;
+  // eslint-disable-next-line consistent-return
+  return ComponentSvg
 }
 
 function createMarkup(svgName, svgScale = 1) {
-  return { __html: SvgComponents(svgName, svgScale) };
+  return { __html: SvgComponents(svgName, svgScale) }
 }
 
-const SvgMapping = ({ name, scale }) => {
-  return (
-    <div dangerouslySetInnerHTML={createMarkup(name, scale)}></div>
-  )
-}
+// eslint-disable-next-line react/prop-types
+const SvgMapping = ({ name, scale }) => <div dangerouslySetInnerHTML={createMarkup(name, scale)} />
 
 export default SvgMapping

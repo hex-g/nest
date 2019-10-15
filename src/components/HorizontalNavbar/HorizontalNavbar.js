@@ -1,4 +1,5 @@
 import React from 'react'
+import { string, func } from 'prop-types'
 import {
   ItensList,
   Item,
@@ -6,26 +7,29 @@ import {
 } from './HorizontalNavbar.style'
 
 const HorizontalNavbar = ({ options, listOption }) => {
-
   const [selectedItem, setSelectedItem] = React.useState(0)
 
   return (
-      <ItensList>
+    <ItensList>
       {options.map((option, index) => (
-        <OptionButton key={index}>
+        <OptionButton key={option}>
           <Item
-            key={`nav-item-${index}`}
+            key='nav-item'
             activated={index === selectedItem}
             id={index}
-            onClick={e => {listOption(Number(e.target.id)); setSelectedItem(Number(e.target.id))}}
+            onClick={e => { listOption(Number(e.target.id)); setSelectedItem(Number(e.target.id)) }}
           >
             {option}
           </Item>
         </OptionButton>
-      ))
-      }
-      </ItensList>
+      ))}
+    </ItensList>
   )
+}
+
+HorizontalNavbar.propTypes = {
+  options: string.isRequired,
+  listOption: func.isRequired
 }
 
 export default HorizontalNavbar

@@ -1,9 +1,14 @@
 import styled from 'styled-components'
-import { design, backgroundColor, textColor, codeBackground } from '../Layout'
+import {
+  design,
+  backgroundColor,
+  textColor,
+  codeBackground
+} from '../Layout'
 
 export const Aside = styled.aside`
   height: 100%;
-  width: ${props => props.isOpen ? '200px' : '100px'};
+  width: ${props => (props.isOpen ? '200px' : '100px')};
   display: flex;
 `
 
@@ -30,7 +35,7 @@ export const ProfileContent = styled.div`
   margin-bottom: 40px;
 
   & > p{
-    ${({ isOpen }) => isOpen ? 'display: block' : 'display: none'}
+    ${({ isOpen }) => (isOpen ? 'display: block' : 'display: none')}
   }
 `
 
@@ -75,13 +80,13 @@ export const Item = styled.div`
 export const ItemIcon = styled.div`
   width: 50px;
   height: 50px;
-  background: ${({ icon }) => icon ? icon : 'lightgreen'};
+  background: ${({ icon }) => (!icon && 'lightgreen')};
 `
 
 export const ItemTitle = styled.p`
   padding: 5px 10px;
   flex-grow: 1;
-  ${({ isOpen }) => isOpen ? 'display: inline-block' : 'display: none'};
+  ${({ isOpen }) => (isOpen ? 'display: inline-block' : 'display: none')};
   color: ${textColor};
 `
 
@@ -109,7 +114,7 @@ cursor: pointer;
 }
 
 &:hover::before{
-  transform: ${({ isOpen }) => isOpen ? 'rotate(40deg)' : 'rotate(-40deg)'};
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(40deg)' : 'rotate(-40deg)')};
   opacity: 1;
 }
 
@@ -126,7 +131,7 @@ cursor: pointer;
 }
 
 &:hover::after{
-  transform: ${({ isOpen }) => isOpen ? 'rotate(-40deg)' : 'rotate(40deg)'};
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(-40deg)' : 'rotate(40deg)')};
   opacity: 1;
 }
 `

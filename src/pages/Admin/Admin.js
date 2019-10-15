@@ -43,7 +43,7 @@ const Admin = () => {
         <FormElement>
           <label htmlFor='lastname-student'>
             Sobrenome
-            <input id='lastname-student' name='lastName' />            
+            <input id='lastname-student' name='lastName' />
           </label>
         </FormElement>
         <FormElement>

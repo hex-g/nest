@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { design, textColor,cardBackground } from '../Layout'
+import { design, textColor, cardBackground } from '../Layout'
 
 export const Search = styled.div`
   width: 500px;

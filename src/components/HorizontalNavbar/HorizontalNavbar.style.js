@@ -8,12 +8,12 @@ export const ItensList = styled.ul`
 
 export const Item = styled.li`
   margin: 0 15px;
-  font-weight: ${props => props.activated ? 'bold' : 'lighter'};
+  font-weight: ${props => (props.activated ? 'bold' : 'lighter')};
   font-size: ${design.largeText};
   color: ${props => props.activated && '#f6bd60'};
   text-transform: uppercase;
   padding: 0 20px 3px 0;
-  border-bottom: 3px solid ${props => props.activated ? '#f6bd60' : 'none'};
+  border-bottom: 3px solid ${props => (props.activated ? '#f6bd60' : 'none')};
   cursor: pointer;
 `
 

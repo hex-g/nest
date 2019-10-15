@@ -1,54 +1,51 @@
 import React from 'react'
 import { MessageWrapper, MessageBox } from './Alert.style'
-import {design} from '../Layout'
+import { design } from '../Layout'
 
-export const showAlert = (message='Estamos processando...', type = 'idling',  HideAutomaticaly = true, HideTime = 5000) => {
-    const alertMessage = document.querySelector('#alertMessage')
+export const showAlert = (message = 'Estamos processando...', type = 'idling', HideAutomaticaly = true, HideTime = 5000) => {
+  const alertMessage = document.querySelector('#alertMessage')
 
-    if (!alertMessage) return
-    
-    const messageContent = alertMessage.querySelector('#messageContent')
+  if (!alertMessage) return
 
-    if(!messageContent) return
+  const messageContent = alertMessage.querySelector('#messageContent')
 
-    let color = design.hippieBlue
-    switch(type){
-        case 'error':
-            color = design.burntSienna
-            break;
-        default:
-            color = design.hippieBlue
-            break;
-    }
+  if (!messageContent) return
 
-    alertMessage.style.top = 0
-    messageContent.textContent = message
-    messageContent.style.backgroundColor = color
+  let color = design.hippieBlue
+  switch (type) {
+    case 'error':
+      color = design.burntSienna
+      break
+    default:
+      color = design.hippieBlue
+      break
+  }
 
-    if(HideAutomaticaly){
-        setTimeout(hideAlert, HideTime)
-    }
-    
+  alertMessage.style.top = 0
+  messageContent.textContent = message
+  messageContent.style.backgroundColor = color
+
+  if (HideAutomaticaly) {
+    // eslint-disable-next-line no-use-before-define
+    setTimeout(hideAlert, HideTime)
+  }
 }
 
 
 export const hideAlert = () => {
-    const alertMessage = document.querySelector('#alertMessage')
+  const alertMessage = document.querySelector('#alertMessage')
 
-    if (!alertMessage) return
+  if (!alertMessage) return
 
-    alertMessage.style.top = '-56px'
-
+  alertMessage.style.top = '-56px'
 }
 
-const Alert = () => {
-    return (
-        <MessageWrapper id='alertMessage'>
-            <MessageBox id='messageContent'>
-                Estamos Processando... 
-            </MessageBox>
-        </MessageWrapper>
-    )
-}
+const Alert = () => (
+  <MessageWrapper id='alertMessage'>
+    <MessageBox id='messageContent'>
+      Estamos Processando...
+    </MessageBox>
+  </MessageWrapper>
+)
 
 export default Alert

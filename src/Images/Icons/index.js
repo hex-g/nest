@@ -6,4 +6,11 @@ import { ReactComponent as Linkedin } from './linkedin.svg'
 import { ReactComponent as Twitter } from './twitter.svg'
 
 
-export default {Facebook, Generic, Github, Instagram, Linkedin, Twitter}
+export default {
+  Facebook,
+  Generic,
+  Github,
+  Instagram,
+  Linkedin,
+  Twitter
+}

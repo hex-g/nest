@@ -1,4 +1,5 @@
 import React from 'react'
+import { boolean, func } from 'prop-types'
 import {
   Section,
   LoginWrapper,
@@ -12,8 +13,8 @@ import {
 } from './LoginSection.style'
 import SvgMapping from '../SvgMapping'
 
-const LoginSection = (props) => {
-  let lock = props.lockFields
+const LoginSection = props => {
+  const { lockFields: lock } = props
   return (
     <Section>
       <LoginWrapper>
@@ -23,11 +24,16 @@ const LoginSection = (props) => {
         <Title>Entre na <span>Hive</span> da sua instituição!</Title>
         <Form>
           <Label>Usuário</Label>
-          <TextInput type='text' placeholder='Nome de Usuário' id="usernameInput" onChange={(e) => props.onUsernameChange(e.target.value)} disabled={lock} />
+          <TextInput type='text' placeholder='Nome de Usuário' id='usernameInput' onChange={e => props.onUsernameChange(e.target.value)} disabled={lock} />
           <Label>Senha</Label>
-          <TextInput type='password' placeholder='Senha' id="passwordInput" onChange={(e) => props.onPasswordChange(e.target.value)} disabled={lock} />
-          
-          <Button onClick={(event) => {event.preventDefault(); props.onButtonClick()}} >Entrar</Button>
+          <TextInput type='password' placeholder='Senha' id='passwordInput' onChange={e => props.onPasswordChange(e.target.value)} disabled={lock} />
+          <Button onClick={event => {
+            event.preventDefault()
+            props.onButtonClick()
+          }}
+          >
+              Entrar
+          </Button>
         </Form>
         <Description>
           Ainda não possui uma conta? <a href='http://hive-lp.netlify.com/RegisterAccount/'> Cadastre-se </a> agora mesmo! :)
@@ -35,6 +41,17 @@ const LoginSection = (props) => {
       </LoginWrapper>
     </Section>
   )
+}
+
+LoginSection.defaultProps = {
+  lockFields: false
+}
+
+LoginSection.propTypes = {
+  lockFields: boolean,
+  onUsernameChange: func.isRequired,
+  onPasswordChange: func.isRequired,
+  onButtonClick: func.isRequired
 }
 
 export default LoginSection

@@ -4,14 +4,12 @@ const REQUEST_ADDRESS = 'https://hiveapi.bolognini.me/'
 
 const CARONTE = `${REQUEST_ADDRESS}caronte/auth`
 
-export const getAccessToken = async (username, password) => {
-  return await request({
-    url: CARONTE,
-    method: 'post',
-    data: {
-      username,
-      password,
-    },
-  })
-}
-
+// eslint-disable-next-line import/prefer-default-export
+export const getAccessToken = async (username, password) => request({
+  url: CARONTE,
+  method: 'post',
+  data: {
+    username,
+    password
+  }
+})
