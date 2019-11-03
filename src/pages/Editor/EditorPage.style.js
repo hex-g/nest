@@ -1,5 +1,12 @@
 import styled from 'styled-components'
-import { design, textColor, backgroundScroll, codeBackground, codeBlock, codeColor } from '../../components/Layout'
+import {
+  design,
+  textColor,
+  backgroundScroll,
+  codeBackground,
+  codeBlock,
+  codeColor
+} from '../../components/Layout'
 
 export const Page = styled.div`
   display: grid;
@@ -183,11 +190,11 @@ export const EditorMenu = styled.div`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid;
-  border-bottom-color:${props => props.empty ? 'transparent' : textColor};
+  border-bottom-color:${props => (props.empty ? 'transparent' : textColor)};
   padding: 16px 0 8px 0;
 
   svg {
-    display: ${props => props.empty ? 'none' : 'inline'};
+    display: ${props => (props.empty ? 'none' : 'inline')};
     width: 100%;
     height: 100%;
 
@@ -228,7 +235,7 @@ export const Editor = styled.div`
 `
 
 export const SendButton = styled.button`
-  display: ${props => props.empty ? 'none' : 'inline'};
+  display: ${props => (props.empty ? 'none' : 'inline')};
   z-index: 2;
   width: 20px;
   height: 20px;

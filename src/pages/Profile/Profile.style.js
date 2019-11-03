@@ -43,7 +43,7 @@ export const HeaderEditLabel = styled.label`
 
 export const PlayerHeader = styled.header`
 	min-width: 100%;
-	background: url('${ ({ headerImage }) => headerImage}');
+	background: url('${({ headerImage }) => headerImage}');
 	min-height: 215px;
 	background-size: cover;
 	background-position: center;

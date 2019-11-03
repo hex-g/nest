@@ -17,8 +17,8 @@ export const Menu = styled.div`
 
 export const ItemsMenu = styled.div`
   display: flex;
-  ${({ isOpen }) => isOpen ? 'flex-direction: row' : 'flex-direction: column'};
-  ${({ isOpen }) => isOpen ? 'justify-content: flex-' : 'align-items: center'};
+  ${({ isOpen }) => (isOpen ? 'flex-direction: row' : 'flex-direction: column')};
+  ${({ isOpen }) => (isOpen ? 'justify-content: flex-' : 'align-items: center')};
   transition-delay: 200ms;
 `
 
@@ -63,7 +63,7 @@ cursor: pointer;
 }
 
 &:hover::before{
-  transform: ${({ isOpen }) => isOpen ? 'rotate(-40deg)' : 'rotate(40deg)'};
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(-40deg)' : 'rotate(40deg)')};
   opacity: 1;
 }
 
@@ -80,7 +80,7 @@ cursor: pointer;
 }
 
 &:hover::after{
-  transform: ${({ isOpen }) => isOpen ? 'rotate(40deg)' : 'rotate(-40deg)'};
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(40deg)' : 'rotate(-40deg)')};
   opacity: 1;
 }
 `

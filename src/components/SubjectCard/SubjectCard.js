@@ -1,4 +1,5 @@
 import React from 'react'
+import { string } from 'prop-types'
 import {
   Wrapper,
   Image,
@@ -21,12 +22,19 @@ export const TASK_TYPES = [
   { type: 'file', icon: <File /> }
 ]
 
-const findIcon = (type) => {
+const findIcon = type => {
   const target = TASK_TYPES.filter(name => name.type === type)
   return target[0].icon
 }
 
-const SubjectCard = ({ type, taskName, description, fileName, postDate, checked }) => (
+const SubjectCard = ({
+  type,
+  taskName,
+  description,
+  fileName,
+  postDate,
+  checked
+}) => (
   <Wrapper>
     <Image>
       {findIcon(type)}
@@ -38,9 +46,18 @@ const SubjectCard = ({ type, taskName, description, fileName, postDate, checked 
     </Content>
     <RightContent>
       <Date>{postDate}</Date>
-      <CheckBox type='checkbox' checked={checked}></CheckBox>
+      <CheckBox type='checkbox' checked={checked} />
     </RightContent>
   </Wrapper>
 )
+
+SubjectCard.propTypes = {
+  type: string.isRequired,
+  taskName: string.isRequired,
+  description: string.isRequired,
+  fileName: string.isRequired,
+  postDate: string.isRequired,
+  checked: string.isRequired
+}
 
 export default SubjectCard

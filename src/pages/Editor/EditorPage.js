@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+// eslint-disable-next-line import/no-extraneous-dependencies
 import EditorJs from '@editorjs/editorjs'
 import Header from '@editorjs/header'
 import List from '@editorjs/list'
@@ -12,6 +13,7 @@ import Table from '@editorjs/table'
 import Delimiter from '@editorjs/delimiter'
 import Marker from '@editorjs/marker'
 import Warning from '@editorjs/warning'
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Paragraph from '@editorjs/paragraph'
 import { ReactComponent as FileIcon } from '../../assets/file.svg'
 import { ReactComponent as FolderIcon } from '../../assets/folder.svg'
@@ -67,13 +69,14 @@ const compareNodes = (a, b) => {
 }
 
 const findOrCreateDir = (parent, name) => {
-  for (let e of parent.children) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const e of parent.children) {
     if (e.name === name) {
       return e
     }
   }
   const node = {
-    name: name,
+    name,
     children: []
   }
   parent.children.push(node)
@@ -86,7 +89,7 @@ const createFile = (parent, name) => {
     return false
   }
   parent.children.push({
-    name: name,
+    name,
     children: null
   })
   parent.children.sort(compareNodes)
@@ -106,12 +109,12 @@ const reStyleCodexRedactor = () => {
   let countError = 0
   const codexget = setInterval(() => {
     try {
-      let codex_redactor = document.querySelector('.codex-editor__redactor')
-      codex_redactor.style.paddingBottom = '0px'
+      const codexRedactor = document.querySelector('.codex-editor__redactor')
+      codexRedactor.style.paddingBottom = '0px'
       clearInterval(codexget)
     } catch (error) {
       console.error('Failed to get Codex-redactor, retrying...')
-      countError++
+      countError += 1
     } finally {
       if (countError === 5) {
         clearInterval(codexget)
@@ -197,7 +200,7 @@ const EditorPage = () => {
               shortcut: 'CMD+SHIFT+O',
               config: {
                 quotePlaceholder: 'Enter a quote',
-                captionPlaceholder: "Quote's author"
+                captionPlaceholder: `Quote's author`
               }
             },
             inlineCode: {
@@ -272,7 +275,7 @@ const EditorPage = () => {
               shortcut: 'CMD+SHIFT+O',
               config: {
                 quotePlaceholder: 'Enter a quote',
-                captionPlaceholder: "Quote's author"
+                captionPlaceholder: `Quote's author`
               }
             },
             inlineCode: {
@@ -317,7 +320,9 @@ const EditorPage = () => {
       setSelectedFile(path)
       setTitle(path)
       setIsEmpty(false)
-    } catch (error) {}
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const walkTree = (index, e, path = '', level = 0) => {
@@ -329,9 +334,7 @@ const EditorPage = () => {
             <FolderName>{e.name}</FolderName>
           </Folder>
           <div>
-            {e.children.map((i, index) =>
-              walkTree(index, i, path + e.name + '/', level + 1)
-            )}
+            {e.children.map((i, treeIndex) => walkTree(treeIndex, i, `${path}${e.name}/`, level + 1))}
           </div>
         </div>
       )
@@ -365,6 +368,7 @@ const EditorPage = () => {
               const file = nodes.pop()
               let currentNode = root
               nodes.forEach(
+                // eslint-disable-next-line no-return-assign
                 name => (currentNode = findOrCreateDir(currentNode, name))
               )
               createFile(currentNode, file)
@@ -376,7 +380,9 @@ const EditorPage = () => {
               setRoot(newRoot)
 
               saveEditorText('', `/${path}`)
-            } catch (error) {}
+            } catch (error) {
+              console.error(error)
+            }
           }}
         >
           Nova Anotação
@@ -408,15 +414,15 @@ const EditorPage = () => {
           </div>
         </EditorMenu>
         {isEmpty ? (
-          <WaitComponent id="editorjs">
+          <WaitComponent id='editorjs'>
             Crie uma nova anotação ou selecione uma já existente para começar a
             editar{' '}
-            <span role="img" aria-label="sunglass emoji">
+            <span role='img' aria-label='sunglass emoji'>
               😉
             </span>
           </WaitComponent>
         ) : (
-          <Editor id="editorjs" />
+          <Editor id='editorjs' />
         )}
       </Wrapper>
     </Page>

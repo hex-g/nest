@@ -22,7 +22,7 @@ export const Title = styled.h2`
 `
 
 export const FormTitle = styled.h2`
-  display: ${props => props.show ? 'block' : 'none'};
+  display: ${props => (props.show ? 'block' : 'none')};
   margin: 24px 0;
   font-size: 32px;
   font-weight: bold;
@@ -54,7 +54,7 @@ export const Choice = styled.div`
 `
 
 export const Form = styled.form`
-  display: ${props => props.show ? 'grid' : 'none'};
+  display: ${props => (props.show ? 'grid' : 'none')};
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 `
@@ -81,7 +81,7 @@ export const FormElement = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
-  display: ${props => props.show ? 'flex' : 'none'};
+  display: ${props => (props.show ? 'flex' : 'none')};
   button {
     margin: 32px 0;
     margin-right: 28px;

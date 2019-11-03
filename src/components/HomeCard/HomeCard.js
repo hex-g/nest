@@ -1,4 +1,5 @@
 import React from 'react'
+import { string, objectOf } from 'prop-types'
 import {
   Wrapper,
   UserPicture,
@@ -9,18 +10,30 @@ import {
   Tag
 } from './HomeCard.style'
 
-const HomeCard = ({ userPicture, username, description, postDate, tag, index }) => (
+const HomeCard = ({
+  userPicture,
+  username,
+  description,
+  postDate,
+  tag
+}) => (
   <Wrapper>
     <UserPicture src={userPicture} />
     <Content>
       <Username>{username}</Username>
       <Description>{description}</Description>
-      {tag && tag.map((tags, index) =>
-        <Tag color={tags.length} key={index}>{tags}</Tag>
-      )}
+      {tag && tag.map(tags => <Tag color={tags.length} key={tags}>{tags}</Tag>)}
     </Content>
     <Date>{postDate}</Date>
   </Wrapper>
 )
+
+HomeCard.propTypes = {
+  userPicture: string.isRequired,
+  username: string.isRequired,
+  description: string.isRequired,
+  postDate: string.isRequired,
+  tag: objectOf(string).isRequired
+}
 
 export default HomeCard

@@ -1,0 +1,41 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": [
+		"airbnb"
+	],
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react"
+	],
+	"rules": {
+		"react/jsx-wrap-multilines": ["error", { "prop": "ignore" }],
+		"curly": ["error", "multi-line"],
+		"no-unused-expressions": ["error", { "allowShortCircuit": true }],
+		"arrow-parens": ["error", "as-needed"],
+		"arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"no-console": ["error", { "allow": ["warn", "error"] }],
+		"semi": ["error", "never"],
+		"quotes": ["error", "single", { "allowTemplateLiterals": true }],
+		"jsx-quotes": ["error", "prefer-single"],
+		"comma-dangle": ["error", "never"],
+		"react/jsx-one-expression-per-line": "off",
+		"global-require": "off",
+		"no-unused-vars": "warn",
+		"import/no-dynamic-require": "warn",
+		"react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }]
+	}
+}
