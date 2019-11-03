@@ -8,7 +8,7 @@ export const Aside = styled.aside`
 
 export const Menu = styled.div`
   width: 100%;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   align-items: center;
   border-left: 1px solid ${codeBackground};
@@ -42,45 +42,45 @@ export const ToggleArea = styled.div`
 `
 
 export const ToggleButton = styled.button`
-flex-grow: 1;
-margin-right: 3px;
-background: transparent;
-outline: none;
-border: none;
-cursor: pointer;
+  flex-grow: 1;
+  margin-right: 3px;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
 
-&::before{
-  content:"";
-  background-color: rgb(255,160,50);
-  width: 2px;
-  height: 10px;
-  position: absolute;
-  opacity: 1;
-  transform: rotate(0deg);
-  transform-origin: 1px 7px;
-  margin-top: -7.4px;
-  transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
-}
+  &::before {
+    content: "";
+    background-color: rgb(255, 160, 50);
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    transform-origin: 1px 7px;
+    margin-top: -7.4px;
+    transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
+  }
 
-&:hover::before{
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(-40deg)' : 'rotate(40deg)')};
-  opacity: 1;
-}
+  &:hover::before {
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(-40deg)' : 'rotate(40deg)')};
+    opacity: 1;
+  }
 
-&::after{
-  content:"";
-  background-color: rgb(255,160,50);
-  width: 2px;
-  height: 10px;
-  position: absolute;
-  opacity: 1;
-  transform: rotate(0deg);
-  transform-origin: 1px 3px;
-  transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
-}
+  &::after {
+    content: "";
+    background-color: rgb(255, 160, 50);
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    transform-origin: 1px 3px;
+    transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
+  }
 
-&:hover::after{
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(40deg)' : 'rotate(-40deg)')};
-  opacity: 1;
-}
+  &:hover::after {
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(40deg)' : 'rotate(-40deg)')};
+    opacity: 1;
+  }
 `

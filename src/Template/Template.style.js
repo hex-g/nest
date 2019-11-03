@@ -22,13 +22,14 @@ export const Content = styled.div`
     width: 3px;
     background-color: ${design.wildSand};
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: ${backgroundScroll};
   }
 `
 
 export const Informations = styled.div`
-  width: ${({isOpen}) => isOpen ? '350px' : '105px'};
+  width: ${({ isOpen }) => (isOpen ? '350px' : '105px')};
   max-height: 100vh;
   overflow: hidden;
   z-index: 2;

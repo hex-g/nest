@@ -34,7 +34,7 @@ export const ProfileContent = styled.div`
   justify-content: space-between;
   margin-bottom: 40px;
 
-  & > p{
+  & > p {
     ${({ isOpen }) => (isOpen ? 'display: block' : 'display: none')}
   }
 `
@@ -68,7 +68,7 @@ export const Item = styled.div`
   display: flex;
   justify-content: center;
 
-  & > a{
+  & > a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,45 +93,45 @@ export const ItemTitle = styled.p`
 export const LogoWrapper = styled.div``
 
 export const ToggleButton = styled.button`
-flex-grow: 1;
-margin-right: 3px;
-border: none;
-background: transparent;
-outline: none;
-cursor: pointer;
+  flex-grow: 1;
+  margin-right: 3px;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
 
-&::before{
-  content:"";
-  background-color: ${design.rajah};
-  width: 2px;
-  height: 10px;
-  position: absolute;
-  opacity: 1;
-  transform: rotate(0deg);
-  transform-origin: 1px 7px;
-  margin-top: -7.4px;
-  transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
-}
+  &::before {
+    content: "";
+    background-color: ${design.rajah};
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    transform-origin: 1px 7px;
+    margin-top: -7.4px;
+    transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
+  }
 
-&:hover::before{
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(40deg)' : 'rotate(-40deg)')};
-  opacity: 1;
-}
+  &:hover::before {
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(40deg)' : 'rotate(-40deg)')};
+    opacity: 1;
+  }
 
-&::after{
-  content:"";
-  background-color: ${design.rajah};
-  width: 2px;
-  height: 10px;
-  position: absolute;
-  opacity: 1;
-  transform: rotate(0deg);
-  transform-origin: 1px 3px;
-  transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
-}
+  &::after {
+    content: "";
+    background-color: ${design.rajah};
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    transform-origin: 1px 3px;
+    transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
+  }
 
-&:hover::after{
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(-40deg)' : 'rotate(40deg)')};
-  opacity: 1;
-}
+  &:hover::after {
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(-40deg)' : 'rotate(40deg)')};
+    opacity: 1;
+  }
 `

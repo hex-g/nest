@@ -10,7 +10,6 @@ export const Page = styled.div`
 
 export const Container = styled.div`
   padding: 10px 0;
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -39,10 +38,8 @@ export const HorizontalNavigation = styled.div`
 
 export const Form = styled.div`
   flex-grow: 1;
-
   display: flex;
   flex-direction: column;
-
   padding-left: 5px;
 `
 
@@ -54,19 +51,20 @@ export const TopNavigation = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-
   padding: 0 5px;
-
   overflow-x: hidden;
+
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   }
+
   &::-webkit-scrollbar {
     width: 3px;
     background-color: #F5F5F5;
   }
+
   &::-webkit-scrollbar-thumb {
-    background-color: #555555;
+    background-color: #555;
   }
 `
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { element } from 'prop-types'
 import Sidebar from '../components/Sidebar'
 import { SIDEBAR_PAGES } from '../config/constants'
 import {
@@ -14,8 +15,7 @@ const user = {
     'https://media.licdn.com/dms/image/C4D03AQHv3UDt2OH7uw/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=qcsJy1xt4V8brdPvHXDU6WcBSnEr2mkH-FpmcFZRonU'
 }
 
-const Template = ({ children, handleThemeChange }) => {
-
+const Template = ({ children }) => {
   const [toggleNavigation, handleToggleNavigation] = useState(false)
 
   return (
@@ -23,9 +23,7 @@ const Template = ({ children, handleThemeChange }) => {
       <Navigation isOpen={toggleNavigation}>
         <Sidebar
           isOpen={toggleNavigation}
-          handleToggleNavigation={() =>
-            handleToggleNavigation(!toggleNavigation)
-          }
+          handleToggleNavigation={() => handleToggleNavigation(!toggleNavigation)}
           pages={SIDEBAR_PAGES}
           userInfo={user}
         />
@@ -33,6 +31,10 @@ const Template = ({ children, handleThemeChange }) => {
       <Content isOpen={toggleNavigation}>{children}</Content>
     </TemplateSection>
   )
+}
+
+Template.propTypes = {
+  children: element.isRequired
 }
 
 export default Template

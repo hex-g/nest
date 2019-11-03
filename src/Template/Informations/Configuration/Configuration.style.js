@@ -1,5 +1,5 @@
-import { design } from '../../../components/Layout'
 import styled from 'styled-components'
+import { design } from '../../../components/Layout'
 
 export const Options = styled.div`
   width: 200px;

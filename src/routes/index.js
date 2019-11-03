@@ -9,12 +9,12 @@ import Admin from '../pages/Admin'
 
 const Routes = () => (
   <div>
-    <Route exact path="/" component={Nest} />
-    <Route path="/editor" component={Editor} />
-    <Route path="/profile" component={Profile} />
-    <Route path="/subjects" component={Subjects} />
-    <Route path="/subject" component={Subject} />
-    <Route path="/admin" component={Admin} />
+    <Route exact path='/' component={Nest} />
+    <Route path='/editor' component={Editor} />
+    <Route path='/profile' component={Profile} />
+    <Route path='/subjects' component={Subjects} />
+    <Route path='/subject' component={Subject} />
+    <Route path='/admin' component={Admin} />
   </div>
 )
 

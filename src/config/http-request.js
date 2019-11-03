@@ -4,24 +4,22 @@ export const request = ({
   url, ...options
 }) => axios({
   ...options,
-  url: `${url}`,
+  url: `${url}`
 })
 
 
 const configInterceptorResponse = () => {
   axios.interceptors.response.use(
-    response => response
-    , error => {
-      console.log(error)
+    response => response,
+    error => {
+      console.error(error)
       return Promise.reject(error)
     },
   )
 }
 
 const configInterceptorRequest = () => {
-  axios.interceptors.request.use(config => {
-    return config
-  })
+  axios.interceptors.request.use(config => config)
   return axios
 }
 
