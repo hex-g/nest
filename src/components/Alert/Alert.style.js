@@ -11,6 +11,7 @@ export const MessageWrapper = styled.div`
   transition: top 0.3s ease-in;
   height: auto;
   z-index: 3;
+  top: -56px;
 `
 
 export const MessageBox = styled.div`
