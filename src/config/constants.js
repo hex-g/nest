@@ -1,14 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { ReactComponent as Editor } from '../assets/contract.svg'
 import { ReactComponent as Subjects } from '../assets/open-book.svg'
 import { ReactComponent as Library } from '../assets/book.svg'
-import { ReactComponent as HiveCentral } from '../assets/conversation.svg'
 
 export const SIDEBAR_PAGES = [
   { title: 'Editor', link: '/editor', icon: <Editor /> },
   { title: 'Disciplinas', link: '/subjects', icon: <Subjects /> },
-  { title: 'Biblioteca', link: 'https://alexandria-corporation.azurewebsites.net/', icon: <Library /> },
-  { title: 'HiveCentral', link: '/hivecentral', icon: <HiveCentral /> }
+  { title: 'Biblioteca', link: 'https://alexandria-corporation.azurewebsites.net/', icon: <Library /> }
 ]
 
 export const THEME_COLORS = {

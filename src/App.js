@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from './components/Layout'
 import Template from './Template'
 import Login from './pages/Login'
@@ -6,7 +6,7 @@ import Routes from './routes'
 
 const App = () => {
 
-  const [colorTheme, setColorTheme] = React.useState(localStorage.getItem('favoriteTheme'))
+  const [colorTheme, setColorTheme] = useState(localStorage.getItem('favoriteTheme'))
   const token = localStorage.getItem('access_token')
 
   return (
