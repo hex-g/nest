@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { ReactComponent as Editor } from '../assets/contract.svg'
 import { ReactComponent as Subjects } from '../assets/open-book.svg'
 import { ReactComponent as Library } from '../assets/book.svg'

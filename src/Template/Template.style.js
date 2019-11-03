@@ -28,7 +28,7 @@ export const Content = styled.div`
 `
 
 export const Informations = styled.div`
-  width: ${({isOpen}) => isOpen ? '350px' : '105px'};
+  width: ${({ isOpen }) => (isOpen ? '350px' : '105px')};
   max-height: 100vh;
   overflow: hidden;
   z-index: 2;
