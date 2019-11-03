@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   grid-template-columns: 0.5fr 10fr 1fr;
   background-color: ${cardBackground};
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(21,21,21,0.2);
+  box-shadow: 0 2px 5px rgba(21, 21, 21, 0.2);
 `
 
 export const UserPicture = styled.img`
@@ -31,8 +31,7 @@ export const Username = styled.p`
   font-weight: bold;
 `
 
-export const Description = styled.p`
-`
+export const Description = styled.p``
 
 export const Date = styled.p`
   text-align: right;
@@ -40,7 +39,8 @@ export const Date = styled.p`
 `
 
 export const Tag = styled.button`
-  background: ${props => {
+  background:
+    ${props => {
     if (props.color <= 1) {
       return design.heliotrope
     } if (props.color >= 2 && props.color <= 3) {

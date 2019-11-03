@@ -20,16 +20,18 @@ export const Directories = styled.div`
   max-width: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 0px 35px 20px 35px;
+  padding: 0 35px 20px 35px;
 `
 
 export const Files = styled.div`
   height: 100%;
   overflow: auto;
+
   &::-webkit-scrollbar {
     width: 3px;
     background-color: ${design.wildSand};
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: ${backgroundScroll};
   }
@@ -103,6 +105,7 @@ export const Wrapper = styled.div`
     width: 3px;
     background-color: ${design.wildSand};
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: ${backgroundScroll};
   }
@@ -190,7 +193,7 @@ export const EditorMenu = styled.div`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid;
-  border-bottom-color:${props => (props.empty ? 'transparent' : textColor)};
+  border-bottom-color: ${props => (props.empty ? 'transparent' : textColor)};
   padding: 16px 0 8px 0;
 
   svg {
@@ -221,16 +224,18 @@ export const WaitComponent = styled.div`
 export const Editor = styled.div`
   width: auto;
   height: calc(100vh - 110px);
-  
+
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   }
+
   &::-webkit-scrollbar {
     width: 3px;
-    background-color: #f5f5f5;
+    background-color: #F5F5F5;
   }
+
   &::-webkit-scrollbar-thumb {
-    background-color: #555555;
+    background-color: #555;
   }
 `
 

@@ -83,8 +83,10 @@ export const backgroundBadge = theme('mode', {
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
+
   @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
   @import url('https://fonts.googleapis.com/css?family=Poppins:500,600,700');
+
   body {
     font-family: ${design.secondaryFont}, sans-serif;
     font-weight: lighter;

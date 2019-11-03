@@ -7,10 +7,8 @@ export const MessageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
   width: 100%;
-  top: -56px;
-  transition: top .3s ease-in;
+  transition: top 0.3s ease-in;
   height: auto;
   z-index: 3;
 `

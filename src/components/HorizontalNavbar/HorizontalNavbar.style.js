@@ -3,7 +3,7 @@ import { design } from '../Layout'
 
 export const ItensList = styled.ul`
   display: flex;
-  width: 0vw;
+  width: 0;
 `
 
 export const Item = styled.li`

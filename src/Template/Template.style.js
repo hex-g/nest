@@ -22,6 +22,7 @@ export const Content = styled.div`
     width: 3px;
     background-color: ${design.wildSand};
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: ${backgroundScroll};
   }
