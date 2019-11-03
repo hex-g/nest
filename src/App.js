@@ -9,7 +9,7 @@ const App = () => {
   const token = localStorage.getItem('access_token')
 
   return (
-    <Layout color={colorTheme}>
+    <Layout color={colorTheme === null ? 'dark' : colorTheme}>
       {token
         ? <Template handleThemeChange={setColorTheme}><Routes /></Template>
         : <Login />}
