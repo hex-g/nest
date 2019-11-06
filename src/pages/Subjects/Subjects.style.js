@@ -8,7 +8,7 @@ export const Page = styled.div`
   overflow: auto;
   max-height: 100vh;
 
-  a{
+  a {
     text-decoration: none;
   }
 `
@@ -23,6 +23,7 @@ export const Container = styled.div`
     width: 3px;
     background-color: ${design.wildSand};
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: ${backgroundScroll};
   }
@@ -79,14 +80,14 @@ export const ProgressBar = styled.progress`
   width: 70%;
   height: 20px;
 
-  &::-webkit-progress-bar{
+  &::-webkit-progress-bar {
     border-radius: 4px;
     overflow: hidden;
     background: ${design.wildSand};
     border: solid 1px ${design.rajah};
   }
 
-  &::-webkit-progress-value{
+  &::-webkit-progress-value {
     background: ${design.rajah};
   }
 `

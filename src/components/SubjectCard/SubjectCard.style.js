@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   grid-template-columns: 1fr 7fr 1fr;
   background-color: ${cardBackground};
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(21,21,21,0.2);
+  box-shadow: 0 2px 5px rgba(21, 21, 21, 0.2);
 `
 
 export const Image = styled.div`
@@ -32,8 +32,7 @@ export const TaskName = styled.p`
   font-weight: bold;
 `
 
-export const Description = styled.p`
-`
+export const Description = styled.p``
 
 export const FileName = styled.p`
   margin-bottom: 8px;

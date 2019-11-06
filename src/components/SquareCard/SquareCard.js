@@ -1,4 +1,11 @@
 import React from 'react'
-import SquareCard from './SquareCard.style'
+import { element } from 'prop-types'
+import Card from './SquareCard.style'
 
-export default ({ children }) => (<SquareCard >{children}</SquareCard>);
+const SquareCard = ({ children }) => (<Card>{children}</Card>)
+
+SquareCard.propTypes = {
+  children: element.isRequired
+}
+
+export default SquareCard

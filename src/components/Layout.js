@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { element, string } from 'prop-types'
 import theme from 'styled-theming'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import reset from 'styled-reset'
@@ -75,15 +76,17 @@ export const backgroundScroll = theme('mode', {
   dark: design.emperor
 })
 
-export const backgroundBadge = theme('mode',{
+export const backgroundBadge = theme('mode', {
   light: design.wildSand,
   dark: design.darkEmperor
 })
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
+
   @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
   @import url('https://fonts.googleapis.com/css?family=Poppins:500,600,700');
+
   body {
     font-family: ${design.secondaryFont}, sans-serif;
     font-weight: lighter;
@@ -96,15 +99,19 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Layout = ({ children, color }) => {
-  return (
-    <ThemeProvider theme={{ mode: color }}>
-      <Fragment>
-        <GlobalStyle />
-        {children}
-      </Fragment>
-    </ThemeProvider>
-  )
+const Layout = ({ children, color }) => (
+  <ThemeProvider theme={{ mode: color }}>
+    <>
+      <GlobalStyle />
+      {children}
+    </>
+  </ThemeProvider>
+)
+
+Layout.propTypes = {
+  children: element.isRequired,
+  color: string.isRequired
 }
+
 
 export default Layout

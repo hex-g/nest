@@ -1,5 +1,12 @@
 import styled from 'styled-components'
-import { design, textColor, backgroundScroll, codeBackground, codeBlock, codeColor } from '../../components/Layout'
+import {
+  design,
+  textColor,
+  backgroundScroll,
+  codeBackground,
+  codeBlock,
+  codeColor
+} from '../../components/Layout'
 
 export const Page = styled.div`
   display: grid;
@@ -13,16 +20,18 @@ export const Directories = styled.div`
   max-width: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 0px 35px 20px 0;
+  padding: 0 35px 20px 35px;
 `
 
 export const Files = styled.div`
   height: 100%;
   overflow: auto;
+
   &::-webkit-scrollbar {
     width: 3px;
     background-color: ${design.wildSand};
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: ${backgroundScroll};
   }
@@ -86,7 +95,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: calc(100% - 10px);
   padding-left: 20px;
-  border-left: 1px solid #d3d3d3;
+  border-left: 1px solid ${codeBackground};
   overflow-y: auto;
   height: 100%;
   min-height: 100vh;
@@ -96,6 +105,7 @@ export const Wrapper = styled.div`
     width: 3px;
     background-color: ${design.wildSand};
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: ${backgroundScroll};
   }
@@ -183,11 +193,11 @@ export const EditorMenu = styled.div`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid;
-  border-bottom-color:${props => props.empty ? 'transparent' : textColor};
+  border-bottom-color: ${props => (props.empty ? 'transparent' : textColor)};
   padding: 16px 0 8px 0;
 
   svg {
-    display: ${props => props.empty ? 'none' : 'inline'};
+    display: ${props => (props.empty ? 'none' : 'inline')};
     width: 100%;
     height: 100%;
 
@@ -214,21 +224,23 @@ export const WaitComponent = styled.div`
 export const Editor = styled.div`
   width: auto;
   height: calc(100vh - 110px);
-  
+
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   }
+
   &::-webkit-scrollbar {
     width: 3px;
-    background-color: #f5f5f5;
+    background-color: #F5F5F5;
   }
+
   &::-webkit-scrollbar-thumb {
-    background-color: #555555;
+    background-color: #555;
   }
 `
 
 export const SendButton = styled.button`
-  display: ${props => props.empty ? 'none' : 'inline'};
+  display: ${props => (props.empty ? 'none' : 'inline')};
   z-index: 2;
   width: 20px;
   height: 20px;

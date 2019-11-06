@@ -1,7 +1,15 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react'
-import { MugshotImage } from '../../components/MugshotImage'
-import PokeData from '../../components/Pokedexdata'
+import {
+  string,
+  any,
+  shape,
+  boolean,
+  func
+} from 'prop-types'
 import { Link } from 'react-router-dom'
+import { MugshotImage } from '../MugshotImage'
+import PokeData from '../Pokedexdata'
 import { ReactComponent as Logo } from '../../assets/Hive Isologo.svg'
 import {
   Aside,
@@ -14,43 +22,41 @@ import {
   ItemTitle,
   LogoWrapper,
   ToggleArea,
-  ToggleButton,
+  ToggleButton
 } from './Sidebar.style'
 
-const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
+const Sidebar = ({ isOpen, handleToggleNavigation, pages }) => {
   const MugshotSrc = MugshotImage()
-  
+
   const playerName = PokeData().firstName
 
   return (
     <Aside isOpen={isOpen}>
       <Menu>
         <ProfileContent isOpen={isOpen}>
-          <Link to={`/profile`}>
-            <UserImage data-mugshot={true} src={MugshotSrc} />
+          <Link to='/profile'>
+            <UserImage data-mugshot src={MugshotSrc} />
           </Link>
-            <Username>{playerName}</Username>
+          <Username>{playerName}</Username>
         </ProfileContent>
         <NavigationItems>
-          {pages &&
-            pages.map(page => (
+          {pages
+            && pages.map(page => (
               <Item key={page.link}>
-                {page.link === 'https://alexandria-corporation.azurewebsites.net/' ?
-                  <a target='_blank' href={page.link}>
+                {page.link === 'https://alexandria-corporation.azurewebsites.net/'
+                  ? <a target='_blank' rel='noopener noreferrer' href={page.link}>
                     {page.icon}
                     <ItemTitle isOpen={isOpen}>{page.title}</ItemTitle>
                   </a>
-                  :
-                  <Link to={page.link}>
+                  : <Link to={page.link}>
                     {page.icon}
                     <ItemTitle isOpen={isOpen}>{page.title}</ItemTitle>
-                  </Link>
-                }
+                  </Link>}
               </Item>
             ))}
         </NavigationItems>
         <LogoWrapper>
-          <Link to={`/`}>
+          <Link to='/'>
             <Logo />
           </Link>
         </LogoWrapper>
@@ -61,4 +67,19 @@ const Sidebar = ({ isOpen, handleToggleNavigation, userInfo, pages }) =>{
     </Aside>
   )
 }
+
+Sidebar.defaultProps = {
+  isOpen: false
+}
+
+Sidebar.propTypes = {
+  isOpen: boolean,
+  handleToggleNavigation: func.isRequired,
+  pages: shape({
+    icon: any,
+    link: string,
+    title: string
+  }).isRequired
+}
+
 export default Sidebar

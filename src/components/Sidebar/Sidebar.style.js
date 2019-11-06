@@ -1,9 +1,14 @@
 import styled from 'styled-components'
-import { design, backgroundColor, textColor, codeBackground } from '../Layout'
+import {
+  design,
+  backgroundColor,
+  textColor,
+  codeBackground
+} from '../Layout'
 
 export const Aside = styled.aside`
   height: 100%;
-  width: ${props => props.isOpen ? '200px' : '100px'};
+  width: ${props => (props.isOpen ? '200px' : '100px')};
   display: flex;
 `
 
@@ -13,12 +18,12 @@ export const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 1px solid ${codeBackground};
   background: ${backgroundColor};
 `
 
 export const ToggleArea = styled.div`
   display: flex;
+  border-right: 1px solid ${codeBackground};
 `
 
 export const ProfileContent = styled.div`
@@ -29,17 +34,20 @@ export const ProfileContent = styled.div`
   justify-content: space-between;
   margin-bottom: 40px;
 
-  & > p{
-    ${({ isOpen }) => isOpen ? 'display: block' : 'display: none'}
+  & > p {
+    ${({ isOpen }) => (isOpen ? 'display: block' : 'display: none')}
   }
 `
 
 export const UserImage = styled.img`
   font-size: ${design.largeText};
-  max-width: 60px;
-  max-height: 80px;
-  object-fit: cover;
-  clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border: 1px solid ${design.rajah};
+  background-color: ${design.rajah};
+  border-radius: 50%;
+  margin-left: 20px;
 `
 
 export const Username = styled.p`
@@ -60,7 +68,7 @@ export const Item = styled.div`
   display: flex;
   justify-content: center;
 
-  & > a{
+  & > a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,60 +80,58 @@ export const Item = styled.div`
 export const ItemIcon = styled.div`
   width: 50px;
   height: 50px;
-  background: ${({ icon }) => icon ? icon : 'lightgreen'};
+  background: ${({ icon }) => (!icon && 'lightgreen')};
 `
 
 export const ItemTitle = styled.p`
   padding: 5px 10px;
   flex-grow: 1;
-  ${({ isOpen }) => isOpen ? 'display: inline-block' : 'display: none'};
+  ${({ isOpen }) => (isOpen ? 'display: inline-block' : 'display: none')};
   color: ${textColor};
 `
 
-export const LogoWrapper = styled.div`
-  width: 50%;
-`
+export const LogoWrapper = styled.div``
 
 export const ToggleButton = styled.button`
-flex-grow: 1;
-margin-left: 3px;
-background: transparent;
-outline: none;
-border: none;
-cursor: pointer;
+  flex-grow: 1;
+  margin-right: 3px;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
 
-&::before{
-  content:"";
-  background-color: ${design.rajah};
-  width: 2px;
-  height: 10px;
-  position: absolute;
-  opacity: 1;
-  transform: rotate(0deg);
-  transform-origin: 1px 7px;
-  margin-top: -7.4px;
-  transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
-}
+  &::before {
+    content: "";
+    background-color: ${design.rajah};
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    transform-origin: 1px 7px;
+    margin-top: -7.4px;
+    transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
+  }
 
-&:hover::before{
-  transform: ${({ isOpen }) => isOpen ? 'rotate(40deg)' : 'rotate(-40deg)'};
-  opacity: 1;
-}
+  &:hover::before {
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(40deg)' : 'rotate(-40deg)')};
+    opacity: 1;
+  }
 
-&::after{
-  content:"";
-  background-color: ${design.rajah};
-  width: 2px;
-  height: 10px;
-  position: absolute;
-  opacity: 1;
-  transform: rotate(0deg);
-  transform-origin: 1px 3px;
-  transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
-}
+  &::after {
+    content: "";
+    background-color: ${design.rajah};
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    transform-origin: 1px 3px;
+    transition: transform 200ms ease-in-out 0s, opacity 100ms ease-in-out 200ms;
+  }
 
-&:hover::after{
-  transform: ${({ isOpen }) => isOpen ? 'rotate(-40deg)' : 'rotate(40deg)'};
-  opacity: 1;
-}
+  &:hover::after {
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(-40deg)' : 'rotate(40deg)')};
+    opacity: 1;
+  }
 `

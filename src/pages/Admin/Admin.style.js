@@ -22,7 +22,7 @@ export const Title = styled.h2`
 `
 
 export const FormTitle = styled.h2`
-  display: ${props => props.show ? 'block' : 'none'};
+  display: ${props => (props.show ? 'block' : 'none')};
   margin: 24px 0;
   font-size: 32px;
   font-weight: bold;
@@ -37,12 +37,14 @@ export const Choice = styled.div`
   display: flex;
   align-items: center;
   justify-content: left;
+
   input {
     width: 30px;
     height: 30px;
     border: solid 2px #979797;
     margin: 0 10px 0 0;
   }
+
   label {
     margin-right: 20px;
     font-size: 18px;
@@ -54,7 +56,7 @@ export const Choice = styled.div`
 `
 
 export const Form = styled.form`
-  display: ${props => props.show ? 'grid' : 'none'};
+  display: ${props => (props.show ? 'grid' : 'none')};
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 `
@@ -63,6 +65,7 @@ export const FormElement = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
+
   label {
     margin-bottom: 12px;
     font-size: 18px;
@@ -71,6 +74,7 @@ export const FormElement = styled.div`
     letter-spacing: normal;
     color: ${design.burntSienna};
   }
+
   input {
     width: 308px;
     height: 34px;
@@ -81,7 +85,8 @@ export const FormElement = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
-  display: ${props => props.show ? 'flex' : 'none'};
+  display: ${props => (props.show ? 'flex' : 'none')};
+
   button {
     margin: 32px 0;
     margin-right: 28px;

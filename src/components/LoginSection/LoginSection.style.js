@@ -23,6 +23,7 @@ export const LoginWrapper = styled.div`
 export const Logo = styled.div`
   position: relative;
   top: 40px;
+
   tspan {
     font-family: ${design.primaryFont}, sans-serif;
   }
@@ -33,7 +34,8 @@ export const Title = styled.h2`
   font-size: ${design.smallTitle};
   margin-top: 24px;
   text-align: center;
-  span{
+
+  span {
     font-weight: bold;
     color: ${design.rajah};
   }
@@ -68,6 +70,7 @@ export const TextInput = styled.input`
   outline: none;
   border: none;
   box-shadow: ${design.inputBoxShadow};
+
   &::placeholder {
     color: ${design.placeholderOuterSpace};
     font-size: ${design.mediumText};
@@ -96,10 +99,10 @@ export const Description = styled.p`
   line-height: 1.3em;
   font-family: ${design.secondaryFont}, sans-serif;
   font-size: ${design.mediumText};
+
   a {
     font-weight: bold;
     text-decoration: none;
     color: ${design.rajah};
-    text-decoration: none
   }
 `

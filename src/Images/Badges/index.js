@@ -5,4 +5,11 @@ import TeamWorkBadge2 from './Badge 4.svg'
 import ChatBadge2 from './Badge 5.svg'
 import CssBadge2 from './Badge 6.svg'
 
-export default { TeamWorkBadge, ChatBadge, CssBadge,TeamWorkBadge2,ChatBadge2,CssBadge2 }
+export default {
+  TeamWorkBadge,
+  ChatBadge,
+  CssBadge,
+  TeamWorkBadge2,
+  ChatBadge2,
+  CssBadge2
+}

@@ -1,3 +1,3 @@
-import Admin from './Admin.js'
+import Admin from './Admin'
 
 export default Admin
