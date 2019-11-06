@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useReducer } from 'react'
 import {
   shape,
   string
 } from 'prop-types'
+import LogOutModal from '../../components/LogOutModal'
 import HorizontalNavbar from '../../components/HorizontalNavbar'
 import HomeCard from '../../components/HomeCard'
 import SearchBox from '../../components/SearchBox'
@@ -85,8 +86,9 @@ const Nest = ({ posts = EXAMPLE_CARD_POSTS, options = EXAMPLE_HORIZONTAL_NAVBAR 
     }
   }
 
-  const [page, setPage] = React.useState(posts)
-  const [theme, dispatch] = React.useReducer(themeReducer, null)
+  const [page, setPage] = useState(posts)
+  const [theme, dispatch] = useReducer(themeReducer, null)
+  const [logOut, setLogOut] = useState(true)
 
   const switchPage = target => {
     switch (target) {
@@ -112,8 +114,9 @@ const Nest = ({ posts = EXAMPLE_CARD_POSTS, options = EXAMPLE_HORIZONTAL_NAVBAR 
   }
 
   return (
-    <Page>
+    <Page overlay={logOut}>
       <Container>
+        {logOut ? <LogOutModal handleLogout={handleLogout} closeLogout={setLogOut} /> : false}
         <Form>
           <TopNavigation>
             <SearchBox />
@@ -135,7 +138,7 @@ const Nest = ({ posts = EXAMPLE_CARD_POSTS, options = EXAMPLE_HORIZONTAL_NAVBAR 
                   <div>{localStorage.getItem('favoriteTheme') === 'light' ? <Sun /> : <Moon />}</div>
                 </Label>
               </ThemeIcon>
-              <Item onClick={handleLogout}>
+              <Item onClick={() => setLogOut(true)}>
                 <LogOut />
               </Item>
             </IconWrapper>
