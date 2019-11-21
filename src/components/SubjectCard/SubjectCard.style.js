@@ -65,6 +65,7 @@ export const CheckBox = styled.input`
   background-color: none;
   border: 2px solid ${design.rajah};
   border-radius: 4px;
+  cursor: pointer;
 
   &::after {
     display: none;
@@ -72,6 +73,7 @@ export const CheckBox = styled.input`
     bottom: -6px;
     left: -2px;
     content: '✔';
+    cursor: pointer;
     text-align: center;
     font-size: 22px;
     font-weight: bold;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { string, objectOf } from 'prop-types'
+import { string, arrayOf } from 'prop-types'
 import {
   Wrapper,
   UserPicture,
@@ -33,7 +33,7 @@ HomeCard.propTypes = {
   username: string.isRequired,
   description: string.isRequired,
   postDate: string.isRequired,
-  tag: objectOf(string).isRequired
+  tag: arrayOf(string).isRequired
 }
 
 export default HomeCard

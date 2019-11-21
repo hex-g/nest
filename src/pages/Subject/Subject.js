@@ -153,7 +153,7 @@ const classes = {
           check: true
         },
         {
-          id: '1',
+          id: '2',
           name: 'Semana 2 - Primeira Interface Web',
           description: '',
           experienceValue: 5,
@@ -163,7 +163,7 @@ const classes = {
           check: true
         },
         {
-          id: '1',
+          id: '3',
           name: 'Testes unitários',
           description: 'Vamos aprender como realizar TDD em nossa aplicação Java',
           experienceValue: 5,

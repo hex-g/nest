@@ -68,53 +68,55 @@ const cards = [
 
 const HandleCardMapping = () => (
   cards.map(card => (
-    <Link to={`subject?subject=${card.Subject}`}>
-      <CardLink key={card.Subject}>
+    <Link to={`subject?subject=${card.Subject}`} key={card.Subject}>
+      <CardLink>
         <SquareCard>
-          <SubjectTitle>
-            {card.Subject}
-          </SubjectTitle>
-          <LabelWrapper>
-            <Label>
-              Aulas:
-            </Label>
-            <BoldLabel>
-              {card.DaysOfWeek}
-            </BoldLabel>
-          </LabelWrapper>
-          <LabelWrapper>
-            <Label>
-              Último Exercício:
-            </Label>
-            <BoldLabel>
-              {card.LastExercise}
-            </BoldLabel>
-          </LabelWrapper>
-          <LabelWrapper>
-            <Label>
-              Próxima Prova:
-            </Label>
-            <BoldLabel>
-              {card.NextExamDate}
-            </BoldLabel>
-          </LabelWrapper>
-          <LabelWrapper>
-            <Label>
-              Progresso de Atividades
-            </Label>
-          </LabelWrapper>
-          <ProgressWrapper>
-            <ProgressBar max='100' value={card.ProgressPercentage} />
-            <ProgressPercentage>
-              {card.ProgressPercentage}%
-            </ProgressPercentage>
-          </ProgressWrapper>
-          <AuthorWrapper>
-            <AuthorImage src={card.profileImage} />
-            <AuthorName>
-              {card.pedagogue}
-            </AuthorName>
-          </AuthorWrapper>
+          <>
+            <SubjectTitle>
+              {card.Subject}
+            </SubjectTitle>
+            <LabelWrapper>
+              <Label>
+                Aulas:
+              </Label>
+              <BoldLabel>
+                {card.DaysOfWeek}
+              </BoldLabel>
+            </LabelWrapper>
+            <LabelWrapper>
+              <Label>
+                Último Exercício:
+              </Label>
+              <BoldLabel>
+                {card.LastExercise}
+              </BoldLabel>
+            </LabelWrapper>
+            <LabelWrapper>
+              <Label>
+                Próxima Prova:
+              </Label>
+              <BoldLabel>
+                {card.NextExamDate}
+              </BoldLabel>
+            </LabelWrapper>
+            <LabelWrapper>
+              <Label>
+                Progresso de Atividades
+              </Label>
+            </LabelWrapper>
+            <ProgressWrapper>
+              <ProgressBar max='100' value={card.ProgressPercentage} />
+              <ProgressPercentage>
+                {card.ProgressPercentage}%
+              </ProgressPercentage>
+            </ProgressWrapper>
+            <AuthorWrapper>
+              <AuthorImage src={card.profileImage} />
+              <AuthorName>
+                {card.pedagogue}
+              </AuthorName>
+            </AuthorWrapper>
+          </>
         </SquareCard>
       </CardLink>
     </Link>

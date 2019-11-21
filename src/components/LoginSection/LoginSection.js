@@ -1,5 +1,5 @@
 import React from 'react'
-import { boolean, func } from 'prop-types'
+import { bool, func } from 'prop-types'
 import {
   Section,
   LoginWrapper,
@@ -48,7 +48,7 @@ LoginSection.defaultProps = {
 }
 
 LoginSection.propTypes = {
-  lockFields: boolean,
+  lockFields: bool,
   onUsernameChange: func.isRequired,
   onPasswordChange: func.isRequired,
   onButtonClick: func.isRequired

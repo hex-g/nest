@@ -4,8 +4,9 @@ import {
   string,
   any,
   shape,
-  boolean,
-  func
+  bool,
+  func,
+  arrayOf
 } from 'prop-types'
 import { Link } from 'react-router-dom'
 import { MugshotImage } from '../MugshotImage'
@@ -73,13 +74,13 @@ Sidebar.defaultProps = {
 }
 
 Sidebar.propTypes = {
-  isOpen: boolean,
+  isOpen: bool,
   handleToggleNavigation: func.isRequired,
-  pages: shape({
+  pages: arrayOf(shape({
     icon: any,
     link: string,
     title: string
-  }).isRequired
+  })).isRequired
 }
 
 export default Sidebar
