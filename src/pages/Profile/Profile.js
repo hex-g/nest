@@ -133,6 +133,7 @@ const Profile = ({ player = PLAYER_EXAMPLE }) => {
     newArray[position] = newIndex
     setbadges(newArray)
     setbadge(newIndex)
+    handleDialog(false)
   }
 
   const handleDisplayBadgesRendering = badges => {
