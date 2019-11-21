@@ -94,13 +94,14 @@ const Nest = ({ posts = EXAMPLE_CARD_POSTS, options = EXAMPLE_HORIZONTAL_NAVBAR 
     }
   }
 
-  const handleDarkModeChange = event => {
+  const handleDarkModeChange = () => {
     if (state.colorTheme === THEME_COLORS.LIGHT) {
       dispatchTheme({ type: 'SWITCH_THEME', payload: THEME_COLORS.DARK })
     } else {
       dispatchTheme({ type: 'SWITCH_THEME', payload: THEME_COLORS.LIGHT })
     }
   }
+
 
   return (
     <Page overlay={logOut}>
@@ -136,15 +137,17 @@ const Nest = ({ posts = EXAMPLE_CARD_POSTS, options = EXAMPLE_HORIZONTAL_NAVBAR 
         </Form>
         <Content>
           {page.map((post, index) => (
-            <HomeCard
-              key={`${post.user}`}
-              userPicture={post.profilePic}
-              username={post.user}
-              description={post.description}
-              postDate={post.date}
-              tag={post.tag}
-              index={index}
-            />
+            <>
+              <HomeCard
+                key={`${post.user}`}
+                userPicture={post.profilePic}
+                username={post.user}
+                description={post.description}
+                postDate={post.date}
+                tag={post.tag}
+                index={index}
+              />
+            </>
           ))}
         </Content>
       </Container>
