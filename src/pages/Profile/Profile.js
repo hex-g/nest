@@ -29,6 +29,7 @@ import {
   PlayerBio,
   PlayerBadgesWrapper,
   PlayerBadge,
+  PlayerBadgeToSelect,
   PostsHighlightWrapper,
   PostTitle,
   PostContentPreview,
@@ -151,7 +152,7 @@ const Profile = ({ player = PLAYER_EXAMPLE }) => {
   }
 
   const handleDialogBadgesRendering = badges => badges.map((badge, position) => (
-    <PlayerBadge
+    <PlayerBadgeToSelect
       src={badge.image}
       title={badge.name}
       alt={badge.name}
