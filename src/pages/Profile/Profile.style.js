@@ -259,28 +259,32 @@ export const BadgeSelectWrapper = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   border-radius: 7px;
   overflow-y: auto;
+`
 
-  &${PlayerBadge} {
-    margin: 16px;
-    height: auto;
-    width: auto;
+export const PlayerBadgeToSelect = styled(PlayerBadge)`
+  margin: 16px;
+  height: auto;
+  width: auto;
 
-    &[data-disabled='true'] {
+  &:nth-child(even) {
+    margin-top: 16px;
+  }
+
+  &[data-disabled='true'] {
+    filter: grayscale(100%);
+    opacity: 0.2;
+
+    &:hover {
       filter: grayscale(100%);
-      opacity: 0.2;
-
-      &:hover {
-        filter: grayscale(100%);
-      }
     }
+  }
 
-    &[data-selected='true'] {
+  &[data-selected='true'] {
+    filter: grayscale(100%) drop-shadow(0 0 4px ${textColor});
+    opacity: 1;
+
+    &:hover {
       filter: grayscale(100%) drop-shadow(0 0 4px ${textColor});
-      opacity: 1;
-
-      &:hover {
-        filter: grayscale(100%) drop-shadow(0 0 4px ${textColor});
-      }
     }
   }
 `
