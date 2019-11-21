@@ -50,7 +50,7 @@ const SubjectCard = ({
       <Content>
         <TaskName>{taskName}</TaskName>
         <Description>{description}</Description>
-        {!!fileName && <FileName>Nome do arquivo:<span>{fileName}</span></FileName>}
+        {fileName && <FileName>Nome do arquivo:<span>{fileName}</span></FileName>}
       </Content>
       <RightContent>
         <Date>{postDate}</Date>
@@ -64,9 +64,13 @@ SubjectCard.propTypes = {
   type: string.isRequired,
   taskName: string.isRequired,
   description: string.isRequired,
-  fileName: string.isRequired,
+  fileName: string,
   postDate: string.isRequired,
   checked: bool.isRequired
+}
+
+SubjectCard.defaultProps = {
+  fileName: null
 }
 
 export default SubjectCard

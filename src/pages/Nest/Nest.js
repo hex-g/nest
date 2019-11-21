@@ -1,7 +1,8 @@
-import React, { useState, useReducer, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import {
   shape,
-  string
+  string,
+  arrayOf
 } from 'prop-types'
 import LogOutModal from '../../components/LogOutModal'
 import HorizontalNavbar from '../../components/HorizontalNavbar'
@@ -152,14 +153,14 @@ const Nest = ({ posts = EXAMPLE_CARD_POSTS, options = EXAMPLE_HORIZONTAL_NAVBAR 
 }
 
 Nest.propTypes = {
-  posts: shape({
+  posts: arrayOf(shape({
     user: string,
     profilePic: string,
     description: string,
     date: string,
     tag: string
-  }).isRequired,
-  options: string.isRequired
+  })).isRequired,
+  options: arrayOf(string).isRequired
 }
 
 export default Nest
