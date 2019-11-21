@@ -175,12 +175,14 @@ const Profile = ({ player = PLAYER_EXAMPLE }) => {
 
   const handlePostsRendering = posts => posts.map(post => (
     <SquareCard key={post.title}>
-      <PostTitle>
-        {post.title}
-      </PostTitle>
-      <PostContentPreview>
-        {post.content}
-      </PostContentPreview>
+      <>
+        <PostTitle>
+          {post.title}
+        </PostTitle>
+        <PostContentPreview>
+          {post.content}
+        </PostContentPreview>
+      </>
     </SquareCard>
   ))
 

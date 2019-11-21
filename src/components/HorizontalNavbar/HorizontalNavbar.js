@@ -1,5 +1,5 @@
 import React from 'react'
-import { string, func } from 'prop-types'
+import { string, func, arrayOf } from 'prop-types'
 import {
   ItensList,
   Item,
@@ -28,7 +28,7 @@ const HorizontalNavbar = ({ options, listOption }) => {
 }
 
 HorizontalNavbar.propTypes = {
-  options: string.isRequired,
+  options: arrayOf(string).isRequired,
   listOption: func.isRequired
 }
 
