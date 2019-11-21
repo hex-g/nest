@@ -1,5 +1,5 @@
-import React from 'react'
-import { string } from 'prop-types'
+import React, { useState } from 'react'
+import { string, bool } from 'prop-types'
 import {
   Wrapper,
   Image,
@@ -22,6 +22,7 @@ export const TASK_TYPES = [
   { type: 'file', icon: <File /> }
 ]
 
+
 const findIcon = type => {
   const target = TASK_TYPES.filter(name => name.type === type)
   return target[0].icon
@@ -34,22 +35,30 @@ const SubjectCard = ({
   fileName,
   postDate,
   checked
-}) => (
-  <Wrapper>
-    <Image>
-      {findIcon(type)}
-    </Image>
-    <Content>
-      <TaskName>{taskName}</TaskName>
-      <Description>{description}</Description>
-      {!!fileName && <FileName>Nome do arquivo:<span>{fileName}</span></FileName>}
-    </Content>
-    <RightContent>
-      <Date>{postDate}</Date>
-      <CheckBox type='checkbox' checked={checked} />
-    </RightContent>
-  </Wrapper>
-)
+}) => {
+  const [isChecked, setCheck] = useState(checked)
+
+  const handleCheck = () => {
+    setCheck(!isChecked)
+  }
+
+  return (
+    <Wrapper>
+      <Image>
+        {findIcon(type)}
+      </Image>
+      <Content>
+        <TaskName>{taskName}</TaskName>
+        <Description>{description}</Description>
+        {!!fileName && <FileName>Nome do arquivo:<span>{fileName}</span></FileName>}
+      </Content>
+      <RightContent>
+        <Date>{postDate}</Date>
+        <CheckBox type='checkbox' checked={isChecked} onChange={() => handleCheck()} />
+      </RightContent>
+    </Wrapper>
+  )
+}
 
 SubjectCard.propTypes = {
   type: string.isRequired,
@@ -57,7 +66,7 @@ SubjectCard.propTypes = {
   description: string.isRequired,
   fileName: string.isRequired,
   postDate: string.isRequired,
-  checked: string.isRequired
+  checked: bool.isRequired
 }
 
 export default SubjectCard
