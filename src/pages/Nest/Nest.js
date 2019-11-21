@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react'
+import React, { useState, useReducer, useContext } from 'react'
 import {
   shape,
   string
@@ -13,6 +13,7 @@ import { ReactComponent as Sun } from '../../assets/sun.svg'
 import { ReactComponent as Moon } from '../../assets/moon.svg'
 import { ReactComponent as Notification } from '../../assets/notification.svg'
 import { ReactComponent as LogOut } from '../../assets/exit.svg'
+import themeContext from '../../utils/Contexts/themeContext'
 import {
   Page,
   Container,
@@ -75,20 +76,9 @@ const EXAMPLE_CARD_POSTS = [
 ]
 
 const Nest = ({ posts = EXAMPLE_CARD_POSTS, options = EXAMPLE_HORIZONTAL_NAVBAR }) => {
-  const themeReducer = (state, action) => {
-    switch (action.type) {
-      case 'sun':
-        return <Sun />
-      case 'moon':
-        return <Moon />
-      default:
-        throw new Error()
-    }
-  }
-
   const [page, setPage] = useState(posts)
-  const [theme, dispatch] = useReducer(themeReducer, null)
-  const [logOut, setLogOut] = useState(true)
+  const [logOut, setLogOut] = useState(false)
+  const { state, dispatchTheme } = useContext(themeContext)
 
   const switchPage = target => {
     switch (target) {
@@ -104,12 +94,10 @@ const Nest = ({ posts = EXAMPLE_CARD_POSTS, options = EXAMPLE_HORIZONTAL_NAVBAR 
   }
 
   const handleDarkModeChange = event => {
-    if (event.target.checked) {
-      dispatch({ type: 'moon' })
-      localStorage.setItem('favoriteTheme', THEME_COLORS.DARK)
+    if (state.colorTheme === THEME_COLORS.LIGHT) {
+      dispatchTheme({ type: 'SWITCH_THEME', payload: THEME_COLORS.DARK })
     } else {
-      dispatch({ type: 'sun' })
-      localStorage.setItem('favoriteTheme', THEME_COLORS.LIGHT)
+      dispatchTheme({ type: 'SWITCH_THEME', payload: THEME_COLORS.LIGHT })
     }
   }
 
@@ -128,9 +116,7 @@ const Nest = ({ posts = EXAMPLE_CARD_POSTS, options = EXAMPLE_HORIZONTAL_NAVBAR 
                 <ThemeButton
                   id='checkTheme'
                   type='checkbox'
-                  onChange={event => {
-                    handleDarkModeChange(event)
-                  }}
+                  onChange={handleDarkModeChange}
                 />
                 <Label
                   htmlFor='checkTheme'
