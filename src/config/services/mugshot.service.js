@@ -1,8 +1,6 @@
-import { request } from '../http-request'
+import { request, REQUEST_ADDRESS } from '../http-request'
 
-const REQUEST_ADDRESS = 'https://hiveapi.bolognini.me/'
-
-const MUGSHOT = `${REQUEST_ADDRESS}mugshot`
+const MUGSHOT = `${REQUEST_ADDRESS}/mugshot`
 const MUGSHOT64 = `${MUGSHOT}/base64`
 const BANNER = `${MUGSHOT}/banner`
 const BANNER64 = `${MUGSHOT64}/banner`

@@ -1,8 +1,6 @@
-import { request } from '../http-request'
+import { request, REQUEST_ADDRESS } from '../http-request'
 
-const REQUEST_ADDRESS = 'https://hiveapi.bolognini.me/'
-
-const POKEDEX = `${REQUEST_ADDRESS}pokedex/person`
+const POKEDEX = `${REQUEST_ADDRESS}/pokedex/person`
 
 export const getPokedex = async auth => request({
   headers: { Authorization: localStorage.getItem('access_token') },

@@ -1,7 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { request } from '../../config/http-request'
-
-const REQUEST_ADDRESS = 'https://hiveapi.bolognini.me'
+import { request, REQUEST_ADDRESS } from '../../config/http-request'
 
 export const getAccessToken = async (username, password) => request({
   url: `${REQUEST_ADDRESS}/caronte/auth`,

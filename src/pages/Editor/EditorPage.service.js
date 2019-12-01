@@ -1,7 +1,7 @@
-import { request } from '../../config/http-request'
+import { request, REQUEST_ADDRESS } from '../../config/http-request'
 import { getToken } from '../../utils/token/token'
 
-const API = 'https://hiveapi.bolognini.me'
+const API = REQUEST_ADDRESS
 
 export const saveEditorText = async (note, path) => request({
   url: `${API}/kirby/note`,

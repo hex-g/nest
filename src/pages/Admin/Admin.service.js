@@ -1,6 +1,6 @@
-import { request } from '../../config/http-request'
+import { request, REQUEST_ADDRESS } from '../../config/http-request'
 
-const API = 'https://hiveapi.bolognini.me/pokedex/'
+const API = `${REQUEST_ADDRESS}/pokedex/`
 const TOKEN = localStorage.getItem('access_token')
 
 // eslint-disable-next-line import/prefer-default-export

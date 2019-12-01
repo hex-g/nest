@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+export const REQUEST_ADDRESS = 'http://35.153.196.161:8762'
+
 export const request = ({
   url, ...options
 }) => axios({

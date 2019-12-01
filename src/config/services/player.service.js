@@ -1,8 +1,6 @@
-import { request } from '../http-request'
+import { request, REQUEST_ADDRESS } from '../http-request'
 
-const REQUEST_ADDRESS = 'https://hiveapi.bolognini.me/'
-
-const PLAYER = `${REQUEST_ADDRESS}player`
+const PLAYER = `${REQUEST_ADDRESS}/player`
 
 
 export const getPlayer = async auth => request({
